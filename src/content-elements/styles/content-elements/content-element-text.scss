@@ -1,0 +1,10 @@
+@use '../variables' as *;
+
+#{$text} {
+  color:$text-color;
+
+  font-size:$text-font-size;
+  font-weight:$text-font-weight;
+
+  line-height:$text-line-height;
+}

@@ -1,0 +1,9 @@
+@use '../variables';
+
+@include variables.useModifier('section') {
+  color: variables.$text-color;
+
+  font-size: variables.$title-font-size;
+  font-weight: variables.$title-font-weight;
+  line-height: variables.$title-line-height;
+}

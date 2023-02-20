@@ -1,0 +1,13 @@
+@use "../content-elements";
+@use "../mixins";
+@use "../utils";
+
+$section-title: utils.getModifierSelector('section-title');
+$section-title-color: content-elements.$text-color;
+
+$section-title-font-size: mixins.fontSize(xl);
+$section-title-font-weight: 700;
+
+$section-title-line-height: 1.4em;
+
+$section-title-text-align: center;

@@ -1,0 +1,15 @@
+@use '../variables';
+
+@include variables.useModifier('header') {
+  color: variables.$header-color;
+
+  font-size: variables.$header-font-size;
+  font-weight: variables.$header-font-weight;
+  line-height: variables.$header-line-height;
+}
+
+#{variables.$header} {
+  & + #{variables.$subtitle} {
+    font-weight: 700;
+  }
+}

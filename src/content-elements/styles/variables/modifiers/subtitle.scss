@@ -1,0 +1,11 @@
+@use "../content-elements";
+@use "../mixins";
+@use "../utils";
+
+$subtitle: utils.getModifierSelector('subtitle');
+$subtitle-color: content-elements.$text-color;
+
+$subtitle-font-size: mixins.fontSize(md);
+$subtitle-font-weight: 500;
+
+$subtitle-line-height: 1.4em;

@@ -1,0 +1,9 @@
+@use '../variables';
+
+@include variables.useModifier('bg-accent') {
+  background-color: variables.$bg-accent;
+
+  #{variables.$name} {
+    color: variables.$bg-accent-color;
+  }
+}

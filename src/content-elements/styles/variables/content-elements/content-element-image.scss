@@ -1,0 +1,4 @@
+@use "./content-element";
+@use "../mixins";
+// image
+$image: '#{content-element.$name}-image';

@@ -1,0 +1,17 @@
+@use '../variables';
+
+@include variables.useModifier('section-title') {
+  color: variables.$text-color;
+
+  font-size: variables.$section-title-font-size;
+  font-weight: variables.$section-title-font-weight;
+  line-height: variables.$section-title-line-height;
+
+  text-align: variables.$section-title-text-align;
+}
+
+#{variables.$section-title} {
+  & + #{variables.$subtitle} {
+    text-align: center;
+  }
+}

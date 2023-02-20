@@ -1,0 +1,26 @@
+@use '../content-elements/content-element';
+@use '../breakpoints' as *;
+
+@mixin useModifier($modifier: string, $nestedClassName: '') {
+  #{content-element.$name}--#{$modifier} #{$nestedClassName} {
+    @content;
+
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      &-above {
+        &-#{$breakpoint-name} {
+          @media (min-width: $breakpoint-value) {
+            @content;
+          }
+        }
+      }
+
+      &-beyond {
+        &-#{$breakpoint-name} {
+          @media (max-width: $breakpoint-value) {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}

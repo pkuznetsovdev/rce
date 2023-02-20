@@ -1,0 +1,5 @@
+@use "./content-element";
+@use "../mixins";
+// list
+$list: '#{content-element.$name}-list';
+$list-item: '#{$list}-item';

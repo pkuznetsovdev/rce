@@ -1,0 +1,9 @@
+@use '../variables';
+
+@include variables.useModifier('subtitle') {
+  color: variables.$text-color;
+
+  font-size: variables.$subtitle-font-size;
+  font-weight: variables.$subtitle-font-weight;
+  line-height: variables.$subtitle-line-height;
+}

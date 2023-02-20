@@ -1,0 +1,13 @@
+@use "../content-elements";
+@use "../mixins";
+@use "../utils";
+
+$header: utils.getModifierSelector('header');
+$header-color: content-elements.$text-color;
+
+$header-font-size: mixins.fontSize(xxl);
+$header-font-weight: 800;
+
+$header-line-height: 1.4em;
+
+$header-title-text-align: center;

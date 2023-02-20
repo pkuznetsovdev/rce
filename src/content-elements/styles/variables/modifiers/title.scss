@@ -1,0 +1,11 @@
+@use "../content-elements";
+@use "../mixins";
+@use "../utils";
+
+$title: utils.getModifierSelector('title');
+$title-color: content-elements.$text-color;
+
+$title-font-size: mixins.fontSize(lg);
+$title-font-weight: 500;
+
+$title-line-height: 1.4em;

@@ -1,0 +1,7 @@
+@use '../variables';
+
+@include variables.useModifier('with-bg') {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

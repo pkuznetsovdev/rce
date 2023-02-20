@@ -1,0 +1,7 @@
+@use '../variables';
+
+@include variables.useModifier('center') {
+  text-align: variables.$center-text-align;
+  justify-content: variables.$center-justify-content;
+  align-items: variables.$center-align-items;
+}

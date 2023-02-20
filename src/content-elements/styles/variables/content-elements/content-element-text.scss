@@ -1,0 +1,10 @@
+@use "./content-element";
+@use "../mixins";
+// text
+$text: '#{content-element.$name}-text';
+$text-color: #000000;
+
+$text-font-size: mixins.fontSize();
+$text-font-weight: 400;
+
+$text-line-height: 1.2em;

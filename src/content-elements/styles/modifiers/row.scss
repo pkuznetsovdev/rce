@@ -1,0 +1,5 @@
+@use '../variables';
+
+@include variables.useModifier('row') {
+  flex-direction: row;
+}

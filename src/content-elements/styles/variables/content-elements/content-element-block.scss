@@ -1,0 +1,5 @@
+@use "./content-element";
+@use "../mixins";
+// block
+$block: '#{content-element.$name}-block';
+
