@@ -9,6 +9,7 @@ const ContentElementText = ({
   type,
   ...props
 }: ContentElementTextProps) => {
+  console.log(props)
   return (
     // TODO: fix ContentElementTag type
     // @ts-ignore-next-line

@@ -17,11 +17,10 @@ import { ContentElementRenderer } from './content-element-renderer';
 export function getContentElementRawContent<
   ElementName extends ContentElementName
 >(name: ElementName, { contentElementProps }: ElementPropsByName<ElementName>) {
-  const { content, ...restProps } = contentElementProps;
+  /** *restProps - props for content element with extracted children property */
+  const { content, children, ...restProps } = contentElementProps;
 
   if (!content || !content.length) {
-    // TODO: WTF?
-    // @ts-ignore-next-line
     return undefined;
   }
 
@@ -57,7 +56,7 @@ export function getContentElementTemplateByName<
 }
 
 type ElementPropsByName<Name extends ContentElementName> = {
-  contentElementProps: ContentElementProps<Name>;
+  contentElementProps: React.PropsWithChildren<ContentElementProps<Name>>;
 };
 
 export function getBaseContentElementClassName<Name extends ContentElementName>(
@@ -70,8 +69,6 @@ export function getBaseContentElementClassName<Name extends ContentElementName>(
 }
 
 function getModifierClassName(
-  // TODO fix: WTF?
-  // @ts-ignore-next-line
   modifier: ContentElementModifiers[number]
 ) {
   return `${BASE_CLASSNAME}--${modifier}`;
@@ -101,14 +98,34 @@ export function getContentElementClassName<Name extends ContentElementName>(
   );
 }
 
+function getType<Name extends ContentElementName>(name: Name, { modifiers }: ElementPropsByName<Name>['contentElementProps'] ) {
+  if (!modifiers || !modifiers.length) {
+    return;
+  }
+
+  if (name === 'text') {
+    if (modifiers.includes('header')) {
+      return 'header'
+    }
+
+    if (modifiers.includes('subheader')) {
+      return 'subheader'
+    }
+  }
+
+}
+
 export function getContentElementTag<Name extends ContentElementName>(
   name: Name,
   { contentElementProps }: ElementPropsByName<Name>
 ) {
-  const { type, tag } = contentElementProps;
+  /** @var typeByProps - redundant, should be applied by modifiers */
+  const { tag } = contentElementProps;
   if (tag && checkIsTagValidByName(tag, name)) {
     return contentElementProps.tag;
   }
+
+  const type = getType(name, contentElementProps);
 
   return (type && getDefaultTagByType(type)) || getDefaultTagByName(name);
 }
@@ -116,8 +133,9 @@ export function getContentElementTag<Name extends ContentElementName>(
 const TYPES_BY_DEFAULT_TAG = {
   h1: new Set(['header']),
   h2: new Set(['title', 'section-title']),
-  h3: new Set(['subheader', 'subtitle']),
+  h3: new Set(['subtitle']),
   h4: new Set(['text-title']),
+  h5: new Set(['subheader']),
   section: new Set(['section']),
 } as const;
 
@@ -167,3 +185,5 @@ export function getContentElementProps<ElementName extends ContentElementName>(
     modifiers,
   };
 }
+
+export const MockedContentElement = (props: { children?: JSX.Element | JSX.Element[] }) => <>{props.children}</> || null;

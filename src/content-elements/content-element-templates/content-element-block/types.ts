@@ -10,7 +10,7 @@ export const CONTENT_ELEMENT_BLOCK = {
   },
   types: ['banner', 'section', 'container', 'page'],
   tags: ['div', 'section', 'article'],
-  modifiers: [],
+  modifiers: ['1'],
 } as const;
 
 export type ContentElementBlock = typeof CONTENT_ELEMENT_BLOCK;

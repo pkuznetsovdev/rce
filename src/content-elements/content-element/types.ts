@@ -7,7 +7,7 @@ import {
   CONTENT_ELEMENT_TEMPLATES_BY_NAME,
 } from './constants';
 import type { WithContentElementBaseModifier } from '../types';
-import type { RawContent } from 'src/shared';
+import type { ExtendsString, RawContent } from 'src/shared';
 
 import type { ContentElementImageProps } from '../content-element-templates/content-element-image';
 import type { ContentElementBlockProps } from '../content-element-templates/content-element-block';
@@ -44,7 +44,7 @@ export type ContentElementDivider = {
 
 type ContentElementConditionProps = {
   type: never;
-  modifiers: [];
+  modifiers: never;
   tag: never;
 };
 
@@ -77,7 +77,7 @@ export type ContentElementType =
   ContentElementsByName[ContentElementName]['type'];
 export type ContentElementModifiers = Exclude<
   ContentElementsByName[ContentElementName]['modifiers'],
-  'undefined'
+  undefined | never
 >;
 
 export type ContentElementMap<T extends ContentElementName> =

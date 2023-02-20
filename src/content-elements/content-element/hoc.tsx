@@ -15,7 +15,8 @@ export function WithContentElementTemplateProps<
   Name extends ContentElementName
 >(ContentElementTemplate: ContentElementTemplatesMap<Name>) {
   return (name: Name, contentElementProps: ContentElementProps<Name>) => {
-    const { content, ...restContentElementProps } = contentElementProps;
+    // extract content element config props(f.e. 'modifiers')
+    const { modifiers, ...restContentElementProps } = contentElementProps;
 
     const contentElementTemplateProps = {
       ...restContentElementProps,
@@ -44,7 +45,7 @@ export function WithContentElementTemplateProps<
     if (rawContentToRender) {
       return <>{rawContentToRender}</>;
     }
-
+    console.log(contentElementTemplateProps)
     return (
       // TODO: WTF??
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
