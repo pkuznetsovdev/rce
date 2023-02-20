@@ -18,7 +18,7 @@ const ContentElementBlock = ({
   const bgSrc = useGetBgSrc(backgroundImage);
 
   return (
-    // TODO: fix ContentElementTag type
+    // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line
     <TagName
       className={className}

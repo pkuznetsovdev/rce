@@ -45,7 +45,7 @@ export function WithContentElementTemplateProps<
     if (rawContentToRender) {
       return <>{rawContentToRender}</>;
     }
-    console.log(contentElementTemplateProps)
+
     return (
       // TODO: WTF??
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment

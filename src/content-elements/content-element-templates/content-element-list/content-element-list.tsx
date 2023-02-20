@@ -19,11 +19,11 @@ const ContentElementList = ({
         </li>
       );
     },
-    []
+    [listItem?.className]
   );
 
   return (
-    // TODO: fix ContentElementTag type
+    // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line
     <TagName className={className} {...props}>
       {React.Children.map(children, (child) => {

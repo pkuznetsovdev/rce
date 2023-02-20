@@ -92,9 +92,9 @@ export function getContentElementClassName<Name extends ContentElementName>(
   }
 
   return SHARED_UTILS.getClassNames(
-    className,
     baseClassName,
-    modifiersClassNames
+    modifiersClassNames,
+    className,
   );
 }
 

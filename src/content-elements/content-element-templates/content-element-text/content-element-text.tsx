@@ -11,7 +11,7 @@ const ContentElementText = ({
 }: ContentElementTextProps) => {
   console.log(props)
   return (
-    // TODO: fix ContentElementTag type
+    // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line
     <TagName className={className} {...props}>
       {children}
