@@ -42,11 +42,16 @@ export function getContentElementRawContent<
   });
 }
 
+type ContentElementConfigDefaultType = string;
+type ContentElementConfig<ElementName extends ContentElementName> = ContentElementProps<ElementName> | ContentElementConfigDefaultType
+
 export function getContentElementByName<ElementName extends ContentElementName>(
   name: ElementName
 ) {
-  return (props: ContentElementProps<ElementName>) =>
-    ContentElementRenderer({ name, ...props });
+  return (props: ContentElementProps<ElementName> & Partial<Record<ElementName, ContentElementConfig<ElementName>>>) => {
+    console.log(props)
+    return ContentElementRenderer({ name, ...props });
+  };
 }
 
 export function getContentElementTemplateByName<
@@ -85,7 +90,7 @@ export function getContentElementClassName<Name extends ContentElementName>(
   const modifiersClassNames = modifiers?.map(getModifierClassName) || [];
 
   if (
-    'backgroundImage' in contentElementProps &&
+    contentElementProps && typeof contentElementProps === 'object' && 'backgroundImage' in contentElementProps &&
     contentElementProps['backgroundImage']
   ) {
     modifiersClassNames.push(getModifierClassName('with-bg'));

@@ -1,7 +1,7 @@
 import { PropsWithChildren, HTMLProps } from 'react';
 import { WithContentElementBaseModifier } from '../../types';
 import { ContentElementImageProps } from '../content-element-image';
-import { BreakpointName } from 'src/shared';
+import { BreakpointName } from '../../constants';
 
 export const CONTENT_ELEMENT_BLOCK = {
   _elementName: 'block',

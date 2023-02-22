@@ -14,17 +14,17 @@ import {
 export function WithContentElementTemplateProps<
   Name extends ContentElementName
 >(ContentElementTemplate: ContentElementTemplatesMap<Name>) {
-  return (name: Name, contentElementProps: ContentElementProps<Name>) => {
+  return (name: Name, contentElementConfig: ContentElementProps<Name>) => {
     // extract content element config props(f.e. 'modifiers')
-    const { modifiers, ...restContentElementProps } = contentElementProps;
+    const { modifiers, ...restContentElementProps } = contentElementConfig;
 
     const contentElementTemplateProps = {
       ...restContentElementProps,
       tag: getContentElementTag(name, {
-        contentElementProps,
+        contentElementProps: contentElementConfig,
       }),
       className: getContentElementClassName(name, {
-        contentElementProps,
+        contentElementProps: contentElementConfig,
       }),
     };
 
@@ -36,15 +36,22 @@ export function WithContentElementTemplateProps<
         className: getBaseContentElementClassName('list-item'),
       };
     }
-
-    // TODO: A CRITICAL BUG, TWO sources of props for the element/content to render
-    const rawContentToRender = getContentElementRawContent(name, {
-      contentElementProps,
-    });
-
-    if (rawContentToRender) {
-      return <>{rawContentToRender}</>;
+    if (contentElementConfig?.className === 'option-card-list') {
+      console.log(contentElementConfig)
     }
+
+    // // TODO: A CRITICAL BUG, TWO sources of props for the element/content to render
+    // const rawContentToRender = getContentElementRawContent(name, {
+    //   contentElementProps: contentElementConfig,
+    // });
+    //
+    // if (contentElementConfig.rawContent) {
+    //   const {children, rawContent, ...rawContentToRenderProps} = contentElementTemplateProps;
+    //   // TODO: WTF??
+    //   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //   // @ts-ignore-next-line
+    //   <ContentElementTemplate {...rawContentToRenderProps} dangerouslySetInnerHTML={{ __html: rawContent }} />
+    // }
 
     return (
       // TODO: WTF??

@@ -1,13 +1,13 @@
 import React from 'react';
-import { ContentElements } from "../../content-elements";
-import { getData } from "../utils/get-data";
+import { ContentElements } from "src/content-elements";
+import { useGetData } from "src/data";
 
 
-type OptionCardProps = ReturnType<typeof getData<'IndexPage.options'>>[number] & {
+type OptionCardProps = ReturnType<typeof useGetData<'IndexPage.options'>>[number] & {
   id: number;
 }
 
-const OptionCard = ({ image, title, description }: OptionCardProps) => {
+export const OptionCard = ({ image, title, description }: OptionCardProps) => {
 
   return (
     <ContentElements.Block modifiers={['option-card']}>
@@ -17,5 +17,3 @@ const OptionCard = ({ image, title, description }: OptionCardProps) => {
     </ContentElements.Block>
   );
 };
-
-export default OptionCard;

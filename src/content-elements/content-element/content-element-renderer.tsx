@@ -6,6 +6,7 @@ import {
 } from './types';
 import { getContentElementTemplateByName } from './utils';
 import { WithContentElementTemplateProps } from './hoc';
+import { getContentElementConfig } from "../core/getContentElementConfig";
 
 export const ContentElementRenderer = <Name extends ContentElementName>({
   name,
@@ -13,6 +14,11 @@ export const ContentElementRenderer = <Name extends ContentElementName>({
 }: React.PropsWithChildren<
   ContentElementProps<Name> & ContentElementRendererProps<Name>
 >) => {
+  // @ts-ignore
+  const configByName = (contentElementProps[name] ? contentElementProps[name] : contentElementProps) as typeof contentElementProps;
+
+  const contentElementConfig = getContentElementConfig(name, configByName);
+
   const ContentElementTemplate = getContentElementTemplateByName(name);
 
   return WithContentElementTemplateProps(ContentElementTemplate)(
@@ -20,6 +26,6 @@ export const ContentElementRenderer = <Name extends ContentElementName>({
     // TODO: WTF?
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore-next-line
-    contentElementProps
+    contentElementConfig
   );
 };
