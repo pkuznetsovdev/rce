@@ -1,8 +1,0 @@
-@use '../mixins';
-@use '../variables' as *;
-
-@include mixins.byModifier('center') {
-  text-align: $center-text-align;
-  justify-content: $center-justify-content;
-  align-items: $center-align-items;
-}
