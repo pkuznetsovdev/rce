@@ -7,7 +7,6 @@ import {
 import {
   getContentElementTag,
   getContentElementClassName,
-  getContentElementRawContent,
   getBaseContentElementClassName,
 } from './utils';
 
@@ -35,9 +34,6 @@ export function WithContentElementTemplateProps<
         // @ts-ignore-next-line
         className: getBaseContentElementClassName('list-item'),
       };
-    }
-    if (contentElementConfig?.className === 'option-card-list') {
-      console.log(contentElementConfig)
     }
 
     // // TODO FAQ: How to render content depending on children or raw content is passed?

@@ -38,8 +38,8 @@ const ContentElementList = ({
         // TODO: FIX TS contentElementTag type
         // @ts-ignore-next-line
         <TagName className={className} {...props}>
-          {items.map((item) => {
-            return (<ListItem><ItemTemplate {...item}/></ListItem>)
+          {items.map((item, i) => {
+            return (<ListItem key={i}><ItemTemplate {...item}/></ListItem>)
           })}
         </TagName>
       )
@@ -56,8 +56,8 @@ const ContentElementList = ({
     // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line
     <TagName className={className} {...props}>
-      {React.Children.map(children, (child) => {
-        return <ListItem>{child}</ListItem>;
+      {React.Children.map(children, (child, i) => {
+        return <ListItem key={i}>{child}</ListItem>;
       })}
     </TagName>
   );
