@@ -35,9 +35,6 @@ export function WithContentElementTemplateProps<
                 className: getBaseContentElementClassName('list-item'),
             };
         }
-        if (contentElementConfig?.className === 'option-card-list') {
-            // console.log(contentElementConfig)
-        }
 
         // // TODO FAQ: How to render content depending on children or raw content is passed?
         // // TODO: A CRITICAL BUG, TWO sources of props for the element/content to render

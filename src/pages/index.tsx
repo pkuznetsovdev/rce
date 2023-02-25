@@ -11,7 +11,7 @@ const Index = () => {
       <ContentElements.Text modifiers={['header']} >React Content Elements</ContentElements.Text>
       <ContentElements.Text modifiers={['subheader']}>Develop content, structure is done</ContentElements.Text>
       <ContentElements.List
-        className={'option-card-list'}
+        className="option-card-list"
         ceList={{
           items: pageData.options,
           ItemTemplate: CustomComponents.OptionCard
