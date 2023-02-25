@@ -5,7 +5,7 @@ export function getContentElementConfig<Name extends ContentElementName>(
   elementType: Name,
   configByName: Omit<React.PropsWithChildren<
     ContentElementProps<Name> & ContentElementRendererProps<Name>
-    >, 'name'>,
+    >, 'name' | 'tag' | 'modifiers'>,
 ) {
   if (typeof configByName === 'string') {
     return getCustomElementPropsByDefaultValue(configByName, elementType);
