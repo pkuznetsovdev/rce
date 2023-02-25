@@ -1,13 +1,13 @@
-@use "../content-elements";
-@use "../mixins";
-@use "../utils";
+:root {
+  /**
+   * User input values.
+   */
+  --header-text-color: var(--text-color);
+  --header-text-font-size: 28px;
+  --header-text-font-weight: 700;
+  --header-text-line-height: 1.2em;
 
-$header: utils.getModifierSelector('header');
-$header-color: content-elements.$text-color;
-
-$header-font-size: mixins.fontSize(xxl);
-$header-font-weight: 800;
-
-$header-line-height: 1.4em;
-
-$header-title-text-align: center;
+  /**
+   * Calculated values.
+   */
+}

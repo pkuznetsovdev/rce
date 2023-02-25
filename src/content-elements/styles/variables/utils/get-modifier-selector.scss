@@ -1,12 +1,13 @@
 @use "sass:map";
-@use '../content-elements/content-element';
+@use '../content-elements/content-element' as *;
 @use '../breakpoints' as *;
 
 $over-bp: 'above';
+
 $under-bp: 'beyond';
 
 @function getModifierSelector($modifier: string) {
-  $base-selector: '#{content-element.$name}--#{$modifier}';
+  $base-selector: '#{$ce-base-name}--#{$modifier}';
   $selector: $base-selector;
 
   @each $breakpoint-name in map.keys($breakpoints) {

@@ -1,5 +1,6 @@
-@use '../variables';
+@use '../mixins';
+@use '../variables' as *;
 
-@include variables.useModifier('row') {
+@include mixins.byModifier('row') {
   flex-direction: row;
 }

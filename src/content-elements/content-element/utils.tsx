@@ -17,11 +17,10 @@ import { ContentElementRenderer } from './content-element-renderer';
 export function getContentElementRawContent<
   ElementName extends ContentElementName
 >(name: ElementName, { contentElementProps }: ElementPropsByName<ElementName>) {
-  const { content, ...restProps } = contentElementProps;
+  /** *restProps - props for content element with extracted children property */
+  const { content, children, ...restProps } = contentElementProps;
 
   if (!content || !content.length) {
-    // TODO: WTF?
-    // @ts-ignore-next-line
     return undefined;
   }
 
@@ -43,11 +42,15 @@ export function getContentElementRawContent<
   });
 }
 
+type ContentElementConfigDefaultType = string;
+type ContentElementConfig<ElementName extends ContentElementName> = ContentElementProps<ElementName> | ContentElementConfigDefaultType
+
 export function getContentElementByName<ElementName extends ContentElementName>(
   name: ElementName
 ) {
-  return (props: ContentElementProps<ElementName>) =>
-    ContentElementRenderer({ name, ...props });
+  return (props: ContentElementProps<ElementName> & Partial<Record<ElementName, ContentElementConfig<ElementName>>>) => {
+    return ContentElementRenderer({ name, ...props });
+  };
 }
 
 export function getContentElementTemplateByName<
@@ -57,21 +60,21 @@ export function getContentElementTemplateByName<
 }
 
 type ElementPropsByName<Name extends ContentElementName> = {
-  contentElementProps: ContentElementProps<Name>;
+  contentElementProps: React.PropsWithChildren<ContentElementProps<Name>>;
 };
 
 export function getBaseContentElementClassName<Name extends ContentElementName>(
   name: Name,
   type?: ContentElementProps<Name>['type']
 ) {
-  const classnameByType = type ? getModifierClassName(type) : '';
+  const classnameByName = `${BASE_CLASSNAME}-${name}`;
+  // const modifierByName = getModifierClassName(name);
 
-  return `${BASE_CLASSNAME} ${BASE_CLASSNAME}-${name} ${classnameByType}`.trim();
+  return `${BASE_CLASSNAME} ${classnameByName}`.trim();
+  // return `${BASE_CLASSNAME} ${classnameByName} ${modifierByName}`.trim();
 }
 
 function getModifierClassName(
-  // TODO fix: WTF?
-  // @ts-ignore-next-line
   modifier: ContentElementModifiers[number]
 ) {
   return `${BASE_CLASSNAME}--${modifier}`;
@@ -88,27 +91,47 @@ export function getContentElementClassName<Name extends ContentElementName>(
   const modifiersClassNames = modifiers?.map(getModifierClassName) || [];
 
   if (
-    'backgroundImage' in contentElementProps &&
+    contentElementProps && typeof contentElementProps === 'object' && 'backgroundImage' in contentElementProps &&
     contentElementProps['backgroundImage']
   ) {
     modifiersClassNames.push(getModifierClassName('with-bg'));
   }
 
   return SHARED_UTILS.getClassNames(
-    className,
     baseClassName,
-    modifiersClassNames
+    modifiersClassNames,
+    className,
   );
+}
+
+function getType<Name extends ContentElementName>(name: Name, { modifiers }: ElementPropsByName<Name>['contentElementProps'] ) {
+  if (!modifiers || !modifiers.length) {
+    return;
+  }
+
+  if (name === 'text') {
+    if (modifiers.includes('header')) {
+      return 'header'
+    }
+
+    if (modifiers.includes('subheader')) {
+      return 'subheader'
+    }
+  }
+
 }
 
 export function getContentElementTag<Name extends ContentElementName>(
   name: Name,
   { contentElementProps }: ElementPropsByName<Name>
 ) {
-  const { type, tag } = contentElementProps;
+  /** @var typeByProps - redundant, should be applied by modifiers */
+  const { tag } = contentElementProps;
   if (tag && checkIsTagValidByName(tag, name)) {
     return contentElementProps.tag;
   }
+
+  const type = getType(name, contentElementProps);
 
   return (type && getDefaultTagByType(type)) || getDefaultTagByName(name);
 }
@@ -116,8 +139,9 @@ export function getContentElementTag<Name extends ContentElementName>(
 const TYPES_BY_DEFAULT_TAG = {
   h1: new Set(['header']),
   h2: new Set(['title', 'section-title']),
-  h3: new Set(['subheader', 'subtitle']),
+  h3: new Set(['subtitle']),
   h4: new Set(['text-title']),
+  h5: new Set(['subheader']),
   section: new Set(['section']),
 } as const;
 
@@ -167,3 +191,5 @@ export function getContentElementProps<ElementName extends ContentElementName>(
     modifiers,
   };
 }
+
+export const MockedContentElement = (props: { children?: JSX.Element | JSX.Element[] }) => <>{props.children}</> || null;

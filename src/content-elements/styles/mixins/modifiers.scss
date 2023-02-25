@@ -1,0 +1,79 @@
+@use '../variables' as *;
+
+@mixin withAboveAndBeyond {
+  @content;
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    &-above {
+      &-#{$breakpoint-name} {
+        @media (min-width: $breakpoint-value) {
+          @content;
+        }
+      }
+    }
+
+    &-beyond {
+      &-#{$breakpoint-name} {
+        @media (max-width: calc($breakpoint-value - 1px)) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin withSelectorsByModifier($modifier: string) {
+  @if ($modifier == 'caption') {
+    & {
+      //& > #{$name-icon},
+      //& > #{$name-text} {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin useModifier($modifier: string) {
+  @include withSelectorsByModifier($modifier) {
+    @include withAboveAndBeyond {
+      @content;
+    }
+  }
+}
+
+@mixin withModifier($modifier: string) {
+  &.ce--#{$modifier} {
+    @include useModifier($modifier) {
+      @content;
+    }
+  }
+}
+
+@mixin byModifier($modifier: string) {
+  #{$ce-base-name}--#{$modifier} {
+    @include useModifier($modifier) {
+      @content;
+    }
+  }
+}
+
+@mixin byName($ce-name: string) {
+  #{$ce-base-name}-#{$ce-name} {
+    @content
+  }
+}
+
+// TODO FAQ: How to make it work? Do we need it?
+// - create a root level css variable with selector
+// - provide content for the new selector by new css property
+//  We can define new custom names and generate content by using it's as a selector within 1 mixin
+//@mixin byName($ce-name: string) {
+//  :root {
+//    --#{$ce-base-name}-#{$ce-name}: '.#{$ce-base-name}-#{$ce-name}'
+//  }
+//
+//  #{var(--#{$ce-base-name}-#{$ce-name})} {
+//    @content
+//  }
+//}

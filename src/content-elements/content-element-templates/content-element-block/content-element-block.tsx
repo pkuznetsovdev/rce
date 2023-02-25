@@ -1,8 +1,7 @@
 import React from 'react';
 import { ContentElementProps } from '../../content-element/types';
 import { getContentDataByKey } from './utils';
-import type { backgroundImageProps } from './types';
-import { useGetCurrentBreakpointName } from "src/shared/models";
+import { useGetBgSrc } from './useGetBgSrc';
 
 const ContentElementBlock = ({
   children,
@@ -18,7 +17,7 @@ const ContentElementBlock = ({
   const bgSrc = useGetBgSrc(backgroundImage);
 
   return (
-    // TODO: fix ContentElementTag type
+    // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line
     <TagName
       className={className}
@@ -52,21 +51,3 @@ const ContentElementBlock = ({
 };
 
 export default ContentElementBlock;
-
-function useGetBgSrc(bg: backgroundImageProps | undefined) {
-  const breakpointName = useGetCurrentBreakpointName();
-
-  if (!bg) {
-    return;
-  }
-
-  const { src, srcSet } = bg;
-
-  let bgSrc = src as string;
-
-  if (breakpointName && srcSet && srcSet[breakpointName]) {
-    bgSrc = srcSet[breakpointName];
-  }
-
-  return bgSrc;
-}

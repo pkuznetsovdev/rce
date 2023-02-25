@@ -1,4 +1,4 @@
-import { WithContentElementBaseModifier } from '../../types';
+import { WithContentElementBaseModifier } from 'src/content-elements/types';
 
 export const CONTENT_ELEMENT_IMAGE = {
   _elementName: 'image',
@@ -7,7 +7,7 @@ export const CONTENT_ELEMENT_IMAGE = {
   },
   types: [],
   tags: ['img'],
-  modifiers: [],
+  modifiers: ['1'],
 } as const;
 
 type ContentElementImage = typeof CONTENT_ELEMENT_IMAGE;

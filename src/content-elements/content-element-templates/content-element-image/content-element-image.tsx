@@ -9,7 +9,7 @@ const ContentElementImage = ({
   type,
   ...props
 }: ContentElementProps<'image'>) => {
-  // TODO: fix ContentElementTag type
+  // TODO: FIX TS contentElementTag type
   // @ts-ignore-next-line
   return <TagName className={className} {...props} />;
 };

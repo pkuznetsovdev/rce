@@ -1,11 +1,9 @@
 import React from 'react';
-import { ContentElements } from './content-elements';
+import IndexPage from './pages';
 
 function App() {
   return (
-    <div className="App">
-      <ContentElements.Text tag="h1">Hello</ContentElements.Text>
-    </div>
+    <IndexPage/>
   );
 }
 

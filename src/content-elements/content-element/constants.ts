@@ -19,7 +19,7 @@ export const CONTENT_ELEMENT_ICON = {
   },
   types: [],
   tags: ['svg'],
-  modifiers: [],
+  modifiers: ['1'],
 } as const;
 
 export const CONTENT_ELEMENT_BUTTON = {
@@ -39,7 +39,7 @@ export const CONTENT_ELEMENT_LINK = {
   },
   types: ['button'],
   tags: ['a', 'button'],
-  modifiers: [],
+  modifiers: ['1'],
 } as const;
 
 export const CONTENT_ELEMENT_DIVIDER = {
@@ -49,7 +49,7 @@ export const CONTENT_ELEMENT_DIVIDER = {
   },
   types: [],
   tags: ['hr'],
-  modifiers: [],
+  modifiers: ['1'],
 } as const;
 
 export const CONTENT_ELEMENTS_BY_NAME = {
@@ -61,6 +61,7 @@ export const CONTENT_ELEMENTS_BY_NAME = {
   divider: CONTENT_ELEMENT_DIVIDER,
   block: CONTENT_ELEMENT_BLOCK,
   list: CONTENT_ELEMENT_LIST,
+  ceList: CONTENT_ELEMENT_LIST,
   condition: CONTENT_ELEMENT_LIST,
 } as const;
 
@@ -69,6 +70,7 @@ export const CONTENT_ELEMENT_TEMPLATES_BY_NAME = {
   image: ContentElementImage,
   block: ContentElementBlock,
   list: ContentElementList,
+  ceList: ContentElementList,
   condition: ContentElementCondition,
   //
   icon: ContentElementText,

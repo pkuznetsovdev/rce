@@ -1,4 +1,4 @@
-import { PropsWithChildren, HTMLProps } from 'react';
+import React, { PropsWithChildren, HTMLProps } from 'react';
 import { WithContentElementBaseModifier } from '../../types';
 
 export const CONTENT_ELEMENT_LIST = (() => {
@@ -19,7 +19,8 @@ export const CONTENT_ELEMENT_LIST = (() => {
 
 export type ContentElementList = typeof CONTENT_ELEMENT_LIST;
 
-export type ContentElementListProps = HTMLProps<
+
+export type ContentElementListProps<Item> = Partial<HTMLProps<
   typeof CONTENT_ELEMENT_LIST.tags[number]
 > &
   PropsWithChildren<{
@@ -33,4 +34,8 @@ export type ContentElementListProps = HTMLProps<
     listItem?: {
       className?: string;
     };
-  }>;
+    ceList: {
+        items?: Array<Item> | Readonly<Array<Item>>;
+        ItemTemplate?: React.FC<Item>;
+    }
+  }>>;

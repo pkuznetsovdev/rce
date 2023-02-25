@@ -9,8 +9,13 @@ const ContentElementList = ({
   content,
   listItem,
   modifiers,
+  ceList,
   ...props
-}: ContentElementProps<'list'>) => {
+}: ContentElementProps<'ceList'>) => {
+  const {
+    items,
+    ItemTemplate,
+  } = ceList || {};
   const ListItem = React.useCallback(
     ({ children, ...props }: PropsWithChildren<object>, index: number) => {
       return (
@@ -19,15 +24,40 @@ const ContentElementList = ({
         </li>
       );
     },
-    []
+    [listItem?.className]
   );
 
+
+  const ItemTemplateList = React.useCallback(() => {
+    if (!items?.length) {
+      return null
+    }
+
+    if (ItemTemplate) {
+      return (
+        // TODO: FIX TS contentElementTag type
+        // @ts-ignore-next-line
+        <TagName className={className} {...props}>
+          {items.map((item, i) => {
+            return (<ListItem key={i}><ItemTemplate {...item}/></ListItem>)
+          })}
+        </TagName>
+      )
+    }
+
+    return null
+  },[items, ItemTemplate, TagName, className, props, ListItem]);
+
+  if (ItemTemplateList) {
+    return <ItemTemplateList />
+  }
+
   return (
-    // TODO: fix ContentElementTag type
+    // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line
     <TagName className={className} {...props}>
-      {React.Children.map(children, (child) => {
-        return <ListItem>{child}</ListItem>;
+      {React.Children.map(children, (child, i) => {
+        return <ListItem key={i}>{child}</ListItem>;
       })}
     </TagName>
   );

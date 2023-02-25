@@ -1,0 +1,7 @@
+@use '../variables' as *;
+
+@mixin byName($ce-name: string) {
+  #{$ce-base-name}-#{$ce-name} {
+    @content;
+  }
+}

@@ -1,4 +1,4 @@
-export const BREAKPOINTS_BY_NAME = {
+const BREAKPOINTS_BY_NAME = {
   xs: {
     from: 0,
     to: 767,
@@ -25,13 +25,21 @@ export const BREAKPOINTS_BY_NAME = {
   },
 } as const;
 
-export const BREAKPOINT_NAMES = Object.keys(BREAKPOINTS_BY_NAME).map(
-  (breakpointName) => breakpointName
-);
+/** shared export start */
+export function useBreakpoints() {
+  const currentBreakpointName = useGetCurrentBreakpointName();
+
+  return [currentBreakpointName, { BREAKPOINTS_BY_NAME, BREAKPOINT_NAMES }] as const;
+}
 
 export type BreakpointName = keyof typeof BREAKPOINTS_BY_NAME;
+/** shared export end */
 
-export function useGetCurrentBreakpointName() {
+const BREAKPOINT_NAMES = Object.keys(BREAKPOINTS_BY_NAME).map(
+  (breakpointName) => breakpointName
+) as Array<BreakpointName>;
+
+function useGetCurrentBreakpointName() {
   let currentBreakpoint = null;
   const currentScreenWidth = window.screen.width;
 

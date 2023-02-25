@@ -1,11 +1,13 @@
-@use "../content-elements";
-@use "../mixins";
-@use "../utils";
+:root {
+  /**
+   * User input values.
+   */
+  --subtitle-text-color: var(--text-color);
+  --subtitle-text-font-size: var(--text-font-size);
+  --subtitle-text-font-weight: var(--text-font-weight);
+  --subtitle-text-line-height: var(--text-line-height);
 
-$subtitle: utils.getModifierSelector('subtitle');
-$subtitle-color: content-elements.$text-color;
-
-$subtitle-font-size: mixins.fontSize(md);
-$subtitle-font-weight: 500;
-
-$subtitle-line-height: 1.4em;
+  /**
+   * Calculated values.
+   */
+}

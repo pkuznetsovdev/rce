@@ -1,9 +1,10 @@
-@use '../variables';
+@use '../mixins';
+@use '../variables' as *;
 
-@include variables.useModifier('bg-accent') {
-  background-color: variables.$bg-accent;
+@include mixins.byModifier('bg-accent') {
+  background-color: $bg-accent;
 
-  #{variables.$name} {
-    color: variables.$bg-accent-color;
+  #{$ce-base-name} {
+    color: $bg-accent-color;
   }
 }

@@ -1,7 +1,7 @@
 import { PropsWithChildren, HTMLProps } from 'react';
 import { WithContentElementBaseModifier } from '../../types';
 import { ContentElementImageProps } from '../content-element-image';
-import { BreakpointName } from 'src/shared';
+import { BreakpointName } from '../../constants';
 
 export const CONTENT_ELEMENT_BLOCK = {
   _elementName: 'block',
@@ -10,7 +10,7 @@ export const CONTENT_ELEMENT_BLOCK = {
   },
   types: ['banner', 'section', 'container', 'page'],
   tags: ['div', 'section', 'article'],
-  modifiers: [],
+  modifiers: ['1'],
 } as const;
 
 export type ContentElementBlock = typeof CONTENT_ELEMENT_BLOCK;
