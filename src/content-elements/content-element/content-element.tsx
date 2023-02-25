@@ -1,6 +1,5 @@
 import { getContentElementByName, MockedContentElement } from './utils';
 import 'src/content-elements/styles/index.scss';
-import React from "react";
 
 // TODO: add dynamic generation
 export const ContentElement = {

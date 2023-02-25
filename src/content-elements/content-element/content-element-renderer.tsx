@@ -17,7 +17,12 @@ const getConfigByName = <Name extends ContentElementName>(name: Name, contentEle
     // @ts-ignore
     const contentElementPropsByName = contentElementProps[name] ? contentElementProps[name] : contentElementProps;
     const processedContentElementProps = getContentElementConfig(name, contentElementPropsByName)
-    return ({...processedContentElementProps, tag, modifiers})
+
+    // @ts-ignore
+    const mergedModifiers = [...(processedContentElementProps?.modifiers || []), ...(modifiers || [])].filter(Boolean);
+    // @ts-ignore
+    const tagByProps = processedContentElementProps.tag || tag;
+    return ({...processedContentElementProps, tag: tagByProps, modifiers: mergedModifiers})
 }
 
 export const ContentElementRenderer = <Name extends ContentElementName>({

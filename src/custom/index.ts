@@ -1,1 +1,1 @@
-export * as CustomComponents from './components'
+export * as CustomComponents from "./components";

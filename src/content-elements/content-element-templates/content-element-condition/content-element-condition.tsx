@@ -35,7 +35,7 @@ const getContentConditions = (
     : contentConditionResults.some(Boolean);
 };
 
-const useContentConditions = getContentConditions
+// const useContentConditions = getContentConditions
 
 const ContentElementCondition = ({
   showMultipleResults: shouldShowMultipleResults = false,

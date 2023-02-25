@@ -1,1 +1,1 @@
-export { useBreakpoints } from './constants/breakpoints';
+export { useBreakpoints } from "./constants/breakpoints";

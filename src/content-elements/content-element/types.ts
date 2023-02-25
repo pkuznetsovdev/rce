@@ -91,6 +91,7 @@ export type ContentElementRendererProps<T extends ContentElementName> = {
 type ContentData = Record<string, any>;
 type ContentElementConfig = {
   content?: RawContent | RawContent[] | undefined;
+  rawContent?: RawContent | RawContent[] | undefined;
   contentData?: ContentData;
   contentDataKey?: keyof ContentData;
   className?: string;
