@@ -6,12 +6,14 @@ import { CustomComponents } from "src/custom";
 
 const Index = () => {
   const pageData = useGetData("IndexPage");
-  return (
+    return (
     <ContentElements.Page>
       <ContentElements.Text
         modifiers={["header"]}
         tag="h3"
-        text={{ rawContent: "React Content Elements", modifiers: ["test"] }}
+          // TODO WTF
+          // @ts-ignore
+        text={pageData.title}
       />
       <ContentElements.Text modifiers={["subheader"]}>
         Develop content, structure is done
