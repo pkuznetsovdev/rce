@@ -13,7 +13,10 @@ export const OptionCard = ({ image, title, description }: OptionCardProps) => {
     <ContentElements.Block modifiers={['option-card']}>
       <ContentElements.Text modifiers={['option-title']} text={title} />
       <ContentElements.Image modifiers={['option-image']} image={image} />
-      <ContentElements.Text modifiers={['option-image']} text={description} />
+      <ContentElements.Text modifiers={['option-description']} text={description} />
+      <ContentElements.Text text={description} />
+      <ContentElements.Text text="text by string" />
+      <ContentElements.Text>text by children</ContentElements.Text>
     </ContentElements.Block>
   );
 };

@@ -20,7 +20,7 @@ export const CONTENT_ELEMENT_LIST = (() => {
 export type ContentElementList = typeof CONTENT_ELEMENT_LIST;
 
 
-export type ContentElementListProps<Item extends unknown = {}> = HTMLProps<
+export type ContentElementListProps<Item> = Partial<HTMLProps<
   typeof CONTENT_ELEMENT_LIST.tags[number]
 > &
   PropsWithChildren<{
@@ -34,6 +34,8 @@ export type ContentElementListProps<Item extends unknown = {}> = HTMLProps<
     listItem?: {
       className?: string;
     };
-    items?: Array<Item>;
-    ItemTemplate?: React.ElementType;
-  }>;
+    ceList: {
+        items?: Array<Item> | Readonly<Array<Item>>;
+        ItemTemplate?: React.FC<Item>;
+    }
+  }>>;

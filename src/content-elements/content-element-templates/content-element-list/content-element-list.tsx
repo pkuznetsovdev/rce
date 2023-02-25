@@ -9,10 +9,13 @@ const ContentElementList = ({
   content,
   listItem,
   modifiers,
-  items,
-  ItemTemplate,
+  ceList,
   ...props
-}: ContentElementProps<'list'>) => {
+}: ContentElementProps<'ceList'>) => {
+  const {
+    items,
+    ItemTemplate,
+  } = ceList || {};
   const ListItem = React.useCallback(
     ({ children, ...props }: PropsWithChildren<object>, index: number) => {
       return (

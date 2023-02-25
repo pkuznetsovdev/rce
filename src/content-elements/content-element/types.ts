@@ -62,7 +62,8 @@ export type ContentElementsByName = {
   link: ContentElementLink;
   divider: ContentElementDivider;
   block: ContentElementBlockProps;
-  list: ContentElementListProps;
+  list: ContentElementListProps<any>;
+  ceList: ContentElementListProps<any>;
   condition: ContentElementConditionConfigProps;
 };
 

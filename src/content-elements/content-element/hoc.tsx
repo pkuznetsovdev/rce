@@ -29,7 +29,7 @@ export function WithContentElementTemplateProps<
     };
 
     // TODO: REFACTOR
-    if (name === 'list') {
+    if (name === 'list' || name ==='ceList') {
       // @ts-ignore-next-line
       contentElementTemplateProps['listItem'] = {
         // @ts-ignore-next-line
@@ -40,6 +40,7 @@ export function WithContentElementTemplateProps<
       console.log(contentElementConfig)
     }
 
+    // // TODO FAQ: How to render content depending on children or raw content is passed?
     // // TODO: A CRITICAL BUG, TWO sources of props for the element/content to render
     // const rawContentToRender = getContentElementRawContent(name, {
     //   contentElementProps: contentElementConfig,

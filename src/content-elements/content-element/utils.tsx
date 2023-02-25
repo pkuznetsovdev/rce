@@ -49,7 +49,6 @@ export function getContentElementByName<ElementName extends ContentElementName>(
   name: ElementName
 ) {
   return (props: ContentElementProps<ElementName> & Partial<Record<ElementName, ContentElementConfig<ElementName>>>) => {
-    console.log(props)
     return ContentElementRenderer({ name, ...props });
   };
 }
@@ -68,9 +67,11 @@ export function getBaseContentElementClassName<Name extends ContentElementName>(
   name: Name,
   type?: ContentElementProps<Name>['type']
 ) {
-  const classnameByType = type ? getModifierClassName(type) : '';
+  const classnameByName = `${BASE_CLASSNAME}-${name}`;
+  // const modifierByName = getModifierClassName(name);
 
-  return `${BASE_CLASSNAME} ${BASE_CLASSNAME}-${name} ${classnameByType}`.trim();
+  return `${BASE_CLASSNAME} ${classnameByName}`.trim();
+  // return `${BASE_CLASSNAME} ${classnameByName} ${modifierByName}`.trim();
 }
 
 function getModifierClassName(

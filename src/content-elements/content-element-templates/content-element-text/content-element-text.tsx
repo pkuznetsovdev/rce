@@ -9,7 +9,7 @@ const ContentElementText = ({
   type,
   rawContent,
   ...props
-}: ContentElementTextProps & { rawContent?: string }) => {
+}: ContentElementTextProps & { rawContent?: string; }) => {
   if (rawContent) {
     // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line

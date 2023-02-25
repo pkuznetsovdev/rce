@@ -12,12 +12,8 @@ const Index = () => {
       <ContentElements.Text modifiers={['subheader']}>Develop content, structure is done</ContentElements.Text>
       <ContentElements.List
         className={'option-card-list'}
-        list={{
-          // TODO WTF
-          // @ts-ignore
+        ceList={{
           items: pageData.options,
-          // TODO WTF
-          // @ts-ignore
           ItemTemplate: CustomComponents.OptionCard
         }}
       />

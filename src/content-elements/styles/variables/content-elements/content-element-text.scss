@@ -1,10 +1,13 @@
-@use "./content-element";
-@use "../mixins";
-// text
-$text: '#{content-element.$name}-text';
-$text-color: #000000;
+:root {
+  /**
+   * User input values.
+   */
+  --text-color: #000000;
+  --text-font-size: 16px;
+  --text-font-weight: 400;
+  --text-line-height: 1.2em;
 
-$text-font-size: mixins.fontSize();
-$text-font-weight: 400;
-
-$text-line-height: 1.2em;
+  /**
+   * Calculated values.
+   */
+}

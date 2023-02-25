@@ -1,10 +1,9 @@
-@use '../variables' as *;
+@use '../mixins';
 
-#{$text} {
-  color:$text-color;
+@include mixins.byName('text') {
+  color: var(--text-color);
 
-  font-size:$text-font-size;
-  font-weight:$text-font-weight;
-
-  line-height:$text-line-height;
+  font-size: var(--text-font-size);
+  font-weight: var(--text-font-weight);
+  line-height: var(--text-line-height);
 }

@@ -1,15 +1,4 @@
-@use '../variables';
-
-@include variables.useModifier('title') {
-  color: variables.$text-color;
-
-  font-size: variables.$title-font-size;
-  font-weight: variables.$title-font-weight;
-  line-height: variables.$title-line-height;
-}
-
-#{variables.$title} {
-  & + #{variables.$subtitle} {
-    //font-size:
-  }
+@use '../mixins';
+@use '../variables' as *;
+@include mixins.byModifier('title') {
 }

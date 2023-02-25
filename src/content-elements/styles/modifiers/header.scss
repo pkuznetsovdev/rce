@@ -1,15 +1,9 @@
-@use '../variables';
+@use '../mixins';
 
-@include variables.useModifier('header') {
-  color: variables.$header-color;
+@include mixins.byModifier('header') {
+  color: var(--header-color);
 
-  font-size: variables.$header-font-size;
-  font-weight: variables.$header-font-weight;
-  line-height: variables.$header-line-height;
-}
-
-#{variables.$header} {
-  & + #{variables.$subtitle} {
-    font-weight: 700;
-  }
+  font-size: var(--header-text-font-size);
+  font-weight: var(--header-text-font-weight);
+  line-height: var(--header-text-line-height);
 }

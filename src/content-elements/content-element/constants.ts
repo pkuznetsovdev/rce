@@ -61,6 +61,7 @@ export const CONTENT_ELEMENTS_BY_NAME = {
   divider: CONTENT_ELEMENT_DIVIDER,
   block: CONTENT_ELEMENT_BLOCK,
   list: CONTENT_ELEMENT_LIST,
+  ceList: CONTENT_ELEMENT_LIST,
   condition: CONTENT_ELEMENT_LIST,
 } as const;
 
@@ -69,6 +70,7 @@ export const CONTENT_ELEMENT_TEMPLATES_BY_NAME = {
   image: ContentElementImage,
   block: ContentElementBlock,
   list: ContentElementList,
+  ceList: ContentElementList,
   condition: ContentElementCondition,
   //
   icon: ContentElementText,

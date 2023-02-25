@@ -1,6 +1,10 @@
-@use '../variables' as *;
+@use '../mixins';
 
-#{$list} {
+@include mixins.byName('list') {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
   /**
    * User input values.
    */
@@ -23,13 +27,9 @@
   @media screen and (min-width: 450px) {
     --grid-column-count: 4;
   }
-  
-  //display: grid;
-  //grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
-  //grid-gap: 22px;
 }
 
-#{$list-item} {
+@include mixins.byName('list-item') {
   display: flex;
   flex-grow: 1;
   flex-direction: column;

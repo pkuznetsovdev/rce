@@ -7,8 +7,8 @@ export const ContentElement = {
   Text: getContentElementByName('text'),
   Image: getContentElementByName('image'),
   Block: getContentElementByName('block'),
-  List: getContentElementByName('list'),
+  List: getContentElementByName<'list'>('list'),
   Condition: getContentElementByName('condition'),
   //
   Page: MockedContentElement,
-};
+} as const;

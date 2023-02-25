@@ -1,5 +1,5 @@
-@use '../variables';
-
-@include variables.useModifier('col-2') {
+@use '../mixins';
+@use '../variables' as *;
+@include mixins.byModifier('col-2') {
   width: 50%;
 }
