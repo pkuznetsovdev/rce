@@ -8,8 +8,6 @@ name: Node.js CI v1
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
