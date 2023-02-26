@@ -4,15 +4,6 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
-  grid-gap: var(--grid-layout-gap);
-  list-style-type: none;
-
-  @media screen and (min-width: 450px) {
-    --grid-column-count: 4;
-  }
 }
 
 @include mixins.byName('list-item') {
@@ -20,3 +11,14 @@
   flex-grow: 1;
   flex-direction: column;
 }
+
+//.grid {
+//  display: grid;
+//  grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-list-item--min-width), var(--grid-list-item--max-width)), 1fr));
+//  grid-gap: var(--grid-list-layout-gap);
+//  list-style-type: none;
+//
+//  @media screen and (min-width: 450px) {
+//    --grid-list-column-count: 4;
+//  }
+//}

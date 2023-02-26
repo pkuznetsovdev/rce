@@ -4,4 +4,8 @@
 @include byName(){
   margin: 0;
   padding: 0;
+
+  & + & {
+    margin-top: var(--ce-margin);
+  }
 }
