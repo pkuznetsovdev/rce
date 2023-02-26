@@ -1,10 +1,9 @@
-import React from 'react';
-import IndexPage from './pages';
+import React from "react";
+import "./custom/styles/index.scss";
+import IndexPage from "./custom/pages";
 
 function App() {
-  return (
-    <IndexPage/>
-  );
+  return <IndexPage />;
 }
 
 export default App;

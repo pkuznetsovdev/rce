@@ -1,52 +1,76 @@
-import React from 'react';
+import React from "react";
 import {
-    ContentElementProps,
-    ContentElementName,
-    ContentElementRendererProps,
-} from './types';
-import { getContentElementTemplateByName } from './utils';
-import { WithContentElementTemplateProps } from './hoc';
+  ContentElementProps,
+  ContentElementName,
+  ContentElementRendererProps,
+} from "./types";
+import { getContentElementTemplateByName } from "./utils";
+import { WithContentElementTemplateProps } from "./hoc";
 import { getContentElementConfig } from "../core/getContentElementConfig";
 
+const getConfigByName = <Name extends ContentElementName>(
+  name: Name,
+  contentElementProps: Omit<
+    React.PropsWithChildren<
+      ContentElementProps<Name> & ContentElementRendererProps<Name>
+    >,
+    "name" | "tag" | "modifiers"
+  >,
+  {
+    modifiers,
+    tag,
+  }: Pick<
+    React.PropsWithChildren<
+      ContentElementProps<Name> & ContentElementRendererProps<Name>
+    >,
+    "modifiers" | "tag"
+  >
+) => {
+  // @ts-ignore
+  const contentElementPropsByName = contentElementProps[name]
+    ? contentElementProps[name]
+    : contentElementProps;
+  const processedContentElementProps = getContentElementConfig(
+    name,
+    contentElementPropsByName
+  );
 
-const getConfigByName = <Name extends ContentElementName>(name: Name, contentElementProps: Omit<React.PropsWithChildren<
-    ContentElementProps<Name> & ContentElementRendererProps<Name>
->, 'name' | 'tag' | 'modifiers'>, {modifiers, tag}: Pick<React.PropsWithChildren<
-    ContentElementProps<Name> & ContentElementRendererProps<Name>
->, 'modifiers' | 'tag'>) => {
-    // @ts-ignore
-    const contentElementPropsByName = contentElementProps[name] ? contentElementProps[name] : contentElementProps;
-    const processedContentElementProps = getContentElementConfig(name, contentElementPropsByName)
-
-    // @ts-ignore
-    const mergedModifiers = [...(processedContentElementProps?.modifiers || []), ...(modifiers || [])].filter(Boolean);
-    // @ts-ignore
-    const tagByProps = processedContentElementProps.tag || tag;
-    return ({...processedContentElementProps, tag: tagByProps, modifiers: mergedModifiers})
-}
+  // @ts-ignore
+  const mergedModifiers = [
+    ...(modifiers || []),
+    ...(processedContentElementProps?.modifiers || []),
+  ].filter(Boolean);
+  // @ts-ignore
+  const tagByProps = processedContentElementProps.tag || tag;
+  return {
+    ...processedContentElementProps,
+    tag: tagByProps,
+    modifiers: mergedModifiers,
+  };
+};
 
 export const ContentElementRenderer = <Name extends ContentElementName>({
-                                                                            name,
-                                                                            tag,
-                                                                            modifiers,
-                                                                            ...contentElementProps
-                                                                        }: React.PropsWithChildren<
-    ContentElementProps<Name> & ContentElementRendererProps<Name>
+  name,
+  tag,
+  modifiers,
+  ...contentElementProps
+}: React.PropsWithChildren<
+  ContentElementProps<Name> & ContentElementRendererProps<Name>
 >) => {
-    // TODO WTF
-    // @ts-ignore
-    const contentElementConfig = getConfigByName(name, contentElementProps, {
-        modifiers,
-        tag
-    });
+  // TODO WTF
+  // @ts-ignore
+  const contentElementConfig = getConfigByName(name, contentElementProps, {
+    modifiers,
+    tag,
+  });
 
-    const ContentElementTemplate = getContentElementTemplateByName(name);
+  const ContentElementTemplate = getContentElementTemplateByName(name);
 
-    return WithContentElementTemplateProps(ContentElementTemplate)(
-        name,
-        // TODO: WTF?
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore-next-line
-        contentElementConfig
-    );
+  return WithContentElementTemplateProps(ContentElementTemplate)(
+    name,
+    // TODO: WTF?
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore-next-line
+    contentElementConfig
+  );
 };

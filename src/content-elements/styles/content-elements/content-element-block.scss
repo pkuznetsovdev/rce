@@ -1,8 +1,8 @@
 @use '../mixins';
 
 @include mixins.byName('block') {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  align-items: flex-start;
+  display: var(--block-display);
+  flex-direction: var(--block-flex-direction);
+  flex-grow: var(--block-flex-grow);
+  align-items: var(--block-align-items);
 }

@@ -1,7 +1,7 @@
 export default {
     title: {
         rawContent: "React Content Elements",
-        modifiers: ["test"],
+        modifiers: ["main-header"],
     },
     options: [
         {

@@ -1,11 +1,11 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
-import { useGetData } from './data';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+import { useGetData } from "./custom/data";
 
-test('renders learn react link', () => {
+test("renders learn react link", () => {
   render(<App />);
-  const pageData = useGetData('IndexPage')
+  const pageData = useGetData("IndexPage");
 
   const textElement = screen.getByText(pageData.options[1].title);
   expect(textElement).toBeInTheDocument();

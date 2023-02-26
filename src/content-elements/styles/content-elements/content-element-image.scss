@@ -1,6 +1,6 @@
-@use '../mixins';
+@use '../mixins' as *;
 
-@include mixins.byName('image') {
+@include byName('image') {
   display: flex;
   max-width: 100%;
   max-height: 100%;

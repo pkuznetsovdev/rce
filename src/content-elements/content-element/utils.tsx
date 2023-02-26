@@ -1,18 +1,18 @@
-import React from 'react';
-import { SHARED_UTILS } from 'src/shared/utils';
-import { BASE_CLASSNAME } from '../constants';
+import React from "react";
+import { SHARED_UTILS } from "src/shared/utils";
+import { BASE_CLASSNAME } from "../constants";
 import {
   CONTENT_ELEMENT_TEMPLATES_BY_NAME,
   CONTENT_ELEMENTS_BY_NAME,
-} from './constants';
+} from "./constants";
 import {
   ContentElementName,
   ContentElementTag,
   ContentElementProps,
   ContentElementType,
   ContentElementModifiers,
-} from './types';
-import { ContentElementRenderer } from './content-element-renderer';
+} from "./types";
+import { ContentElementRenderer } from "./content-element-renderer";
 
 export function getContentElementRawContent<
   ElementName extends ContentElementName
@@ -26,7 +26,7 @@ export function getContentElementRawContent<
 
   const ContentElement = getContentElementByName(name);
 
-  const contentConfig = typeof content === 'string' ? [content] : content;
+  const contentConfig = typeof content === "string" ? [content] : content;
 
   return contentConfig.map((rawContent) => {
     return (
@@ -43,12 +43,17 @@ export function getContentElementRawContent<
 }
 
 type ContentElementConfigDefaultType = string;
-type ContentElementConfig<ElementName extends ContentElementName> = ContentElementProps<ElementName> | ContentElementConfigDefaultType
+type ContentElementConfig<ElementName extends ContentElementName> =
+  | ContentElementProps<ElementName>
+  | ContentElementConfigDefaultType;
 
 export function getContentElementByName<ElementName extends ContentElementName>(
   name: ElementName
 ) {
-  return (props: ContentElementProps<ElementName> & Partial<Record<ElementName, ContentElementConfig<ElementName>>>) => {
+  return (
+    props: ContentElementProps<ElementName> &
+      Partial<Record<ElementName, ContentElementConfig<ElementName>>>
+  ) => {
     return ContentElementRenderer({ name, ...props });
   };
 }
@@ -65,7 +70,7 @@ type ElementPropsByName<Name extends ContentElementName> = {
 
 export function getBaseContentElementClassName<Name extends ContentElementName>(
   name: Name,
-  type?: ContentElementProps<Name>['type']
+  type?: ContentElementProps<Name>["type"]
 ) {
   const classnameByName = `${BASE_CLASSNAME}-${name}`;
   // const modifierByName = getModifierClassName(name);
@@ -74,9 +79,7 @@ export function getBaseContentElementClassName<Name extends ContentElementName>(
   // return `${BASE_CLASSNAME} ${classnameByName} ${modifierByName}`.trim();
 }
 
-function getModifierClassName(
-  modifier: ContentElementModifiers[number]
-) {
+function getModifierClassName(modifier: ContentElementModifiers[number]) {
   return `${BASE_CLASSNAME}--${modifier}`;
 }
 
@@ -91,34 +94,38 @@ export function getContentElementClassName<Name extends ContentElementName>(
   const modifiersClassNames = modifiers?.map(getModifierClassName) || [];
 
   if (
-    contentElementProps && typeof contentElementProps === 'object' && 'backgroundImage' in contentElementProps &&
-    contentElementProps['backgroundImage']
+    contentElementProps &&
+    typeof contentElementProps === "object" &&
+    "backgroundImage" in contentElementProps &&
+    contentElementProps["backgroundImage"]
   ) {
-    modifiersClassNames.push(getModifierClassName('with-bg'));
+    modifiersClassNames.push(getModifierClassName("with-bg"));
   }
 
   return SHARED_UTILS.getClassNames(
     baseClassName,
     modifiersClassNames,
-    className,
+    className
   );
 }
 
-function getType<Name extends ContentElementName>(name: Name, { modifiers }: ElementPropsByName<Name>['contentElementProps'] ) {
+function getType<Name extends ContentElementName>(
+  name: Name,
+  { modifiers }: ElementPropsByName<Name>["contentElementProps"]
+) {
   if (!modifiers || !modifiers.length) {
     return;
   }
 
-  if (name === 'text') {
-    if (modifiers.includes('header')) {
-      return 'header'
+  if (name === "text") {
+    if (modifiers.includes("header")) {
+      return "header";
     }
 
-    if (modifiers.includes('subheader')) {
-      return 'subheader'
+    if (modifiers.includes("subheader")) {
+      return "subheader";
     }
   }
-
 }
 
 export function getContentElementTag<Name extends ContentElementName>(
@@ -137,12 +144,12 @@ export function getContentElementTag<Name extends ContentElementName>(
 }
 
 const TYPES_BY_DEFAULT_TAG = {
-  h1: new Set(['header']),
-  h2: new Set(['title', 'section-title']),
-  h3: new Set(['subtitle']),
-  h4: new Set(['text-title']),
-  h5: new Set(['subheader']),
-  section: new Set(['section']),
+  h1: new Set(["header"]),
+  h2: new Set(["title", "section-title"]),
+  h3: new Set(["subtitle"]),
+  h4: new Set(["text-title"]),
+  h5: new Set(["subheader"]),
+  section: new Set(["section"]),
 } as const;
 
 function getDefaultTagByType<Type extends ContentElementType>(type: Type) {
@@ -192,4 +199,6 @@ export function getContentElementProps<ElementName extends ContentElementName>(
   };
 }
 
-export const MockedContentElement = (props: { children?: JSX.Element | JSX.Element[] }) => <>{props.children}</> || null;
+export const MockedContentElement = (props: {
+  children?: JSX.Element | JSX.Element[];
+}) => <>{props.children}</> || null;
