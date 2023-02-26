@@ -1,4 +1,5 @@
 @use '../mixins';
+@use '../variables' as *;
 
 @include mixins.byModifier('subheader') {
   color: var(--subheader-text-color);

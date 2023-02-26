@@ -43,6 +43,7 @@ const getConfigByName = <Name extends ContentElementName>(
   ].filter(Boolean);
   // @ts-ignore
   const tagByProps = processedContentElementProps.tag || tag;
+
   return {
     ...processedContentElementProps,
     tag: tagByProps,
@@ -58,6 +59,10 @@ export const ContentElementRenderer = <Name extends ContentElementName>({
 }: React.PropsWithChildren<
   ContentElementProps<Name> & ContentElementRendererProps<Name>
 >) => {
+  // @ts-ignore
+  // if (!contentElementProps || !contentElementProps[name]) {
+  //   return null
+  // }
   // TODO WTF
   // @ts-ignore
   const contentElementConfig = getConfigByName(name, contentElementProps, {

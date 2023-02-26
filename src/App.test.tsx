@@ -7,6 +7,6 @@ test("renders learn react link", () => {
   render(<App />);
   const pageData = useGetData("IndexPage");
 
-  const textElement = screen.getByText(pageData.title.rawContent);
+  const textElement = screen.getByText(pageData.header.rawContent);
   expect(textElement).toBeInTheDocument();
 });
