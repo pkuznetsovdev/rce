@@ -1,5 +1,5 @@
-import React, { PropsWithChildren } from 'react';
-import { ContentElementProps } from '../../content-element/types';
+import React, { PropsWithChildren } from "react";
+import { ContentElementProps } from "../../content-element/types";
 
 const ContentElementList = ({
   children,
@@ -11,11 +11,8 @@ const ContentElementList = ({
   modifiers,
   ceList,
   ...props
-}: ContentElementProps<'ceList'>) => {
-  const {
-    items,
-    ItemTemplate,
-  } = ceList || {};
+}: ContentElementProps<"ceList">) => {
+  const { items, ItemTemplate } = ceList || {};
   const ListItem = React.useCallback(
     ({ children, ...props }: PropsWithChildren<object>, index: number) => {
       return (
@@ -27,10 +24,9 @@ const ContentElementList = ({
     [listItem?.className]
   );
 
-
   const ItemTemplateList = React.useCallback(() => {
     if (!items?.length) {
-      return null
+      return null;
     }
 
     if (ItemTemplate) {
@@ -39,17 +35,21 @@ const ContentElementList = ({
         // @ts-ignore-next-line
         <TagName className={className} {...props}>
           {items.map((item, i) => {
-            return (<ListItem key={i}><ItemTemplate {...item}/></ListItem>)
+            return (
+              <ListItem key={i}>
+                <ItemTemplate {...item} />
+              </ListItem>
+            );
           })}
         </TagName>
-      )
+      );
     }
 
-    return null
-  },[items, ItemTemplate, TagName, className, props, ListItem]);
+    return null;
+  }, [items, ItemTemplate, TagName, className, props, ListItem]);
 
   if (ItemTemplateList) {
-    return <ItemTemplateList />
+    return <ItemTemplateList />;
   }
 
   return (

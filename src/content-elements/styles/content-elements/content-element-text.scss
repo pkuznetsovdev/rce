@@ -1,6 +1,6 @@
-@use '../mixins';
+@use '../mixins' as *;
 
-@include mixins.byName('text') {
+@include byName('text') {
   color: var(--text-color);
 
   font-size: var(--text-font-size);

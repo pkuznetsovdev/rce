@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
-import { ContentElementProps } from '../../content-element/types';
+import React, { useMemo } from "react";
+import { ContentElementProps } from "../../content-element/types";
 import {
   ContentConditions,
   processContentConditionByGroups,
   processContentConditionBySchedule,
-} from './utils';
+} from "./utils";
 
 type ContentConditionParams = {
   shouldSatisfyEveryCondition?: boolean;
@@ -19,11 +19,11 @@ const getContentConditions = (
 
   const contentConditionResults = contentConditions.map((condition) => {
     switch (condition.type) {
-      case 'groups':
+      case "groups":
         return processContentConditionByGroups(condition, {
           currentGroups: groupsToVerifyByCondition,
         });
-      case 'schedule':
+      case "schedule":
         return processContentConditionBySchedule(condition);
       default:
         return true;
@@ -41,7 +41,7 @@ const ContentElementCondition = ({
   showMultipleResults: shouldShowMultipleResults = false,
   satisfyEveryCondition = true,
   children,
-}: ContentElementProps<'condition'>) => {
+}: ContentElementProps<"condition">) => {
   const isFirstResultProvided = React.useRef(false);
 
   const elementsToRender = useMemo(

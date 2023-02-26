@@ -58,12 +58,6 @@
   }
 }
 
-@mixin byName($ce-name: string) {
-  #{$ce-base-name}-#{$ce-name} {
-    @content
-  }
-}
-
 // TODO FAQ: How to make it work? Do we need it?
 // - create a root level css variable with selector
 // - provide content for the new selector by new css property
