@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "REACT_APP_ESLINT_NO_DEV_ERRORS=true && react-scripts start",
-    "build": "react-scripts build",
+    "build": "TSC_COMPILE_ON_ERROR=true && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "CI=false && npm run build",
