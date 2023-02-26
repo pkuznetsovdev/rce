@@ -28,6 +28,7 @@ const getConfigByName = <Name extends ContentElementName>(
 ) => {
   // @ts-ignore
   const contentElementPropsByName = contentElementProps[name]
+      // @ts-ignore
     ? contentElementProps[name]
     : contentElementProps;
   const processedContentElementProps = getContentElementConfig(
@@ -35,9 +36,9 @@ const getConfigByName = <Name extends ContentElementName>(
     contentElementPropsByName
   );
 
-  // @ts-ignore
   const mergedModifiers = [
     ...(modifiers || []),
+    // @ts-ignore
     ...(processedContentElementProps?.modifiers || []),
   ].filter(Boolean);
   // @ts-ignore
