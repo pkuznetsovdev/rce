@@ -11,9 +11,9 @@ const ContentElementText = ({
   ...props
 }: ContentElementTextProps & { rawContent?: string }) => {
   if (rawContent) {
-    // TODO: FIX TS contentElementTag type
-    // @ts-ignore-next-line
     return (
+      // TODO: FIX TS contentElementTag type
+      // @ts-ignore-next-line
       <TagName
         className={className}
         {...props}
