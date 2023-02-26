@@ -11,18 +11,26 @@ export function useAppColorMode() {
     }, []);
 
     useEffect(() => {
-        // Add listener to update styles
-        // @ts-ignore
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => onSelectMode(e.matches ? 'dark' : 'light'));
+        const getWindowMatchMedia = () => (window && typeof window.matchMedia === 'function' && window.matchMedia('(prefers-color-scheme: dark)'));
 
-        // Setup dark/light mode for the first time
-        // @ts-ignore
-        onSelectMode(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        if (getWindowMatchMedia) {
+            // Add listener to update styles
+            // @ts-ignore
+            const fixer = getWindowMatchMedia().addEventListener
+            fixer && fixer('change', e => onSelectMode(e.matches ? 'dark' : 'light'));
+
+            // Setup dark/light mode for the first time
+            // @ts-ignore
+            onSelectMode(getWindowMatchMedia().matches ? 'dark' : 'light')
+        }
 
         // Remove listener
         return () => {
-            window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', () => {
-            });
+            if (getWindowMatchMedia) {
+                const fixer = getWindowMatchMedia().removeEventListener
+                fixer && fixer('change', () => {
+                });
+            }
         }
     }, [onSelectMode]);
 
