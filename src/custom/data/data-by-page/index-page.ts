@@ -38,9 +38,9 @@ export default {
             title: 'Why React Content Elements?',
             items: [
                 'Formalized HTML and CSS development pattern',
-                'Predefined and reusable basic HTML structures for content elements',
-                'Single and simple CSS styles structure',
-                'Scalable with custom solutions both in HTML and CSS structures',
+                // 'Predefined and reusable basic HTML structures for content elements',
+                // 'Single and simple CSS styles structure',
+                // 'Scalable with custom solutions both in HTML and CSS structures',
             ],
             caption: undefined
         },
