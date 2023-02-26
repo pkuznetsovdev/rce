@@ -28,8 +28,8 @@ const getConfigByName = <Name extends ContentElementName>(
 ) => {
   // @ts-ignore
   const contentElementPropsByName = contentElementProps[name]
-      // @ts-ignore
-    ? contentElementProps[name]
+    ? // @ts-ignore
+      contentElementProps[name]
     : contentElementProps;
   const processedContentElementProps = getContentElementConfig(
     name,
