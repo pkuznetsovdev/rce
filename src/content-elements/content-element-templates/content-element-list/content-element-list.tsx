@@ -26,21 +26,21 @@ const ContentElementList = ({
 
   const ItemTemplateList = React.useCallback(() => {
     return (
-        // TODO: FIX TS contentElementTag type
-        // @ts-ignore-next-line
-        <TagName className={className} {...props}>
-          {/* TODO: FIX TS
+      // TODO: FIX TS contentElementTag type
+      // @ts-ignore-next-line
+      <TagName className={className} {...props}>
+        {/* TODO: FIX TS
           @ts-ignore-next-line */}
-          {items.map((item, i) => {
-            return (
-                <ListItem key={i}>
-                  {/* TODO: FIX TS
+        {items.map((item, i) => {
+          return (
+            <ListItem key={i}>
+              {/* TODO: FIX TS
                   @ts-ignore-next-line */}
-                  <ItemTemplate {...item} />
-                </ListItem>
-            );
-          })}
-        </TagName>
+              <ItemTemplate {...item} />
+            </ListItem>
+          );
+        })}
+      </TagName>
     );
   }, [items, ItemTemplate, TagName, className, props, ListItem]);
 
@@ -53,7 +53,6 @@ const ContentElementList = ({
     // @ts-ignore-next-line
     <TagName className={className} {...props}>
       {React.Children.map(children, (child, i) => {
-
         return <ListItem key={i}>{child}</ListItem>;
       })}
     </TagName>
