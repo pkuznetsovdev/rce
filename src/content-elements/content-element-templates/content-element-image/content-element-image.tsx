@@ -1,5 +1,5 @@
-import React from 'react';
-import { ContentElementProps } from '../../content-element/types';
+import React from "react";
+import { ContentElementProps } from "../../content-element/types";
 
 // no name
 const ContentElementImage = ({
@@ -8,7 +8,7 @@ const ContentElementImage = ({
   className,
   type,
   ...props
-}: ContentElementProps<'image'>) => {
+}: ContentElementProps<"image">) => {
   // TODO: FIX TS contentElementTag type
   // @ts-ignore-next-line
   return <TagName className={className} {...props} />;

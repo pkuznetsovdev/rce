@@ -60,8 +60,7 @@ const CONTENT_ELEMENT_TEXT_MODIFIERS = {
   },
 };
 
-export type ContentElementTextModifier =
-  typeof CONTENT_ELEMENT_TEXT_MODIFIERS._modifiers[number];
+export type ContentElementTextModifier = typeof CONTENT_ELEMENT_TEXT_MODIFIERS._modifiers[number];
 
 export const CONTENT_ELEMENT_TEXT = {
   _elementName: 'text',

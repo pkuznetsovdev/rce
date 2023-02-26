@@ -1,6 +1,7 @@
-@use '../variables' as *;
+@use '../mixins' as *;
+@forward '../variables';
 
-#{$ce-base-name} {
+@include byName(){
   margin: 0;
   padding: 0;
 }

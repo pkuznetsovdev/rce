@@ -1,0 +1,22 @@
+:root {
+  /**
+   * User input values.
+   */
+  --subheader-text-color: var(--text-color);
+  --subheader-text-font-size: var(--text-font-size);
+  --subheader-text-font-weight: 500;
+  --subheader-text-line-height: var(--text-line-height);
+
+  --subheader-text-align: center;
+  --subheader-text-margin-top: 0;
+  --subheader-text-margin-right: auto;
+  --subheader-text-margin-bottom: .2em;
+  --subheader-text-margin-left: auto;
+  --subheader-text-margin-x: var(--subheader-text-margin-top);
+  --subheader-text-margin-y: var(--subheader-text-margin-left);
+  --subheader-text-margin: var(--subheader-text-margin-top) var(--subheader-text-margin-right) var(--subheader-text-margin-bottom) var(--subheader-text-margin-left);
+
+  /**
+   * Calculated values.
+   */
+}
