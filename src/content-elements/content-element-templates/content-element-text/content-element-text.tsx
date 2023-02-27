@@ -1,15 +1,15 @@
 import React from "react";
-import { ContentElementTextProps } from "./types";
+import { TextProps } from "./types";
 
 // no name
-const ContentElementText = ({
+export const ContentElementText = ({
   children,
   tag: TagName,
   className,
   type,
   rawContent,
   ...props
-}: ContentElementTextProps & { rawContent?: string }) => {
+}: TextProps) => {
   if (rawContent) {
     return (
       // TODO: FIX TS contentElementTag type

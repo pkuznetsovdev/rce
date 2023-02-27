@@ -1,6 +1,9 @@
 import { HTMLAttributes } from 'react';
 import { WithContentElementBaseModifier } from '../../../content-elements/types';
 
+
+export interface TextProps extends React.HtmlHTMLAttributes<HTMLDivElement> {};
+
 const CONTENT_ELEMENT_TEXT_TYPES = {
   _elementName: 'text',
   _types: [

@@ -6,7 +6,7 @@ import {
   processContentConditionBySchedule,
 } from "./utils";
 
-type ContentConditionParams = {
+export type ContentConditionParams = {
   shouldSatisfyEveryCondition?: boolean;
 };
 
@@ -35,7 +35,7 @@ const getContentConditions = (
     : contentConditionResults.some(Boolean);
 };
 
-// const useContentConditions = getContentConditions
+export const useContentConditions = getContentConditions
 
 const ContentElementCondition = ({
   showMultipleResults: shouldShowMultipleResults = false,

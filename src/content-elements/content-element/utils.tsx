@@ -13,6 +13,11 @@ import {
   ContentElementModifiers,
 } from "./types";
 import { ContentElementRenderer } from "./content-element-renderer";
+import { ContentConditions } from "../content-element-templates/content-element-condition/utils";
+import {
+  ContentConditionParams,
+  useContentConditions
+} from "../content-element-templates/content-element-condition/content-element-condition";
 
 export function getContentElementRawContent<
   ElementName extends ContentElementName
@@ -46,17 +51,6 @@ type ContentElementConfigDefaultType = string;
 type ContentElementConfig<ElementName extends ContentElementName> =
   | ContentElementProps<ElementName>
   | ContentElementConfigDefaultType;
-
-export function getContentElementByName<ElementName extends ContentElementName>(
-  name: ElementName
-) {
-  return (
-    props: ContentElementProps<ElementName> &
-      Partial<Record<ElementName, ContentElementConfig<ElementName>>>
-  ) => {
-    return ContentElementRenderer({ name, ...props });
-  };
-}
 
 export function getContentElementTemplateByName<
   Name extends ContentElementName
