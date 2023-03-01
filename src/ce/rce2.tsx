@@ -1,49 +1,47 @@
-import {
-    ContentConditionParams
-} from "../content-elements/content-element-templates/content-element-condition/content-element-condition";
+import { ContentConditionParams } from "../content-elements/content-element-templates/content-element-condition/content-element-condition";
 import { TextProps } from "../content-elements/content-element-templates";
 import React from "react";
 
 export interface ElementTemplatePropsMap {
-    text: TextProps;
+  text: TextProps;
 }
 
 export type MyElementName = keyof ElementTemplatePropsMap;
 export type MyElementTag<ElementName extends MyElementName> =
-    keyof HTMLElementTagNameMap;
+  keyof HTMLElementTagNameMap;
 export type MyElementModifiers<ElementName extends MyElementName> = string[];
 
 export type MyElementSpecialProps<ElementName extends MyElementName> = {
-    myname: ElementName;
+  myname: ElementName;
 };
 
 type WithContentOrChildren<T> = T &
-    React.PropsWithChildren<{
-        content?:
-            | string
-            | Array<string>
-            | undefined
-            | false
-            | null
-            | 0
-            | MyElementConfig<MyElementName>;
-    }>;
+  React.PropsWithChildren<{
+    content?:
+      | string
+      | Array<string>
+      | undefined
+      | false
+      | null
+      | 0
+      | MyElementConfig<MyElementName>;
+  }>;
 
 type MyElementConfigPropsBase<ElementName extends MyElementName> = Partial<{
-    tag: MyElementTag<ElementName>;
-    modifiers: MyElementModifiers<ElementName>;
+  tag: MyElementTag<ElementName>;
+  modifiers: MyElementModifiers<ElementName>;
 }>;
 
 type MyElementConfigProps<ElementName extends MyElementName> =
-    WithContentOrChildren<
-        MyElementConfigPropsBase<ElementName> &
-        ContentConditionParams &
-        MyElementSpecialProps<ElementName>
-    >;
+  WithContentOrChildren<
+    MyElementConfigPropsBase<ElementName> &
+      ContentConditionParams &
+      MyElementSpecialProps<ElementName>
+  >;
 
 export type MyElementConfig<ElementName extends MyElementName> =
-    ElementTemplatePropsMap[ElementName] & MyElementConfigProps<ElementName>;
+  ElementTemplatePropsMap[ElementName] & MyElementConfigProps<ElementName>;
 
 // to fix
 export type MyElementTemplateProps<ElementName extends MyElementName> =
-    ElementTemplatePropsMap[ElementName] & MyElementConfigProps<ElementName>;
+  ElementTemplatePropsMap[ElementName] & MyElementConfigProps<ElementName>;

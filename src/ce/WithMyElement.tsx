@@ -5,7 +5,7 @@ export const WithMyElement =
   <
     ElementName extends MyElementName,
     ElementConfig extends MyElementConfig<ElementName>,
-    ElementProps extends MyElementTemplateProps<ElementName>,
+    ElementProps extends MyElementTemplateProps<ElementName>
   >(
     ElementTemplate: React.FC<ElementProps>
   ) =>
@@ -20,10 +20,9 @@ export const WithMyElement =
 
 function getMyElementTemplateProps<
   ElementName extends MyElementName,
-    ElementConfig extends MyElementConfig<ElementName>,
-    ElementProps extends MyElementTemplateProps<ElementName>,
->(props: ElementConfig): ElementProps  {
-
+  ElementConfig extends MyElementConfig<ElementName>,
+  ElementProps extends MyElementTemplateProps<ElementName>
+>(props: ElementConfig): ElementProps {
   // TODO: WTF MyElementTemplateProps<ElementName>
   // @ts-ignore
   return props;
