@@ -193,6 +193,16 @@ export function getContentElementProps<ElementName extends ContentElementName>(
   };
 }
 
-export const MockedContentElement = (props: {
-  children?: JSX.Element | JSX.Element[];
-}) => <>{props.children}</> || null;
+export const MockedContentElement = (props: React.PropsWithChildren<{}>) => <>{props.children}</> || null;
+
+
+export function getContentElementByName<ElementName extends ContentElementName>(
+    name: ElementName
+) {
+  return (
+      props: ContentElementProps<ElementName> &
+          Partial<Record<ElementName, ContentElementConfig<ElementName>>>
+  ) => {
+    return ContentElementRenderer({ name, ...props });
+  };
+}

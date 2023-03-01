@@ -1,11 +1,12 @@
-import { getContentElementByName, MockedContentElement } from "./utils";
+// import { getContentElementByName, MockedContentElement } from "./utils";
+import { MockedContentElement } from "./utils";
 // import 'src/content-elements/styles/index.scss';
 
 // TODO: add dynamic generation
 export const ContentElement = {
-  Text: getContentElementByName("text"),
+  // Text: getContentElementByName("text"),
   // Image: getContentElementByName("image"),
-  Block: getContentElementByName("block"),
+  // Block: getContentElementByName("block"),
   // List: getContentElementByName<"list">("list"),
   // Condition: getContentElementByName("condition"),
   //
