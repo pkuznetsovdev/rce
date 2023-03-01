@@ -2,20 +2,7 @@ import { useContentConditions } from "../content-elements/content-element-templa
 import React from "react";
 import { MyElementConfig, MyElementName } from "./rce2";
 import { MY_ELEMENTS_BY_NAME } from "./rceConstants";
-
-export const MyElementRenderer = <ElementName extends MyElementName>(
-  myElementProps: MyElementConfig<ElementName>
-) => {
-  const MyElement = MY_ELEMENTS_BY_NAME[myElementProps.myname] as React.FC<
-    MyElementConfig<ElementName>
-  >;
-
-  if (!MyElement) {
-    return null;
-  }
-
-  return <MyElement {...myElementProps} />;
-};
+import { WithMyElement } from "./WithMyElement";
 
 type MyElementProps<ElementName extends MyElementName> = Omit<
   MyElementConfig<ElementName>,
@@ -32,7 +19,15 @@ export function getMyElementByName<ElementName extends MyElementName>(
       return null;
     }
 
-    return MyElementRenderer({ ...props, myname });
+    const MyElementTemplate = MY_ELEMENTS_BY_NAME[myname] as React.FC<
+      MyElementConfig<ElementName>
+    >;
+
+    if (!MyElementTemplate) {
+      return null;
+    }
+
+    return WithMyElement(MyElementTemplate)({ ...props, myname });
   };
 }
 

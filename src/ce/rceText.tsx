@@ -1,26 +1,30 @@
-import { WithMyElement } from "./WithMyElement";
 import React from "react";
+import { MyElementTemplateProps } from "./rce2";
 
-export const MyElementText = WithMyElement<"text">(
-  ({ children, tag: TagName = "p1", className, content, ...props }) => {
-    if (content && typeof content === "string") {
-      return (
-        <TagName
-          {...props}
-          // TODO: FIX TS className type
-          // @ts-ignore-next-line
-          className={className}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-      );
-    }
-
+export const MyElementText = ({
+  children,
+  tag: TagName = "p",
+  className,
+  content,
+  ...props
+}: MyElementTemplateProps<"text">) => {
+  if (content && typeof content === "string") {
     return (
-      // TODO: FIX TS contentElementTag type
+      // TODO: FIX TS className type
       // @ts-ignore-next-line
-      <TagName className={className} {...props}>
-        {children}
-      </TagName>
+      <TagName
+        {...props}
+        className={className}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     );
   }
-);
+
+  return (
+    // TODO: FIX TS contentElementTag type
+    // @ts-ignore-next-line
+    <TagName className={className} {...props}>
+      {children}
+    </TagName>
+  );
+};

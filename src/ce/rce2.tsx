@@ -3,7 +3,7 @@ import { TextProps } from "../content-elements/content-element-templates";
 import React from "react";
 
 export interface ElementTemplatePropsMap {
-  text: MyElementConfigProps<"text"> & TextProps;
+  text: TextProps;
 }
 
 export type MyElementName = keyof ElementTemplatePropsMap;
@@ -41,3 +41,7 @@ type MyElementConfigProps<ElementName extends MyElementName> =
 
 export type MyElementConfig<ElementName extends MyElementName> =
   ElementTemplatePropsMap[ElementName] & MyElementConfigProps<ElementName>;
+
+// to fix
+export type MyElementTemplateProps<ElementName extends MyElementName> =
+  MyElementConfig<ElementName>;
