@@ -1,12 +1,12 @@
 import React from "react";
 import "./custom/styles/index.scss";
-import IndexPage from "./custom/pages";
 import { useOmAppMountHook } from "./custom/hooks/useOmAppMountHook";
+import Router from "./custom/router/router";
 
 function App() {
   useOmAppMountHook();
 
-  return <IndexPage />;
+  return <Router />;
 }
 
 export default App;
