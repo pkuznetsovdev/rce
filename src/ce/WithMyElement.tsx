@@ -1,23 +1,30 @@
 import React from "react";
-import { MyElementConfig, MyElementName } from "./rce2";
+import { MyElementConfig, MyElementName, MyElementTemplateProps } from "./rce2";
 
 export const WithMyElement =
   <
     ElementName extends MyElementName,
-    ElementConfig extends MyElementConfig<ElementName>
+    ElementConfig extends MyElementConfig<ElementName>,
+    ElementProps extends MyElementTemplateProps<ElementName>,
   >(
-    ElementTemplate: React.FC<ElementConfig>
+    ElementTemplate: React.FC<ElementProps>
   ) =>
   (myElementConfig: ElementConfig) => {
     //some magic with props
     const myElementTemplateProps = getMyElementTemplateProps(myElementConfig);
 
+    // TODO: WTF MyElementTemplateProps<ElementName>
+    // @ts-ignore
     return <ElementTemplate {...myElementTemplateProps} />;
   };
 
 function getMyElementTemplateProps<
   ElementName extends MyElementName,
-  Props extends MyElementConfig<ElementName>
->(props: Props) {
+    ElementConfig extends MyElementConfig<ElementName>,
+    ElementProps extends MyElementTemplateProps<ElementName>,
+>(props: ElementConfig): ElementProps  {
+
+  // TODO: WTF MyElementTemplateProps<ElementName>
+  // @ts-ignore
   return props;
 }
