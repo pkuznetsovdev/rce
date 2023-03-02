@@ -1,0 +1,14 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+@include byName('text') {
+  color: var(--text-color);
+
+  font-size: var(--text-font-size);
+  font-weight: var(--text-font-weight);
+  line-height: var(--text-line-height);
+
+  & + & {
+    //margin-top: var(--text-font-size);
+  }
+}

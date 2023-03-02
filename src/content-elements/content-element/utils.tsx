@@ -16,7 +16,7 @@ import { ContentElementRenderer } from "./content-element-renderer";
 import { ContentConditions } from "../content-element-templates/content-element-condition/utils";
 import {
   ContentConditionParams,
-  useContentConditions
+  useContentConditions,
 } from "../content-element-templates/content-element-condition/content-element-condition";
 
 export function getContentElementRawContent<
@@ -193,15 +193,15 @@ export function getContentElementProps<ElementName extends ContentElementName>(
   };
 }
 
-export const MockedContentElement = (props: React.PropsWithChildren<{}>) => <>{props.children}</> || null;
-
+export const MockedContentElement = (props: React.PropsWithChildren<{}>) =>
+  <>{props.children}</> || null;
 
 export function getContentElementByName<ElementName extends ContentElementName>(
-    name: ElementName
+  name: ElementName
 ) {
   return (
-      props: ContentElementProps<ElementName> &
-          Partial<Record<ElementName, ContentElementConfig<ElementName>>>
+    props: ContentElementProps<ElementName> &
+      Partial<Record<ElementName, ContentElementConfig<ElementName>>>
   ) => {
     return ContentElementRenderer({ name, ...props });
   };

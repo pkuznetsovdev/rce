@@ -1,4 +1,6 @@
-import { getMyElementByName } from "./rce";
+import { getMyElementByNameRenderer } from "./core";
+
+const getMyElementByName = getMyElementByNameRenderer();
 
 export const CE = {
   Text: getMyElementByName("text"),

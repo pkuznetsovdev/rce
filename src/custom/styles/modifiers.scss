@@ -1,4 +1,4 @@
-@import "src/content-elements/styles";
+@import "src/ce/core/styles";
 
 @include byModifier('main-header') {
   color: var(--ce-accent-color);

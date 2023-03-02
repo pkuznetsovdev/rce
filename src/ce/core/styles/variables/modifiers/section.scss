@@ -1,0 +1,5 @@
+@use "../content-elements";
+@use "../mixins";
+@use "../utils";
+
+$section: utils.getModifierSelector('section');

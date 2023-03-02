@@ -1,5 +1,6 @@
 import React from "react";
-import { MyElementTemplateProps } from "./rce2";
+
+import type { MyElementTemplateProps } from "../../types";
 
 export const MyElementText = ({
   children,

@@ -1,0 +1,9 @@
+@use "../content-elements";
+@use "../mixins";
+@use "../utils";
+
+$center: utils.getModifierSelector('center');
+
+$center-text-align: center;
+$center-justify-content: center;
+$center-align-items: center;

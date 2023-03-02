@@ -1,0 +1,8 @@
+@use "../content-elements";
+@use "../mixins";
+@use "../utils";
+
+$bg: utils.getModifierSelector('bg');
+
+$bg-accent: #73c2fb;
+$bg-accent-color: #FFFFFF;

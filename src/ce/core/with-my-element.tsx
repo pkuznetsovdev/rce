@@ -1,5 +1,9 @@
 import React from "react";
-import { MyElementConfig, MyElementName, MyElementTemplateProps } from "./rce2";
+import {
+  MyElementConfig,
+  MyElementName,
+  MyElementTemplateProps,
+} from "./types";
 
 export const WithMyElement =
   <

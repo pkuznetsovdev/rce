@@ -16,7 +16,7 @@ const getContentConditions = (
   { shouldSatisfyEveryCondition }: ContentConditionParams
 ) => {
   if (!contentConditions) {
-    return true
+    return true;
   }
 
   // TODO: move to f params
@@ -40,7 +40,7 @@ const getContentConditions = (
     : contentConditionResults.some(Boolean);
 };
 
-export const useContentConditions = getContentConditions
+export const useContentConditions = getContentConditions;
 
 const ContentElementCondition = ({
   showMultipleResults: shouldShowMultipleResults = false,
