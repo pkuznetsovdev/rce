@@ -1,31 +1,24 @@
 import React from "react";
-
-import type { MyElementTemplateProps } from "../../types";
+import { TextProps } from "./types";
+import { WithMyTemplateElementProps } from "../../types";
 
 export const MyElementText = ({
   children,
   tag: TagName = "p",
-  className,
   content,
   ...props
-}: MyElementTemplateProps<"text">) => {
+}: TextProps & WithMyTemplateElementProps) => {
   if (content && typeof content === "string") {
     return (
       // TODO: FIX TS className type
       // @ts-ignore-next-line
-      <TagName
-        {...props}
-        className={className}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <TagName {...props} dangerouslySetInnerHTML={{ __html: content }} />
     );
   }
 
   return (
     // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line
-    <TagName className={className} {...props}>
-      {children}
-    </TagName>
+    <TagName {...props}>{children}</TagName>
   );
 };

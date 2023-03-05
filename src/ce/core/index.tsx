@@ -1,18 +1,25 @@
 import { useContentConditions } from "src/content-elements/content-element-templates/content-element-condition/content-element-condition";
 import React from "react";
 import {
-  MyElementTemplateProps,
+  MyElementProps,
   MyElementName,
   MyElementConfig,
-  MyElementConfigProps,
+  MyElementTemplateProps,
 } from "./types";
-import { WithMyElement } from "./with-my-element";
 import { MY_ELEMENTS_BY_NAME } from "./constants";
+import { WithMyElementConfig } from "./with-my-element-config";
+
+const MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME: Record<MyElementName, unknown> =
+  {
+    text: "string",
+  } as const;
+
+let isContentInProps = false;
 
 export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
   elementTemplatesByName?: Record<
     ElementName,
-    React.FC<MyElementTemplateProps<ElementName>>
+    React.FC<MyElementProps<ElementName>>
   >
 ) => {
   const elementTemplatesByNameWithDefaultValues = {
@@ -21,7 +28,7 @@ export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
   };
 
   return (myname: ElementName) => {
-    return (props: MyElementTemplateProps<ElementName>) => {
+    return (props: MyElementProps<ElementName>) => {
       const isMyElementPropsValid = useValidateMyElementProps(props, myname);
 
       if (!isMyElementPropsValid) {
@@ -30,7 +37,7 @@ export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
 
       const MyElementTemplate = elementTemplatesByNameWithDefaultValues[
         myname
-      ] as React.FC<MyElementConfig<ElementName>>;
+      ] as React.FC<MyElementTemplateProps<ElementName>>;
 
       if (!MyElementTemplate) {
         return null;
@@ -38,13 +45,13 @@ export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
 
       const myElementConfig = getConfigByValidatedProps(props, myname);
 
-      return WithMyElement(MyElementTemplate)(myElementConfig);
+      return WithMyElementConfig(MyElementTemplate)(myElementConfig);
     };
   };
 };
 
 type MyElementRendererUtilsProps<ElementName extends MyElementName> = {
-  props: MyElementTemplateProps<ElementName>;
+  props: MyElementProps<ElementName>;
   myname: ElementName;
 };
 
@@ -74,43 +81,8 @@ function useValidateMyElementProps<
     React.Children.toArray(props.children).length
   );
 
-  const MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME: Record<
-    MyElementName,
-    unknown
-  > = {
-    text: "string",
-  } as const;
-
-  let isContentInProps = false;
-
-  function getConfigByDefaultValue<ElementName extends MyElementName>(
-    props: MyElementTemplateProps<ElementName>,
-    myname: ElementName
-  ) {
-    switch (myname) {
-      case "text":
-        return { content: props.config };
-      // case "image":
-      //     isContentInProps = Boolean(isChildrenInProps || props.src)
-    }
-  }
-
-  function getContentFromProps<ElementName extends MyElementName>(
-    props: MyElementTemplateProps<ElementName>,
-    myname: ElementName
-  ) {
-    const isDefaultConfig =
-      MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
-
-    // if (isDefaultConfig) {
-    //   return getConfigByDefaultValue(props, myname)
-    // }
-
-    return;
-  }
-
   function getIsContentInProps<ElementName extends MyElementName>(
-    props: MyElementTemplateProps<ElementName>,
+    props: MyElementProps<ElementName>,
     myname: ElementName
   ) {
     const isDefaultConfig =
@@ -147,13 +119,54 @@ function useValidateMyElementProps<
 }
 
 function getConfigByValidatedProps<ElementName extends MyElementName>(
-  props: MyElementTemplateProps<ElementName>,
+  props: MyElementProps<ElementName>,
   myname: ElementName
 ): MyElementConfig<ElementName> {
-  const templateProps = {
-    ...props,
-    modifiers: props.modifiers ? new Set(props.modifiers) : null,
-  } as const;
+  return getMyElementConfigFromProps(props, myname);
+}
 
-  return { ...templateProps, myname };
+function getMyElementConfigFromProps<ElementName extends MyElementName>(
+  props: MyElementProps<ElementName>,
+  myname: ElementName
+) {
+  const isDefaultConfig =
+    MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
+
+  if (isDefaultConfig) {
+    return getConfigByDefaultValue(props, myname);
+  }
+
+  return getMyElementConfig(props, myname);
+}
+
+function getMyElementConfig<ElementName extends MyElementName>(
+  props: MyElementProps<ElementName>,
+  myname: ElementName,
+  customProps?: Partial<MyElementConfig<ElementName>>
+): MyElementConfig<ElementName> {
+  const { config, tag, modifiers, ...restProps } = props;
+
+  const configToUse = config && typeof config !== "string" ? config : {};
+
+  return {
+    ...restProps,
+    ...configToUse,
+    ...(customProps || {}),
+    modifiers: modifiers ? new Set(modifiers) : null,
+    myname,
+    tag,
+  } as const;
+}
+
+function getConfigByDefaultValue<ElementName extends MyElementName>(
+  props: MyElementProps<ElementName>,
+  myname: ElementName
+): MyElementConfig<ElementName> {
+  switch (myname) {
+    case "text":
+      const { config } = props;
+      return getMyElementConfig(props, myname, { content: config as string });
+    default:
+      return getMyElementConfig(props, myname);
+  }
 }
