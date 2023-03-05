@@ -12,11 +12,11 @@ const Index = () => {
         <ul>
           <li>
             <mark>by default value</mark>
-            <CE.Text config="content" />
+            <CE.Text config="content" modifiers={["header"]} />
           </li>
           <li>
             <mark>by config value</mark>
-            <CE.Text config={{ content: "content" }} />
+            <CE.Text config={{ text: "content" }} />
           </li>
           <li>
             <mark>by children</mark>

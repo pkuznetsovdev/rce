@@ -5,6 +5,7 @@ import {
   MyElementName,
   MyElementConfig,
   MyElementTemplateProps,
+  MyElementConfigDefaultMap,
 } from "./types";
 import { MY_ELEMENTS_BY_NAME } from "./constants";
 import { WithMyElementConfig } from "./with-my-element-config";
@@ -92,7 +93,7 @@ function useValidateMyElementProps<
       case "text":
         // // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is string?
         // @ts-ignore
-        return Boolean(isDefaultConfig ? props.config : props.config?.content);
+        return Boolean(isDefaultConfig ? props.config : props.config?.text);
       // case "image":
       //     isContentInProps = Boolean(isChildrenInProps || props.src)
       default:
@@ -144,7 +145,7 @@ function getMyElementConfig<ElementName extends MyElementName>(
   myname: ElementName,
   customProps?: Partial<MyElementConfig<ElementName>>
 ): MyElementConfig<ElementName> {
-  const { config, tag, modifiers, ...restProps } = props;
+  const { config, ...restProps } = props;
 
   const configToUse = config && typeof config !== "string" ? config : {};
 
@@ -152,9 +153,7 @@ function getMyElementConfig<ElementName extends MyElementName>(
     ...restProps,
     ...configToUse,
     ...(customProps || {}),
-    modifiers: modifiers ? new Set(modifiers) : null,
     myname,
-    tag,
   } as const;
 }
 
@@ -165,7 +164,8 @@ function getConfigByDefaultValue<ElementName extends MyElementName>(
   switch (myname) {
     case "text":
       const { config } = props;
-      return getMyElementConfig(props, myname, { content: config as string });
+      // TODO FAQ: How to fix??
+      return getMyElementConfig(props, myname, { text: config });
     default:
       return getMyElementConfig(props, myname);
   }

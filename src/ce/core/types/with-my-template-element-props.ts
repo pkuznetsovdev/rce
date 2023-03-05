@@ -1,4 +1,4 @@
 export type WithMyTemplateElementProps = {
-    tag?: keyof HTMLElementTagNameMap;
-    content?: string;
+    tag: keyof HTMLElementTagNameMap;
+    text?: string;
 };
