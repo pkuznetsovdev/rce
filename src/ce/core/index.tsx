@@ -1,33 +1,32 @@
 import { useContentConditions } from "src/content-elements/content-element-templates/content-element-condition/content-element-condition";
 import React from "react";
-import { MyElementConfig, MyElementName } from "./types";
+import {
+  MyElementTemplateProps,
+  MyElementName,
+  MyElementConfig,
+  MyElementConfigProps,
+} from "./types";
 import { WithMyElement } from "./with-my-element";
 import { MY_ELEMENTS_BY_NAME } from "./constants";
 
-type MyElementProps<ElementName extends MyElementName> = Exclude<
-  MyElementConfig<ElementName>,
-  "myname"
->; //Exclude<MyElementConfig<ElementName>, MyElementSpecialProps<ElementName>>;
+export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
+  elementTemplatesByName?: Record<
+    ElementName,
+    React.FC<MyElementTemplateProps<ElementName>>
+  >
+) => {
+  const elementTemplatesByNameWithDefaultValues = {
+    ...MY_ELEMENTS_BY_NAME,
+    ...elementTemplatesByName,
+  };
 
-export const getMyElementByNameRenderer =
-  <ElementName extends MyElementName>(
-    elementTemplatesByName?: Record<
-      ElementName,
-      React.FC<MyElementProps<ElementName>>
-    >
-  ) =>
-  (myname: ElementName) => {
-    return (props: MyElementProps<ElementName>) => {
+  return (myname: ElementName) => {
+    return (props: MyElementTemplateProps<ElementName>) => {
       const isMyElementPropsValid = useValidateMyElementProps(props, myname);
 
       if (!isMyElementPropsValid) {
         return null;
       }
-
-      const elementTemplatesByNameWithDefaultValues = {
-        ...MY_ELEMENTS_BY_NAME,
-        ...elementTemplatesByName,
-      };
 
       const MyElementTemplate = elementTemplatesByNameWithDefaultValues[
         myname
@@ -37,24 +36,124 @@ export const getMyElementByNameRenderer =
         return null;
       }
 
-      return WithMyElement(MyElementTemplate)({ ...props, myname });
+      const myElementConfig = getConfigByValidatedProps(props, myname);
+
+      return WithMyElement(MyElementTemplate)(myElementConfig);
     };
   };
+};
 
-/** Returns true if element is rendered after props validation */
-function useValidateMyElementProps<ElementName extends MyElementName>(
-  props: MyElementProps<ElementName>,
-  myname: ElementName
+type MyElementRendererUtilsProps<ElementName extends MyElementName> = {
+  props: MyElementTemplateProps<ElementName>;
+  myname: ElementName;
+};
+
+/** @description Returns true if element is rendered after props validation */
+function useValidateMyElementProps<
+  ElementName extends MyElementName,
+  MyElementRendererUtils extends MyElementRendererUtilsProps<ElementName>
+>(
+  props: MyElementRendererUtils["props"],
+  myname: MyElementRendererUtils["myname"]
 ) {
-  const isChildrenPassed = Boolean(
-    React.Children.toArray(props.children).length
-  );
+  /** Case 1. Filter by WCE condition */
   const isElementValidByCondition = useContentConditions(
     props.contentConditions,
     { shouldSatisfyEveryCondition: props.shouldSatisfyEveryCondition }
   );
 
-  // console.log(myname);
-  // console.log(isChildrenPassed);
-  return [isChildrenPassed, isElementValidByCondition].some(Boolean);
+  if (!isElementValidByCondition) {
+    /**  IDEAS
+     * here we can track all invalid by content condition elements, f.e. Record<ElementName,
+     * MyElementProps<ElementName>['contentConditions']> */
+    return false;
+  }
+
+  /** Case 2. Filter by is minimum required content or children in props */
+  const isChildrenInProps = Boolean(
+    React.Children.toArray(props.children).length
+  );
+
+  const MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME: Record<
+    MyElementName,
+    unknown
+  > = {
+    text: "string",
+  } as const;
+
+  let isContentInProps = false;
+
+  function getConfigByDefaultValue<ElementName extends MyElementName>(
+    props: MyElementTemplateProps<ElementName>,
+    myname: ElementName
+  ) {
+    switch (myname) {
+      case "text":
+        return { content: props.config };
+      // case "image":
+      //     isContentInProps = Boolean(isChildrenInProps || props.src)
+    }
+  }
+
+  function getContentFromProps<ElementName extends MyElementName>(
+    props: MyElementTemplateProps<ElementName>,
+    myname: ElementName
+  ) {
+    const isDefaultConfig =
+      MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
+
+    // if (isDefaultConfig) {
+    //   return getConfigByDefaultValue(props, myname)
+    // }
+
+    return;
+  }
+
+  function getIsContentInProps<ElementName extends MyElementName>(
+    props: MyElementTemplateProps<ElementName>,
+    myname: ElementName
+  ) {
+    const isDefaultConfig =
+      MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
+
+    switch (myname) {
+      case "text":
+        // // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is string?
+        // @ts-ignore
+        return Boolean(isDefaultConfig ? props.config : props.config?.content);
+      // case "image":
+      //     isContentInProps = Boolean(isChildrenInProps || props.src)
+      default:
+        return false;
+    }
+  }
+
+  switch (myname) {
+    case "text":
+      isContentInProps =
+        isChildrenInProps || getIsContentInProps(props, myname);
+      break;
+    // case "image":
+    //     isContentInProps = Boolean(isChildrenInProps || props.src)
+  }
+
+  if (!isContentInProps) {
+    /**  IDEAS
+     * here we can track all empty elements (warn in console in dev mode for developer),
+     * f.e. Record<ElementName, MyElementMessages<ElementName>['noContentInPropsMessage']> */
+  }
+
+  return isContentInProps;
+}
+
+function getConfigByValidatedProps<ElementName extends MyElementName>(
+  props: MyElementTemplateProps<ElementName>,
+  myname: ElementName
+): MyElementConfig<ElementName> {
+  const templateProps = {
+    ...props,
+    modifiers: props.modifiers ? new Set(props.modifiers) : null,
+  } as const;
+
+  return { ...templateProps, myname };
 }

@@ -9,12 +9,25 @@ const Index = () => {
   return (
     <>
       <ContentElements.Page>
-        <CE.Text
-          content="content text"
-          modifiers={["modifier"]}
-          tag="span"
-          myname="text"
-        />
+        <ul>
+          <li>
+            <mark>by default value</mark>
+            <CE.Text config="content" />
+          </li>
+          <li>
+            <mark>by config value</mark>
+            <CE.Text config={{ content: "content" }} />
+          </li>
+          <li>
+            <mark>by children</mark>
+            <CE.Text>content</CE.Text>
+          </li>
+          <li>
+            <mark>no content, no children</mark>
+            <CE.Text />
+          </li>
+        </ul>
+
         {/*<ContentElements.Block modifiers={["container"]}>*/}
         {/*    <ContentElements.Text*/}
         {/*        modifiers={["header"]}*/}
