@@ -19,6 +19,5 @@ export const WithMyElementConfig =
 
     //some magic with props
 
-    // // TODO FAQ: How to fix?
     return <MyElementTemplate {...myElementTemplateProps} />;
   };

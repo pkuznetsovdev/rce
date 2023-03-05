@@ -30,9 +30,9 @@ function getMyElementClassName<ElementName extends MyElementName>(
   config: MyElementConfig<ElementName>
 ) {
   const classNameByMyName = `${BASE_CLASSNAME}-${config.myname}`;
-  const classNameByModifiers = (
-    config.modifiers ? Array.from(config.modifiers) : []
-  ).map(getClassNameByModifier);
+  const classNameByModifiers = (config.modifiers ? config.modifiers : []).map(
+    getClassNameByModifier
+  );
 
   return [BASE_CLASSNAME, classNameByMyName, ...classNameByModifiers].join(" ");
 }
