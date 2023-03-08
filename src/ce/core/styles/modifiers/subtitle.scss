@@ -1,0 +1,17 @@
+@use '../mixins';
+@use '../variables' as *;
+
+@include mixins.byModifier('subtitle') {
+  color: var(--subtitle-text-color);
+
+  //text-align: var(--subtitle-text-align);
+  //margin: var(--subtitle-text-margin);
+  font-size: var(--subtitle-text-font-size);
+  font-weight: var(--subtitle-text-font-weight);
+  line-height: var(--subtitle-text-line-height);
+
+  // how to mixin it?
+  & + #{$ce-base-name}-text {
+    margin-top: .5em;
+  }
+}

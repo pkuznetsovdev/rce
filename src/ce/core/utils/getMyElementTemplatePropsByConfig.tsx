@@ -34,6 +34,8 @@ const TAG_BY_ELEMENT_NAME = {
 
 const TAG_BY_ELEMENT_MODIFIER = {
   header: "h1",
+  title: "h3",
+  subtitle: "h5",
 };
 
 function getMyElementTag<ElementName extends MyElementName>(

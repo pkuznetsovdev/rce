@@ -9,24 +9,36 @@ const Index = () => {
   return (
     <>
       <ContentElements.Page>
-        <ul>
+        <ol>
           <li>
-            <mark>by default value</mark>
-            <CE.Text config="content" modifiers={["header"]} />
+            <CE.Text
+              modifiers={["subtitle"]}
+              tag="span"
+              text="content by text prop"
+              config={{
+                modifiers: ["title"],
+                tag: "p",
+                text: "content by config",
+              }}
+            />
           </li>
           <li>
-            <mark>by config value</mark>
-            <CE.Text config={{ text: "content" }} />
+            <CE.Text
+              modifiers={["subtitle"]}
+              tag="span"
+              text="content by text prop"
+              config="content by default value"
+            />
           </li>
           <li>
-            <mark>by children</mark>
-            <CE.Text>content</CE.Text>
+            <CE.Text modifiers={["subtitle"]} text="content by text prop">
+              Content by children
+            </CE.Text>
           </li>
           <li>
-            <mark>no content, no children</mark>
-            <CE.Text />
+            <CE.Text>Content by children</CE.Text>
           </li>
-        </ul>
+        </ol>
 
         {/*<ContentElements.Block modifiers={["container"]}>*/}
         {/*    <ContentElements.Text*/}

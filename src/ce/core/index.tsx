@@ -51,18 +51,10 @@ export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
   };
 };
 
-type MyElementRendererUtilsProps<ElementName extends MyElementName> = {
-  props: MyElementProps<ElementName>;
-  myname: ElementName;
-};
-
 /** @description Returns true if element is rendered after props validation */
-function useValidateMyElementProps<
-  ElementName extends MyElementName,
-  MyElementRendererUtils extends MyElementRendererUtilsProps<ElementName>
->(
-  props: MyElementRendererUtils["props"],
-  myname: MyElementRendererUtils["myname"]
+function useValidateMyElementProps<ElementName extends MyElementName>(
+  props: MyElementProps<ElementName>,
+  myname: ElementName
 ) {
   /** Case 1. Filter by WCE condition */
   const isElementValidByCondition = useContentConditions(
@@ -93,7 +85,9 @@ function useValidateMyElementProps<
       case "text":
         // // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is string?
         // @ts-ignore
-        return Boolean(isDefaultConfig ? props.config : props.config?.text);
+        return Boolean(
+          isDefaultConfig ? props.config : props.config?.text || props.text
+        );
       // case "image":
       //     isContentInProps = Boolean(isChildrenInProps || props.src)
       default:
@@ -143,7 +137,7 @@ function getMyElementConfigFromProps<ElementName extends MyElementName>(
 function getMyElementConfig<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
   myname: ElementName,
-  customProps?: Partial<MyElementConfig<ElementName>>
+  customProps: Partial<MyElementConfig<ElementName>> = {}
 ): MyElementConfig<ElementName> {
   const { config, ...restProps } = props;
 
@@ -152,7 +146,7 @@ function getMyElementConfig<ElementName extends MyElementName>(
   return {
     ...restProps,
     ...configToUse,
-    ...(customProps || {}),
+    ...customProps,
     myname,
   } as const;
 }
@@ -164,8 +158,9 @@ function getConfigByDefaultValue<ElementName extends MyElementName>(
   switch (myname) {
     case "text":
       const { config } = props;
-      // TODO FAQ: How to fix??
-      return getMyElementConfig(props, myname, { text: config });
+      return getMyElementConfig(props, myname, {
+        text: config as MyElementConfigDefaultMap[ElementName],
+      });
     default:
       return getMyElementConfig(props, myname);
   }

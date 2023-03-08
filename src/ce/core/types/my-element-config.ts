@@ -2,6 +2,7 @@ import {
     ContentConditionParams
 } from "src/content-elements/content-element-templates/content-element-condition/content-element-condition";
 import { MyElementModifiers, MyElementName, MyElementSpecialProps, MyElementTag } from "./my-element";
+import React from "react";
 
 
 /** START: MyElementConfig */
@@ -12,8 +13,11 @@ type MyElementConfigBase<ElementName extends MyElementName> = Partial<{
 
 
 interface MyElementCofigContentMap<ElementName extends MyElementName> {
-    text: {
-        text?: string | Array<string> | false | null | 0 | MyElementConfig<ElementName>
+    text: React.PropsWithChildren<{
+        text: string | Array<string> | false | null | 0 | MyElementConfig<ElementName>
+    }> | { children: React.ReactNode; text?: string | Array<string> | false | null | 0 | MyElementConfig<ElementName>},
+    image: {
+        src: string;
     }
 }
 
@@ -26,7 +30,7 @@ export type MyElementConfig<ElementName extends MyElementName> =
     MyElementSpecialProps<ElementName>;
 
 export type MyElementConfigProps<ElementName extends MyElementName> =
-    Omit<MyElementConfig<ElementName>, "myname" | "modifiers">;
+    Omit<MyElementConfig<ElementName>, "myname">;
 
 export interface MyElementConfigDefaultMap {
     text?: string;

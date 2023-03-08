@@ -16,7 +16,7 @@ import { MyElementConfig, MyElementConfigDefaultMap, MyElementConfigProps } from
 // )
 export type MyElementProps<ElementName extends MyElementName> =
     ContentConditionParams
-    & Pick<MyElementConfig<ElementName>, 'modifiers' | 'tag'>
+    & Pick<MyElementConfig<ElementName>, 'modifiers' | 'tag' | 'text'>
     & React.PropsWithChildren<{
     config?: MyElementConfigProps<ElementName> | MyElementConfigDefaultMap[ElementName];
 }>;
