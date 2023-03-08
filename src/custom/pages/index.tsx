@@ -60,6 +60,10 @@ const Index = () => {
             <CE.Text>Content by children</CE.Text>
           </li>
           <li>
+            <span>empty block</span>
+            <CE.Text />
+            <CE.Image />
+            <CE.Image>Content by children in image</CE.Image>
           </li>
         </ol>
 
