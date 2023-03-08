@@ -13,10 +13,16 @@ export function getMyElementTemplatePropsByConfig<
   const myElementClassName = getMyElementClassName(config);
   const myElementTag = getMyElementTag(config);
 
-  const { modifiers, myname, ...nativeProps } = config;
+  const { modifiers, myname, contentConditions, ...nativeProps } = config;
+
+  // TODO: CUSTOM TEMPLATE
+  // @ts-expect-error
+  const customProps =
+    myname === "custom" ? { modifiers, myname, contentConditions } : {};
 
   return {
     ...nativeProps,
+    ...customProps,
     className: myElementClassName,
     tag: myElementTag,
   } as unknown as MyElementTemplateProps<ElementName>;

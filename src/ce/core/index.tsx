@@ -83,8 +83,7 @@ function useValidateMyElementProps<ElementName extends MyElementName>(
 
     switch (myname) {
       case "text":
-        // // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is string?
-        // @ts-ignore
+        // // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is string
         return Boolean(
           isDefaultConfig ? props.config : props.config?.text || props.text
         );
@@ -137,7 +136,7 @@ function getMyElementConfigFromProps<ElementName extends MyElementName>(
 function getMyElementConfig<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
   myname: ElementName,
-  customProps: Partial<MyElementConfig<ElementName>> = {}
+  customProps: Partial<MyElementProps<ElementName>> = {}
 ): MyElementConfig<ElementName> {
   const { config, ...restProps } = props;
 
@@ -146,7 +145,7 @@ function getMyElementConfig<ElementName extends MyElementName>(
   return {
     ...restProps,
     ...configToUse,
-    ...customProps,
+    ...(customProps || {}),
     myname,
   } as const;
 }

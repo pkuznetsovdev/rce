@@ -14,8 +14,8 @@ type MyElementConfigBase<ElementName extends MyElementName> = Partial<{
 
 interface MyElementCofigContentMap<ElementName extends MyElementName> {
     text: React.PropsWithChildren<{
-        text: string | Array<string> | false | null | 0 | MyElementConfig<ElementName>
-    }> | { children: React.ReactNode; text?: string | Array<string> | false | null | 0 | MyElementConfig<ElementName>},
+        text?: string | Array<string> | false | null | 0 | MyElementConfig<ElementName>
+    }>,
     image: {
         src: string;
     }
