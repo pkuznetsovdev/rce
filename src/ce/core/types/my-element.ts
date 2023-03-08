@@ -1,4 +1,4 @@
-import { MY_ELEMENTS_BY_NAME } from "../constants/my-elements-by-name";
+import { MY_ELEMENTS_BY_NAME } from "../constants/my-elements";
 
 type MyElementTemplatePropsMap = typeof MY_ELEMENTS_BY_NAME;
 

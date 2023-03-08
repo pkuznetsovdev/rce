@@ -34,6 +34,7 @@ export type MyElementConfigProps<ElementName extends MyElementName> =
 
 export interface MyElementConfigDefaultMap {
     text?: string;
+    image?: string;
 }
 
 /** END: MyElementConfig */

@@ -2,7 +2,7 @@ import React from "react";
 import { TextProps } from "./types";
 import { WithMyTemplateElementProps } from "../../types";
 
-export const MyElementText = ({
+export const Text = ({
   children,
   tag: TagName,
   text,

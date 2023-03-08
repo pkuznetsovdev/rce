@@ -15,9 +15,9 @@ export function getMyElementTemplatePropsByConfig<
 
   const { modifiers, myname, contentConditions, ...nativeProps } = config;
 
-  // TODO: CUSTOM TEMPLATE
-  // @ts-expect-error
   const customProps =
+    // TODO: CUSTOM TEMPLATE
+    // @ts-expect-error
     myname === "custom" ? { modifiers, myname, contentConditions } : {};
 
   return {

@@ -1,4 +1,3 @@
-import { useContentConditions } from "src/content-elements/content-element-templates/content-element-condition/content-element-condition";
 import React from "react";
 import {
   MyElementProps,
@@ -7,15 +6,13 @@ import {
   MyElementTemplateProps,
   MyElementConfigDefaultMap,
 } from "./types";
-import { MY_ELEMENTS_BY_NAME } from "./constants";
+import {
+  MY_ELEMENT_CONFIG_DEFAULT_VALUE_BY_NAME,
+  MY_ELEMENTS_BY_NAME,
+} from "./constants";
 import { WithMyElementConfig } from "./with-my-element-config";
-
-const MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME: Record<MyElementName, unknown> =
-  {
-    text: "string",
-  } as const;
-
-let isContentInProps = false;
+import { validateUnreachableCode } from "./utils/validateUnreachableCode";
+import { useValidateMyElementProps } from "./hooks";
 
 export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
   elementTemplatesByName?: Record<
@@ -51,67 +48,6 @@ export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
   };
 };
 
-/** @description Returns true if element is rendered after props validation */
-function useValidateMyElementProps<ElementName extends MyElementName>(
-  props: MyElementProps<ElementName>,
-  myname: ElementName
-) {
-  /** Case 1. Filter by WCE condition */
-  const isElementValidByCondition = useContentConditions(
-    props.contentConditions,
-    { shouldSatisfyEveryCondition: props.shouldSatisfyEveryCondition }
-  );
-
-  if (!isElementValidByCondition) {
-    /**  IDEAS
-     * here we can track all invalid by content condition elements, f.e. Record<ElementName,
-     * MyElementProps<ElementName>['contentConditions']> */
-    return false;
-  }
-
-  /** Case 2. Filter by is minimum required content or children in props */
-  const isChildrenInProps = Boolean(
-    React.Children.toArray(props.children).length
-  );
-
-  function getIsContentInProps<ElementName extends MyElementName>(
-    props: MyElementProps<ElementName>,
-    myname: ElementName
-  ) {
-    const isDefaultConfig =
-      MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
-
-    switch (myname) {
-      case "text":
-        // // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is string
-        return Boolean(
-          isDefaultConfig ? props.config : props.config?.text || props.text
-        );
-      // case "image":
-      //     isContentInProps = Boolean(isChildrenInProps || props.src)
-      default:
-        return false;
-    }
-  }
-
-  switch (myname) {
-    case "text":
-      isContentInProps =
-        isChildrenInProps || getIsContentInProps(props, myname);
-      break;
-    // case "image":
-    //     isContentInProps = Boolean(isChildrenInProps || props.src)
-  }
-
-  if (!isContentInProps) {
-    /**  IDEAS
-     * here we can track all empty elements (warn in console in dev mode for developer),
-     * f.e. Record<ElementName, MyElementMessages<ElementName>['noContentInPropsMessage']> */
-  }
-
-  return isContentInProps;
-}
-
 function getConfigByValidatedProps<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
   myname: ElementName
@@ -124,7 +60,7 @@ function getMyElementConfigFromProps<ElementName extends MyElementName>(
   myname: ElementName
 ) {
   const isDefaultConfig =
-    MY_ELEMENT_CONFGI_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
+    MY_ELEMENT_CONFIG_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
 
   if (isDefaultConfig) {
     return getConfigByDefaultValue(props, myname);
@@ -142,25 +78,45 @@ function getMyElementConfig<ElementName extends MyElementName>(
 
   const configToUse = config && typeof config !== "string" ? config : {};
 
+  const modifiers = mergeModifiersInConfig(props, customProps);
+
+  // TODO FAQ: How to fix ts
+  // @ts-ignore
   return {
     ...restProps,
     ...configToUse,
-    ...(customProps || {}),
+    ...customProps,
+    modifiers,
     myname,
   } as const;
+}
+
+function mergeModifiersInConfig<ElementName extends MyElementName>(props: MyElementProps<ElementName>, customProps: Partial<MyElementProps<ElementName>> = {}) {
+  // TODO FAQ: How to fix ts
+  // @ts-ignore
+  return [...(props.config?.modifiers || []), ...(props.modifiers || []), ...(customProps.modifiers || [])]
 }
 
 function getConfigByDefaultValue<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
   myname: ElementName
 ): MyElementConfig<ElementName> {
+  const { config } = props;
   switch (myname) {
     case "text":
-      const { config } = props;
       return getMyElementConfig(props, myname, {
+        // TODO FAQ: How to fix ts
+        // @ts-ignore
         text: config as MyElementConfigDefaultMap[ElementName],
       });
+    case "image":
+      return getMyElementConfig(props, myname, {
+        // TODO FAQ: How to fix ts
+        // @ts-ignore
+        src: config as MyElementConfigDefaultMap[ElementName],
+      });
     default:
+      validateUnreachableCode(myname);
       return getMyElementConfig(props, myname);
   }
 }
