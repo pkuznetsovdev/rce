@@ -4,10 +4,14 @@ import { CE } from "src/ce";
 
 import { useGetData } from "src/custom/data";
 
-const imgSrcByProps = 'https://image.cnbcfm.com/api/v1/image/107196235-1676617290460-_GRAND-PRIZE_WINNER_-_Karthik_Subramaniam.jpg?v=1676635561&w=740&h=416&ffmt=webp&vtcrop=y';
-const imgSrcByDefault = 'https://www.popsci.com/uploads/2022/12/01/SpaceX-rocket-over-mangroves-e1670022792625.jpg?auto=webp&width=1440&height=960.48';
-const imgSrcByConfig = 'https://www.frommers.com/system/media_items/attachments/000/866/196/s980/p264_cp.jpg?1602185431';
-
+const imgSrcByProps =
+  "https://image.cnbcfm.com/api/v1/image/107196235-1676617290460-_GRAND-PRIZE_WINNER_-_Karthik_Subramaniam.jpg?ffmt=webp";
+const imgSrcByDefault =
+  "https://www.popsci.com/uploads/2022/12/01/SpaceX-rocket-over-mangroves-e1670022792625.jpg?auto=webp";
+const imgSrcByConfig =
+  "https://www.frommers.com/system/media_items/attachments/000/866/196/s980/p264_cp.jpg";
+const imgSrcBySrcSet =
+  "https://nypost.com/wp-content/uploads/sites/2/2022/12/national-geographic-pictures-of-the-year-24.jpg?quality=90&strip=all";
 
 const Index = () => {
   const pageData = useGetData("IndexPage");
@@ -27,11 +31,18 @@ const Index = () => {
               }}
             />
             <CE.Image
-                modifiers={["by-config"]}
-                src={imgSrcByProps}
-                config={{
-                  src: imgSrcByConfig,
-                }}
+              modifiers={["by-config"]}
+              src={imgSrcByProps}
+              config={{
+                src: imgSrcByConfig,
+                srcSet: {
+                  sm: imgSrcBySrcSet,
+                  md: imgSrcBySrcSet,
+                  lg: imgSrcBySrcSet,
+                  xl: imgSrcBySrcSet,
+                  xxl: imgSrcBySrcSet,
+                },
+              }}
             />
           </li>
           <li>
@@ -42,19 +53,16 @@ const Index = () => {
               config="content by default value"
             />
             <CE.Image
-                modifiers={["by-default"]}
-                config={imgSrcByDefault}
-                src={imgSrcByProps}
+              modifiers={["by-default"]}
+              config={imgSrcByDefault}
+              src={imgSrcByProps}
             />
           </li>
           <li>
             <CE.Text modifiers={["subtitle"]} text="content by prop">
               Content by children
             </CE.Text>
-            <CE.Image
-                modifiers={["by-prop"]}
-                src={imgSrcByProps}
-            />
+            <CE.Image modifiers={["by-prop"]} src={imgSrcByProps} />
           </li>
           <li>
             <CE.Text>Content by children</CE.Text>

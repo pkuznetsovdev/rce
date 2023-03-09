@@ -91,10 +91,17 @@ function getMyElementConfig<ElementName extends MyElementName>(
   } as const;
 }
 
-function mergeModifiersInConfig<ElementName extends MyElementName>(props: MyElementProps<ElementName>, customProps: Partial<MyElementProps<ElementName>> = {}) {
+function mergeModifiersInConfig<ElementName extends MyElementName>(
+  props: MyElementProps<ElementName>,
+  customProps: Partial<MyElementProps<ElementName>> = {}
+) {
   // TODO FAQ: How to fix ts
   // @ts-ignore
-  return [...(props.config?.modifiers || []), ...(props.modifiers || []), ...(customProps.modifiers || [])]
+  return [
+    ...(props.config?.modifiers || []),
+    ...(props.modifiers || []),
+    ...(customProps.modifiers || []),
+  ];
 }
 
 function getConfigByDefaultValue<ElementName extends MyElementName>(

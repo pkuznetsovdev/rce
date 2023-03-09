@@ -68,6 +68,8 @@ function getMyElementTag<ElementName extends MyElementName>(
     return tagByModifier;
   }
 
+  // TODO: FAQ HOW TO FIX?
+  // @ts-ignore
   return TAG_BY_ELEMENT_NAME[myname];
 }
 

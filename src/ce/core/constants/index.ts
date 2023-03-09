@@ -4,3 +4,4 @@ export * from './base-classname';
 export * from './breakpoints';
 export * from './my-elements';
 export * from './my-element-config';
+export * from './image';

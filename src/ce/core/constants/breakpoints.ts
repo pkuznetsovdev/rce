@@ -1,4 +1,4 @@
-const BREAKPOINTS_BY_NAME = {
+export const BREAKPOINTS_BY_NAME = {
   xs: {
     from: 0,
     to: 767,
@@ -24,6 +24,8 @@ const BREAKPOINTS_BY_NAME = {
     to: Infinity,
   },
 } as const;
+
+
 
 /** shared export start */
 export function useBreakpoints() {
