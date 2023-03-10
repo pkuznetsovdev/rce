@@ -1,7 +1,7 @@
-import React, { DetailedHTMLFactory, HTMLProps, ImgHTMLAttributes } from "react";
-import { ImageSrcSet } from "../../types/image";
+import React from "react";
+import { ImageSrcSetProp } from "../../utils";
 
 
 export type ImageProps = React.HTMLProps<HTMLImageElement> & {
-    srcSet?: ImageSrcSet;
+    srcSet?: ImageSrcSetProp;
 }

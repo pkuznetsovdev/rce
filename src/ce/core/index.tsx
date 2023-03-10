@@ -11,7 +11,7 @@ import {
   MY_ELEMENTS_BY_NAME,
 } from "./constants";
 import { WithMyElementConfig } from "./with-my-element-config";
-import { validateUnreachableCode } from "./utils/validateUnreachableCode";
+import { validateUnreachableCode } from "./utils";
 import { useValidateMyElementProps } from "./hooks";
 
 export const getMyElementByNameRenderer = <ElementName extends MyElementName>(

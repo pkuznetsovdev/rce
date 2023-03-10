@@ -25,8 +25,6 @@ export const BREAKPOINTS_BY_NAME = {
   },
 } as const;
 
-
-
 /** shared export start */
 export function useBreakpoints() {
   const currentBreakpointName = useGetCurrentBreakpointName();
@@ -37,7 +35,7 @@ export function useBreakpoints() {
 export type BreakpointName = keyof typeof BREAKPOINTS_BY_NAME;
 /** shared export end */
 
-const BREAKPOINT_NAMES = Object.keys(BREAKPOINTS_BY_NAME).map(
+export const BREAKPOINT_NAMES = Object.keys(BREAKPOINTS_BY_NAME).map(
   (breakpointName) => breakpointName
 ) as Array<BreakpointName>;
 
