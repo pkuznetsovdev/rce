@@ -18,9 +18,9 @@ const imgSrcBySrcSet =
 const imageSrcSet = BREAKPOINT_NAMES.reduce((res, name) => {
   return {
     ...res,
-    [name]: `https://dummyimage.com/${getBpValue(name)}`
-  }
-}, {})
+    [name]: `https://dummyimage.com/${getBpValue(name)}`,
+  };
+}, {});
 
 const Index = () => {
   const pageData = useGetData("IndexPage");
