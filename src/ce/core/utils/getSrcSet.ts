@@ -4,6 +4,7 @@ import { STRING_LITERALS } from "src/shared";
 export interface ImageSrcSetProp extends Record<BreakpointName, string> {
 
 }
+
 const IMAGE_SRC_SET = Object.entries(BREAKPOINTS_BY_NAME).reduce((res, [name, { from }]) => ({ ...res, [name]: from }), {})
 
 export function getNativeSrcSet(srcSet: ImageSrcSetProp) {

@@ -38,6 +38,8 @@ export function useValidateMyElementProps<ElementName extends MyElementName>(
             break;
         case "image":
             return isContentInProps = getIsContentInProps(props, myname)
+        case "block":
+            return true
         default:
             validateUnreachableCode(myname);
     }
@@ -73,6 +75,8 @@ function getIsContentInProps<ElementName extends MyElementName>(
             // TODO FAQ: How to fix ts
             // @ts-ignore
             return props.config?.src || props.src
+        case "block":
+            return true
         default:
             validateUnreachableCode(myname)
             return false;

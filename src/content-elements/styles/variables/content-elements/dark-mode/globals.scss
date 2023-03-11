@@ -1,7 +1,8 @@
-.dark-mode {
-  --body-background: #1c1c1d;
-}
-
 body {
   background-color: var(--body-background);
+  transition: .3s background-color ease-in-out;
+}
+
+.dark-theme {
+  --body-background: #1c1c1d;
 }

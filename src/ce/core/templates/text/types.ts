@@ -1,2 +1,2 @@
-export interface TextProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
+export interface TextProps extends React.HTMLProps<HTMLParagraphElement> {
 }

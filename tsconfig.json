@@ -21,6 +21,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "noEmitOnErrors": false,
+    "noEmitOnError": false,
   },
   "include": [
     "src"

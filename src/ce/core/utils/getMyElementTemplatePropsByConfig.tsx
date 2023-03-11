@@ -34,8 +34,10 @@ function getClassNameByModifier<ElementName extends MyElementName>(
   return `${BASE_CLASSNAME}--${modifier}`;
 }
 
-const TAG_BY_ELEMENT_NAME = {
+const TAG_BY_ELEMENT_NAME: Record<MyElementName, string> = {
   text: "p",
+  block: "div",
+  image: "img",
 };
 
 const TAG_BY_ELEMENT_MODIFIER = {
@@ -76,12 +78,16 @@ function getMyElementTag<ElementName extends MyElementName>(
 function getMyElementClassName<ElementName extends MyElementName>(
   config: MyElementConfig<ElementName>
 ) {
-  const { modifiers } = config;
+  // TODO: FAQ HOW TO FIX?
+  // @ts-ignore
+  const { modifiers, className } = config;
   const classNameByMyName = `${BASE_CLASSNAME}-${config.myname}`;
 
   const classNameByModifiers = (modifiers ? modifiers : []).map(
     getClassNameByModifier
   );
 
-  return [BASE_CLASSNAME, classNameByMyName, ...classNameByModifiers].join(" ");
+  return [className, BASE_CLASSNAME, classNameByMyName, ...classNameByModifiers]
+    .filter(Boolean)
+    .join(" ");
 }

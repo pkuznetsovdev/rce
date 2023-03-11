@@ -7,9 +7,9 @@ const Sandbox = () => {
   const pageData = useGetData("IndexPage");
   return (
     <ContentElements.Page>
-      <ContentElements.Text modifiers={["header"]}>
+      {/*<ContentElements.Text modifiers={["header"]}>
         Sandbox
-      </ContentElements.Text>
+      </ContentElements.Text>*/}
       <iframe
         src="https://codesandbox.io/embed/dazzling-kowalevski-bvolky?fontsize=14&hidenavigation=1&theme=dark"
         style={{

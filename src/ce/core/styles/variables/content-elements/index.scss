@@ -2,5 +2,6 @@
 $ce-base-name: '.ce'; // '.content-element';
 //$name: '.content-element'';
 
+@forward 'globals';
 @forward 'default';
 @forward 'dark-mode';

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ContentElements } from "src/content-elements";
 import { CE } from "src/ce";
 
 import { useGetData } from "src/custom/data";
 import { BREAKPOINT_NAMES } from "../../ce/core/constants";
 import { getBpValue } from "../../ce/core/utils";
+import { useAppColorMode } from "../hooks";
+import { ThemeContext } from "../providers/theme";
 
 const imgSrcByProps =
   "https://image.cnbcfm.com/api/v1/image/107196235-1676617290460-_GRAND-PRIZE_WINNER_-_Karthik_Subramaniam.jpg?ffmt=webp";
@@ -24,74 +26,83 @@ const imageSrcSet = BREAKPOINT_NAMES.reduce((res, name) => {
 
 const Index = () => {
   const pageData = useGetData("IndexPage");
+
+  const { theme, onChangeAppColorTheme } = useContext(ThemeContext);
+
   return (
     <>
       <ContentElements.Page>
-        <ol>
-          <li>
-            <CE.Text
-              modifiers={["subtitle"]}
-              tag="span"
-              text="content by text prop"
-              config={{
-                modifiers: ["title"],
-                tag: "p",
-                text: "content by config",
-              }}
-            />
-            <CE.Image
-              modifiers={["content-by-config"]}
-              src={imgSrcByProps}
-              config={{
-                src: imgSrcByConfig,
-                srcSet: imageSrcSet,
-              }}
-            />
-          </li>
-          <li>
-            <CE.Text
-              modifiers={["subtitle"]}
-              tag="span"
-              text="content by prop"
-              config="content by default value"
-            />
-            <CE.Image
-              modifiers={["by-default"]}
-              config={imgSrcByDefault}
-              src={imgSrcByProps}
-            />
-          </li>
-          <li>
-            <CE.Text modifiers={["subtitle"]} text="content by prop">
-              Content by children
-            </CE.Text>
-            <CE.Image modifiers={["by-prop"]} src={imgSrcByProps} />
-          </li>
-          <li>
-            <CE.Text>Content by children</CE.Text>
-          </li>
-          <li>
-            <span>empty block</span>
-            <CE.Text />
-            <CE.Image />
-            <CE.Image>Content by children in image</CE.Image>
-          </li>
-        </ol>
+        <button
+          type="button"
+          onClick={() => onChangeAppColorTheme("dark")}
+        >{`current mode: ${theme}`}</button>
+        <CE.Block className="content-block" modifiers={["container"]}>
+          <ol>
+            <li>
+              <CE.Text
+                modifiers={["subtitle"]}
+                tag="span"
+                text="content by text prop"
+                config={{
+                  modifiers: ["title"],
+                  tag: "p",
+                  text: "content by config",
+                }}
+              />
+              <CE.Image
+                modifiers={["content-by-config"]}
+                src={imgSrcByProps}
+                config={{
+                  src: imgSrcByConfig,
+                  srcSet: imageSrcSet,
+                }}
+              />
+            </li>
+            <li>
+              <CE.Text
+                modifiers={["subtitle"]}
+                tag="span"
+                text="content by prop"
+                config="content by default value"
+              />
+              <CE.Image
+                modifiers={["by-default"]}
+                config={imgSrcByDefault}
+                src={imgSrcByProps}
+              />
+            </li>
+            <li>
+              <CE.Text modifiers={["subtitle"]} text="content by prop">
+                Content by children
+              </CE.Text>
+              <CE.Image modifiers={["by-prop"]} src={imgSrcByProps} />
+            </li>
+            <li>
+              <CE.Text>Content by children</CE.Text>
+            </li>
+            <li>
+              <span>empty block</span>
+              <CE.Text />
+              <CE.Image />
+              <CE.Image>Content by children in image</CE.Image>
+            </li>
+          </ol>
 
-        {/*<ContentElements.Block modifiers={["container"]}>*/}
-        {/*    <ContentElements.Text*/}
-        {/*        modifiers={["header"]}*/}
-        {/*        tag="h3"*/}
-        {/*        content={pageData.header}*/}
-        {/*    />*/}
-        {/*</ContentElements.Block>*/}
-        {/*<ContentElements.List*/}
-        {/*    className="option-card-list"*/}
-        {/*    ceList={{*/}
-        {/*        items: [], // pageData.options,*/}
-        {/*        ItemTemplate: CustomComponents.OptionCard, // ts should fail if expected props differ from typeof items[number]*/}
-        {/*    }}*/}
-        {/*/>*/}
+          {/*<ContentElements.Block modifiers={["container"]}>*/}
+          {/*    <ContentElements.Text*/}
+          {/*        modifiers={["header"]}*/}
+          {/*        tag="h3"*/}
+          {/*        content={pageData.header}*/}
+          {/*    />*/}
+          {/*</ContentElements.Block>*/}
+          {/*<ContentElements.List*/}
+          {/*    className="option-card-list"*/}
+          {/*    ceList={{*/}
+          {/*        items: [], // pageData.options,*/}
+          {/*        ItemTemplate: CustomComponents.OptionCard, // ts should fail if expected props differ from typeof items[number]*/}
+          {/*    }}*/}
+          {/*/>*/}
+        </CE.Block>
       </ContentElements.Page>
     </>
   );

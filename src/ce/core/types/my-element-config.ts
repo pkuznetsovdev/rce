@@ -2,7 +2,7 @@ import {
     ContentConditionParams
 } from "src/content-elements/content-element-templates/content-element-condition/content-element-condition";
 import { MyElementModifiers, MyElementName, MyElementSpecialProps, MyElementTag } from "./my-element";
-import React from "react";
+import React, { HTMLProps } from "react";
 
 
 /** START: MyElementConfig */
@@ -19,11 +19,13 @@ interface MyElementCofigContentMap<ElementName extends MyElementName> {
     image: {
         src: string;
     }
+    block?: never;
 }
 
 type MyElementCofigContent<ElementName extends MyElementName> = MyElementCofigContentMap<ElementName>[ElementName]
 
 export type MyElementConfig<ElementName extends MyElementName> =
+    HTMLProps<any> &
     MyElementConfigBase<ElementName> &
     MyElementCofigContent<ElementName> &
     ContentConditionParams &
@@ -35,6 +37,7 @@ export type MyElementConfigProps<ElementName extends MyElementName> =
 export interface MyElementConfigDefaultMap {
     text?: string;
     image?: string;
+    block?: never;
 }
 
 /** END: MyElementConfig */

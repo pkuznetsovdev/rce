@@ -95,9 +95,9 @@ function mergeModifiersInConfig<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
   customProps: Partial<MyElementProps<ElementName>> = {}
 ) {
-  // TODO FAQ: How to fix ts
-  // @ts-ignore
   return [
+    // TODO FAQ: How to fix ts
+    // @ts-ignore
     ...(props.config?.modifiers || []),
     ...(props.modifiers || []),
     ...(customProps.modifiers || []),
@@ -122,6 +122,8 @@ function getConfigByDefaultValue<ElementName extends MyElementName>(
         // @ts-ignore
         src: config as MyElementConfigDefaultMap[ElementName],
       });
+    case "block":
+      return getMyElementConfig(props, myname);
     default:
       validateUnreachableCode(myname);
       return getMyElementConfig(props, myname);
