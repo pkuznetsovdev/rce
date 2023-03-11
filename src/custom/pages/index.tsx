@@ -5,7 +5,6 @@ import { CE } from "src/ce";
 import { useGetData } from "src/custom/data";
 import { BREAKPOINT_NAMES } from "../../ce/core/constants";
 import { getBpValue } from "../../ce/core/utils";
-import { useAppColorMode } from "../hooks";
 import { ThemeContext } from "../providers/theme";
 
 const imgSrcByProps =
@@ -37,8 +36,8 @@ const Index = () => {
           onClick={() => onChangeAppColorTheme("dark")}
         >{`current mode: ${theme}`}</button>
         <CE.Block className="content-block" modifiers={["container"]}>
-          <ol>
-            <li>
+          <CE.List className="test">
+            <>
               <CE.Text
                 modifiers={["subtitle"]}
                 tag="span"
@@ -57,8 +56,8 @@ const Index = () => {
                   srcSet: imageSrcSet,
                 }}
               />
-            </li>
-            <li>
+            </>
+            <>
               <CE.Text
                 modifiers={["subtitle"]}
                 tag="span"
@@ -70,23 +69,24 @@ const Index = () => {
                 config={imgSrcByDefault}
                 src={imgSrcByProps}
               />
-            </li>
-            <li>
+            </>
+            <>
               <CE.Text modifiers={["subtitle"]} text="content by prop">
                 Content by children
               </CE.Text>
               <CE.Image modifiers={["by-prop"]} src={imgSrcByProps} />
-            </li>
-            <li>
+            </>
+            <>
               <CE.Text>Content by children</CE.Text>
-            </li>
-            <li>
-              <span>empty block</span>
+            </>
+            <>
+              <span>empty block Start</span>
               <CE.Text />
               <CE.Image />
               <CE.Image>Content by children in image</CE.Image>
-            </li>
-          </ol>
+              <span>empty block End</span>
+            </>
+          </CE.List>
 
           {/*<ContentElements.Block modifiers={["container"]}>*/}
           {/*    <ContentElements.Text*/}

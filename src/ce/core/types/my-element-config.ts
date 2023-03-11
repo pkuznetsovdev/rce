@@ -20,6 +20,7 @@ interface MyElementCofigContentMap<ElementName extends MyElementName> {
         src: string;
     }
     block?: never;
+    list?: never;
 }
 
 type MyElementCofigContent<ElementName extends MyElementName> = MyElementCofigContentMap<ElementName>[ElementName]
@@ -38,6 +39,7 @@ export interface MyElementConfigDefaultMap {
     text?: string;
     image?: string;
     block?: never;
+    list?: never;
 }
 
 /** END: MyElementConfig */

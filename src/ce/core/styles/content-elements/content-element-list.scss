@@ -1,16 +1,30 @@
-@use '../mixins';
+@use '../mixins' as *;
+@use '../variables' as *;
 
-@include mixins.byName('list') {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+@include byName('list') {
+  display: var(--list-display);
+  flex-direction: var(--list-flex-direction);
+  flex-grow: var(--list-flex-grow);
+
+  list-style-type: var(--list-style-type);
+
+
+  & + & {
+    //margin-top: var(--text-font-size);
+  }
 }
 
-@include mixins.byName('list-item') {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-}
+//@include mixins.byName('list') {
+//  display: flex;
+//  flex-direction: column;
+//  flex-grow: 1;
+//}
+//
+//@include mixins.byName('list-item') {
+//  display: flex;
+//  flex-grow: 1;
+//  flex-direction: column;
+//}
 
 //.grid {
 //  display: grid;

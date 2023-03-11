@@ -40,6 +40,8 @@ export function useValidateMyElementProps<ElementName extends MyElementName>(
             return isContentInProps = getIsContentInProps(props, myname)
         case "block":
             return true
+        case "list":
+            return isChildrenInProps
         default:
             validateUnreachableCode(myname);
     }

@@ -117,12 +117,13 @@ function getConfigByDefaultValue<ElementName extends MyElementName>(
         text: config as MyElementConfigDefaultMap[ElementName],
       });
     case "image":
+      // TODO FAQ: How to fix ts
+      // @ts-ignore
       return getMyElementConfig(props, myname, {
-        // TODO FAQ: How to fix ts
-        // @ts-ignore
         src: config as MyElementConfigDefaultMap[ElementName],
       });
     case "block":
+    case "list":
       return getMyElementConfig(props, myname);
     default:
       validateUnreachableCode(myname);

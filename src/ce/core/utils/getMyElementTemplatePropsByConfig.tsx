@@ -38,12 +38,14 @@ const TAG_BY_ELEMENT_NAME: Record<MyElementName, string> = {
   text: "p",
   block: "div",
   image: "img",
+  list: "ul",
 };
 
 const TAG_BY_ELEMENT_MODIFIER = {
   header: "h1",
   title: "h3",
   subtitle: "h5",
+  ol: "ol",
 };
 
 function getMyElementTag<ElementName extends MyElementName>(

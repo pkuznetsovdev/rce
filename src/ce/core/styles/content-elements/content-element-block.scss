@@ -1,6 +1,6 @@
-@use '../mixins';
+@use '../mixins' as *;
 
-@include mixins.byName('block') {
+@include byName('block') {
   display: var(--block-display);
   flex-direction: var(--block-flex-direction);
   flex-grow: var(--block-flex-grow);

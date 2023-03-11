@@ -1,0 +1,12 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+@include byName('item') {
+  display: var(--item-display);
+  flex-direction: var(--item-flex-direction);
+  flex-grow: var(--item-flex-grow);
+
+  & + & {
+    //margin-top: var(--text-font-size);
+  }
+}

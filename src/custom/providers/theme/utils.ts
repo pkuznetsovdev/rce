@@ -2,8 +2,6 @@ import { APP_COLOR_THEMES, AppColorTheme } from "./constants";
 import { useEffect, useState } from "react";
 
 export const applyTheme = (newTheme?: AppColorTheme, prevTheme?: AppColorTheme) =>  {
-    // console.log('newTheme: ', newTheme)
-    console.log('prevTheme: ', prevTheme)
     if (!newTheme || !APP_COLOR_THEMES.includes(newTheme)) {
         prevTheme && removeTheme(prevTheme);
         return 'default';
@@ -23,7 +21,6 @@ export const applyTheme = (newTheme?: AppColorTheme, prevTheme?: AppColorTheme) 
     if (newTheme !== "default") {
         addTheme(newTheme);
     }
-    console.log('newTheme result: ', newTheme)
 
     return newTheme;
 }
