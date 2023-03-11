@@ -98,8 +98,7 @@ function mergeModifiersInConfig<ElementName extends MyElementName>(
   return [
     // TODO FAQ: How to fix ts
     // @ts-ignore
-    ...(props.config?.modifiers || []),
-    ...(props.modifiers || []),
+    ...(props.config?.modifiers || props.modifiers || []),
     ...(customProps.modifiers || []),
   ];
 }
