@@ -15,14 +15,15 @@ export function getNativeSrcSet(srcSet: ImageSrcSetProp) {
         .filter(Boolean)
         .join(STRING_LITERALS.srcSetDivider)
 
-    const sizes = getSizes();
+    // TODO FAQ: How to do?
+    const sizes = ''; // getSizes();
 
     return { nativeSrcSet, sizes }
 }
 
 function getSizes() {
     const result = Object.entries(IMAGE_SRC_SET).map(([bpName, bpValue], i, arr) => {
-        return bpValue ? `(min-width: ${bpValue}px) ${bpValue}px` : ''
+        return bpValue ? `(max-width: ${bpValue}px) ${bpValue}px` : ''
         // return bpValue ? `(min-width: ${bpValue}px) ${arr[i+1]? arr[i+1][1]: null}px` : ''
     }).filter(Boolean)
 
