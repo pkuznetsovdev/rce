@@ -13,3 +13,12 @@ $breakpoints: (
         xl: $screen-xl,
         xxl: $screen-xxl,
 );
+
+:root {
+  --screen-xs: $screen-xs;
+  --screen-sm: $screen-sm;
+  --screen-md: $screen-md;
+  --screen-lg: $screen-lg;
+  --screen-xl: $screen-xl;
+  --screen-xxl: $screen-xxl;
+}
