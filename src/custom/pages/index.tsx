@@ -36,7 +36,7 @@ const Index = () => {
           onClick={() => onChangeAppColorTheme("dark")}
         >{`current mode: ${theme}`}</button>
         <CE.Block className="content-block" modifiers={["container"]}>
-          <CE.Text modifiers={["title-xs", "italic"]}>
+          <CE.Text modifiers={["title-xs", "i"]}>
             MyElement usecases:
           </CE.Text>
           <CE.List className="usecases">

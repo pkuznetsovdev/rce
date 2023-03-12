@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 @mixin nextByName($ce-name: '') {
   @if ($ce-name == '') {
     & + #{$ce-base-name} {
