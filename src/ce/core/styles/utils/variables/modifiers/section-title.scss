@@ -2,17 +2,17 @@
   /**
    * User input values.
    */
-  --section-title-text-font-size: calc(var(--text-font-size) * 1.6);
+  --section-title-font-size: calc(var(--text-font-size) * 1.6);
 
   --section-title-text-align: center;
 
-  --section-title-text-margin-top: 0;
-  --section-title-text-margin-right: auto;
-  --section-title-text-margin-bottom: 1em;
-  --section-title-text-margin-left: auto;
+  --section-title-margin-top: 0;
+  --section-title-margin-right: auto;
+  --section-title-margin-bottom: 1em;
+  --section-title-margin-left: auto;
 
   /**
    * Calculated values.
    */
-  --section-title-text-margin: var(--section-title-text-margin-top) var(--section-title-text-margin-right) var(--section-title-text-margin-bottom) var(--section-title-text-margin-left);
+  --section-title-margin: var(--section-title-margin-top) var(--section-title-margin-right) var(--section-title-margin-bottom) var(--section-title-margin-left);
 }

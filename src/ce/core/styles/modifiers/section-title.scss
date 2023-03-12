@@ -3,10 +3,6 @@
 @include byModifier('section-title') {
   margin: var(--section-title-text-margin);
 
-  font-size: var(--section-title-text-font-size);
+  font-size: var(--section-title-font-size);
   text-align: var(--section-title-text-align);
-
-  //color: var(--section-title-text-color);
-  //font-weight: var(--section-title-text-font-weight);
-  //line-height: var(--section-title-text-line-height);
 }
