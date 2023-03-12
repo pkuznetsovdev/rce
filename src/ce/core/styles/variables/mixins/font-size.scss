@@ -1,9 +1,0 @@
-@use '../utils';
-
-@function fontSize($key: 'default') {
-  @if not map-has-key(utils.$font-sizes, $key) {
-    @warn "Size `#{$key}` not found.";
-  }
-
-  @return map-get(utils.$font-sizes, $key);
-}

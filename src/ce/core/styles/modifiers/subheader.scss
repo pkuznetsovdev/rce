@@ -1,12 +1,7 @@
-@use '../mixins';
-@use '../variables' as *;
+@use '../utils' as *;
 
-@include mixins.byModifier('subheader') {
-  color: var(--subheader-text-color);
+@include byModifier('subheader') {
+  margin: var(--subheader-margin);
 
   text-align: var(--subheader-text-align);
-  margin: var(--subheader-text-margin);
-  font-size: var(--subheader-text-font-size);
-  font-weight: var(--subheader-text-font-weight);
-  line-height: var(--subheader-text-line-height);
 }

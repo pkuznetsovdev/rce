@@ -85,9 +85,9 @@ function getMyElementClassName<ElementName extends MyElementName>(
   const { modifiers, className } = config;
   const classNameByMyName = `${BASE_CLASSNAME}-${config.myname}`;
 
-  const classNameByModifiers = (modifiers ? modifiers : []).map(
-    getClassNameByModifier
-  );
+  const classNameByModifiers = (modifiers || [])
+    .filter((m) => m && typeof m === "string")
+    .map(getClassNameByModifier);
 
   return [className, BASE_CLASSNAME, classNameByMyName, ...classNameByModifiers]
     .filter(Boolean)

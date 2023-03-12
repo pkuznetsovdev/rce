@@ -36,7 +36,13 @@ const Index = () => {
           onClick={() => onChangeAppColorTheme("dark")}
         >{`current mode: ${theme}`}</button>
         <CE.Block className="content-block" modifiers={["container"]}>
-          <CE.List className="test">
+          <CE.Text modifiers={["title-xs", "italic"]}>
+            MyElement usecases:
+          </CE.Text>
+          <CE.List className="usecases">
+            <>
+              <CE.Text>Content by children</CE.Text>
+            </>
             <>
               <CE.Text
                 modifiers={["subtitle"]}
@@ -64,6 +70,7 @@ const Index = () => {
                 text="content by prop"
                 config="content by default value"
               />
+              <CE.Text config="test-modifier" />
               <CE.Image
                 modifiers={["by-default"]}
                 config={imgSrcByDefault}
@@ -75,9 +82,6 @@ const Index = () => {
                 Content by children
               </CE.Text>
               <CE.Image modifiers={["by-prop"]} src={imgSrcByProps} />
-            </>
-            <>
-              <CE.Text>Content by children</CE.Text>
             </>
             <>
               <span>empty block Start</span>

@@ -1,4 +1,4 @@
-@use '../mixins' as *;
+@use '../utils' as *;
 
 @include byName('block') {
   display: var(--block-display);

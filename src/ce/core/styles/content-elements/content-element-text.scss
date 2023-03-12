@@ -1,5 +1,4 @@
-@use '../mixins' as *;
-@use '../variables' as *;
+@use '../utils' as *;
 
 @include byName('text') {
   color: var(--text-color);
@@ -8,7 +7,9 @@
   font-weight: var(--text-font-weight);
   line-height: var(--text-line-height);
 
-  & + & {
-    //margin-top: var(--text-font-size);
+  transition: .3s color ease-in;
+
+  @include beforeByName('text') {
+    margin-top: var(--text-paragraph-margin);
   }
 }

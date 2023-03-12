@@ -1,5 +1,4 @@
-@use '../mixins' as *;
-@use '../variables' as *;
+@use '../utils' as *;
 
 @include byName('list') {
   display: var(--list-display);

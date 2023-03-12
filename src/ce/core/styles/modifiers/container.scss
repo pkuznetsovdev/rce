@@ -1,5 +1,4 @@
-@use '../mixins' as *;
-@use '../variables' as *;
+@use '../utils' as *;
 
 @include byModifier('container') {
   max-width: var(--container-max-width);
@@ -24,12 +23,14 @@
 
   @media (min-width: $screen-lg) {
     max-width: var(--container-max-width--lg);
+
     padding-right: var(--container-padding--lg);
     padding-left: var(--container-padding--lg);
   }
 
   @media (min-width: $screen-xl) {
     max-width: var(--container-max-width--xl);
+
     padding-right: var(--container-padding--xl);
     padding-left: var(--container-padding--xl);
   }

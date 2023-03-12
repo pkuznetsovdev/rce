@@ -1,5 +1,4 @@
-@use '../mixins' as *;
-@forward '../variables';
+@use '../utils' as *;
 
 @include byName(){
   margin: 0;

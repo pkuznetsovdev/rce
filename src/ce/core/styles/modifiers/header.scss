@@ -1,11 +1,8 @@
-@use '../mixins';
-@use '../variables' as *;
+@use '../utils' as *;
 
-@include mixins.byModifier('header') {
-  margin: var(--header-text-margin);
+@include byModifier('header') {
+  margin: var(--header-margin);
 
-
-  color: var(--header-text-color);
   font-size: var(--header-text-font-size);
   font-weight: var(--header-text-font-weight);
   line-height: var(--header-text-line-height);
@@ -13,8 +10,8 @@
   text-transform: var(--header-text-transform);
 
 
-  & + #{$ce-base-name}--subheader {
-    margin-top: calc(var(--header-text-margin-bottom) * (-1));
+  @include beforeByName('subheader') {
+    margin-top: calc(var(--header-margin-bottom) * (-1));
     font-style: italic;
   }
 }

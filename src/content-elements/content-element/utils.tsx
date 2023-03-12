@@ -85,7 +85,8 @@ export function getContentElementClassName<Name extends ContentElementName>(
 
   const baseClassName = getBaseContentElementClassName(name, type);
 
-  const modifiersClassNames = modifiers?.map(getModifierClassName) || [];
+  const modifiersClassNames =
+    modifiers?.filter(Boolean).map(getModifierClassName) || [];
 
   if (
     contentElementProps &&

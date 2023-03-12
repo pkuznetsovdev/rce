@@ -1,12 +1,12 @@
-@use '../mixins';
-@use '../variables' as *;
+@use '../utils' as *;
 
-@include mixins.byModifier('section-title') {
+@include byModifier('section-title') {
   margin: var(--section-title-text-margin);
 
-  color: var(--section-title-text-color);
   font-size: var(--section-title-text-font-size);
-  font-weight: var(--section-title-text-font-weight);
-  line-height: var(--section-title-text-line-height);
   text-align: var(--section-title-text-align);
+
+  //color: var(--section-title-text-color);
+  //font-weight: var(--section-title-text-font-weight);
+  //line-height: var(--section-title-text-line-height);
 }
