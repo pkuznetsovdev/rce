@@ -10,7 +10,7 @@
   text-transform: var(--header-text-transform);
 
 
-  @include beforeByName('subheader') {
+  @include nextByName('subheader') {
     margin-top: calc(var(--header-margin-bottom) * (-1));
     font-style: italic;
   }

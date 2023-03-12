@@ -9,7 +9,7 @@
 
   transition: .3s color ease-in;
 
-  @include beforeByName('text') {
+  @include nextByName('text') {
     margin-top: var(--text-paragraph-margin);
   }
 }

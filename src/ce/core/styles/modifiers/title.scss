@@ -3,7 +3,7 @@
 @include byModifier('title') {
   font-size: var(--title-font-size);
 
-  @include beforeByName('text') {
+  @include nextByName('text') {
     margin-top: .5em;
   }
 }
