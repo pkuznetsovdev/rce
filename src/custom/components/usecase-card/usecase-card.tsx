@@ -21,8 +21,11 @@ const imageSrcSet = BREAKPOINT_NAMES.reduce((res, name) => {
 
 export const UsecaseCard = () => {
   return (
-    <CE.Block className="usecase-card" config={{ backgroundImage: imageSrcSet }}>
-            <h1>Hello</h1>
+    <CE.Block
+      className="usecase-card"
+      config={{ backgroundImage: imageSrcSet }}
+    >
+      <h1>Hello</h1>
     </CE.Block>
   );
 };

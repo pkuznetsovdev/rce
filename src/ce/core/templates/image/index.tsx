@@ -10,13 +10,13 @@ export const Image = ({
   srcSet,
   ...props
 }: React.PropsWithChildren<ImageProps & WithMyTemplateElementProps>) => {
-  const { nativeSrcSet, sizes } = getImageNativePropsBySrcSet(srcSet)
+  const { nativeSrcSet, sizes } = getImageNativePropsBySrcSet(srcSet);
 
   return <img {...props} srcSet={nativeSrcSet} sizes={sizes} />;
 };
 
-function getImageNativePropsBySrcSet(srcSet: ImageProps['srcSet']) {
+function getImageNativePropsBySrcSet(srcSet: ImageProps["srcSet"]) {
   return srcSet
-      ? getNativeSrcSet(srcSet)
-      : { nativeSrcSet: undefined, sizes: undefined };
+    ? getNativeSrcSet(srcSet)
+    : { nativeSrcSet: undefined, sizes: undefined };
 }

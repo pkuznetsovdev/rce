@@ -13,12 +13,14 @@ export const Block = ({
   const backgroundImageUrl = useBgBySrcSet(backgroundImage);
 
   const style = {
-    ...(backgroundImageUrl ? { backgroundImage: backgroundImageUrl } : {})
-  }
+    ...(backgroundImageUrl ? { backgroundImage: backgroundImageUrl } : {}),
+  };
 
   return (
     // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line
-    <TagName {...props} style={style}>{children}</TagName>
+    <TagName {...props} style={style}>
+      {children}
+    </TagName>
   );
 };
