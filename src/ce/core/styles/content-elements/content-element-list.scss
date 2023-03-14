@@ -1,6 +1,8 @@
 @use '../utils' as *;
 
 @include byName('list') {
+  width: var(--list-width);
+
   display: var(--list-display);
   flex-direction: var(--list-flex-direction);
   flex-grow: var(--list-flex-grow);

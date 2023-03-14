@@ -86,6 +86,7 @@ function getMyElementConfig<ElementName extends MyElementName>(
     ...restProps,
     ...configToUse,
     ...customProps,
+    className: `${configToUse.className ? configToUse.className : ''} ${props.className ? props.className : ''}`.trim(),
     modifiers,
     myname,
   } as const;

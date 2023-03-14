@@ -4,7 +4,7 @@ import { CE } from "src/ce";
 
 import { useGetData } from "src/custom/data";
 import { ThemeContext } from "../providers/theme";
-import { UsecasesList } from "../components";
+import { UsecaseCard, UsecasesList } from "../components";
 
 const Index = () => {
   const pageData = useGetData("IndexPage");
@@ -18,8 +18,16 @@ const Index = () => {
           type="button"
           onClick={() => onChangeAppColorTheme("dark")}
         >{`current mode: ${theme}`}</button>
-        <CE.Block className="content-block" modifiers={["container"]}>
+        <CE.Block className="content-block" modifiers={["container"]} config={{ className: 'config'}}>
           <CE.Text modifiers={["title-xs", "i"]}>MyElement usecases:</CE.Text>
+
+          <CE.List modifiers={["grid"]}>
+            <UsecaseCard />
+            <UsecaseCard />
+            <UsecaseCard />
+            <UsecaseCard />
+          </CE.List>
+
           <UsecasesList />
 
           {/*

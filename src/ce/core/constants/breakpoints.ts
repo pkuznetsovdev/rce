@@ -41,7 +41,7 @@ export const BREAKPOINT_NAMES = Object.keys(BREAKPOINTS_BY_NAME).map(
 
 function useGetCurrentBreakpointName() {
   let currentBreakpoint = null;
-  const currentScreenWidth = window.screen.width;
+  const currentScreenWidth = window.innerWidth;
 
   for (const bpName in BREAKPOINTS_BY_NAME) {
     const breakpointName = bpName as BreakpointName; // ts type fix

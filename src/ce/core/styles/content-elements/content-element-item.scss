@@ -8,6 +8,6 @@
   flex-grow: var(--item-flex-grow);
 
   & + & {
-    //margin-top: var(--text-font-size);
+    margin: var(--item-margin);
   }
 }
