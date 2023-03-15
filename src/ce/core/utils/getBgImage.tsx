@@ -3,7 +3,7 @@ import React from "react";
 import { ImageSrcSetProp } from "./getSrcSet";
 
 export const useBgBySrcSet = (
-  srcSetConfig?: ImageSrcSetProp
+  srcSetConfig?: ImageSrcSetProp | string
 ): string | undefined => {
   const [breakpointName] = useBreakpoints();
 
@@ -13,6 +13,10 @@ export const useBgBySrcSet = (
     }
 
     let srcBySrcSet;
+
+    if (typeof srcSetConfig === "string") {
+      return srcSetConfig;
+    }
 
     // by key
     srcBySrcSet = srcSetConfig[breakpointName];

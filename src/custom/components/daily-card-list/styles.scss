@@ -1,0 +1,10 @@
+@import "src/ce/core/styles/utils";
+
+.daily-card-list {
+  display: grid;
+  grid-gap: 20px;
+
+  @media (min-width: $screen-sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

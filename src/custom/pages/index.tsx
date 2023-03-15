@@ -4,7 +4,7 @@ import { CE } from "src/ce";
 
 import { useGetData } from "src/custom/data";
 import { ThemeContext } from "../providers/theme";
-import { UsecaseCard, UsecasesList } from "../components";
+import { DailyCardList, UsecasesList } from "../components";
 
 const Index = () => {
   const pageData = useGetData("IndexPage");
@@ -18,38 +18,15 @@ const Index = () => {
           type="button"
           onClick={() => onChangeAppColorTheme("dark")}
         >{`current mode: ${theme}`}</button>
-        <CE.Block
-          className="content-block"
-          modifiers={["container"]}
-          config={{ className: "config" }}
-        >
+        <CE.Text modifiers={["header", "main-header"]}>
+          React Content Elements
+        </CE.Text>
+        <CE.Block className="content-block" modifiers={["container"]}>
           <CE.Text modifiers={["title-xs", "i"]}>MyElement usecases:</CE.Text>
 
-          <CE.List modifiers={["grid"]}>
-            <UsecaseCard />
-            <UsecaseCard />
-            <UsecaseCard />
-            <UsecaseCard />
-          </CE.List>
+          <DailyCardList />
 
           <UsecasesList />
-
-          {/*
-         <ContentElements.Block modifiers={["container"]}>
-              <ContentElements.Text
-                  modifiers={["header"]}
-                  tag="h3"
-                  content={pageData.header}
-              />
-          </ContentElements.Block>
-          <ContentElements.List
-              className="option-card-list"
-              ceList={{
-                  items: [], // pageData.options,
-                  ItemTemplate: CustomComponents.OptionCard, // ts should fail if expected props differ from typeof items[number]
-              }}
-          />
-          */}
         </CE.Block>
       </ContentElements.Page>
     </>

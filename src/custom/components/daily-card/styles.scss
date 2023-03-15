@@ -1,0 +1,9 @@
+@import "src/ce/core/styles/utils";
+
+.daily-card {
+  @include byName('image') {
+    border-radius: 10px;
+    height: 150px;
+    width: 100%;
+  }
+}

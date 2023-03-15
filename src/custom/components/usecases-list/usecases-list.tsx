@@ -2,7 +2,6 @@ import React from "react";
 import { CE } from "src/ce";
 import { BREAKPOINT_NAMES } from "src/ce/core/constants";
 import { getBpValue } from "src/ce/core/utils";
-import { UsecaseCard } from "../usecase-card";
 
 const imgSrcByProps =
   "https://image.cnbcfm.com/api/v1/image/107196235-1676617290460-_GRAND-PRIZE_WINNER_-_Karthik_Subramaniam.jpg?ffmt=webp";
