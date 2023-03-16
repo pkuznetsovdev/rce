@@ -1,10 +1,37 @@
-@import "../../../../ce/core/styles/utils/index";
+@import "src/ce/core/styles/utils/index";
 
 .daily-card-list {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: var(--ce-margin);
 
   @media (min-width: $screen-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $screen-md) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: $screen-xl) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include byName('item') {
+
+    @media (min-width: $screen-xl) {
+      grid-template-columns: repeat(6, 1fr);
+
+      grid-column: span 2;
+
+      &:nth-child(1) {
+        grid-column: auto/span 4;
+      }
+      &:nth-child(3) {
+        grid-column: auto/span 3;
+      }
+      &:nth-child(4) {
+        grid-column: auto/span 3;
+      }
+    }
   }
 }
