@@ -1,31 +1,27 @@
 import React from "react";
 import { CE } from "src/ce";
-import { BREAKPOINT_NAMES } from "src/ce/core/constants";
-import { getBpValue } from "src/ce/core/utils";
 import { MyElementConfigProps } from "src/ce/core/types";
 
-const imageSrcSet = BREAKPOINT_NAMES.reduce((res, name) => {
-  return {
-    ...res,
-    [name]: `https://dummyimage.com/${getBpValue(name)}`,
-  };
-}, {});
+interface DailyCardItemData {
+  image?: MyElementConfigProps<"image">;
+  title?: MyElementConfigProps<"text">;
+}
 
 interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;
-  itemData?: number;
+  itemData?: DailyCardItemData;
   title: MyElementConfigProps<"text">;
 }
 
-const defaultImageUrl = "https://dummyimage.com/";
-
 export const DailyCard = ({ itemData }: DailyCardProps) => {
-  const imageSrc = itemData?.image || defaultImageUrl;
-
   return (
+    // <CE.Block className="daily-card" config={{ backgroundImage: itemData?.image}}>
     <CE.Block className="daily-card">
-      <CE.Text config={itemData?.title} />
-      <CE.Image config={imageSrc} />
+      <CE.Image modifiers={["card-title"]} config={{ src: itemData?.image }} />
+      <CE.Text modifiers={["card-title"]} config={itemData?.title} />
+      <CE.Text modifiers={["card-description"]}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </CE.Text>
     </CE.Block>
   );
 };

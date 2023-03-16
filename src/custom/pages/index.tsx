@@ -18,7 +18,7 @@ const Index = () => {
           type="button"
           onClick={() => onChangeAppColorTheme("dark")}
         >{`current mode: ${theme}`}</button>
-        <CE.Text modifiers={["header", "main-header"]}>
+        <CE.Text modifiers={["header", "accent"]}>
           React Content Elements
         </CE.Text>
         <CE.Block className="content-block" modifiers={["container"]}>

@@ -18,6 +18,9 @@ export const WithMyElementConfig =
       getMyElementTemplatePropsByConfig(myElementConfig);
 
     //some magic with props
+    // if image
+    // const nativeSrcProps = getImageNativePropsSrcPropsByConfigSrc(myElementConfig.src) *remove from Image template
+    // return <MyElementTemplate {...myElementTemplateProps} {...nativeSrcProps}/>;
 
     return <MyElementTemplate {...myElementTemplateProps} />;
   };
