@@ -1,7 +1,7 @@
 import React from "react";
 import { ContentElements } from "src/content-elements";
 
-import { useGetData } from "src/custom/data";
+import { useGetData } from "src/custom/project-a/data";
 
 const Sandbox = () => {
   const pageData = useGetData("IndexPage");

@@ -1,4 +1,4 @@
-import { NestedPaths, TypeFromPath } from "../../shared/types/type-nested-paths";
+import { NestedPaths, TypeFromPath } from "../../../shared/types/type-nested-paths";
 import DATA_BY_PAGE from "./data-by-page";
 
 export type PathToData = NestedPaths<typeof DATA_BY_PAGE>;

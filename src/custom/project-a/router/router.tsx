@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import IndexPage from "../pages/index";
+import IndexPage from "../pages";
 import Sandbox from "../pages/sandbox";
 
 const PAGES_BY_LOCATION = {
