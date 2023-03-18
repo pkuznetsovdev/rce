@@ -1,16 +1,23 @@
+/** structure */
+@forward 'page';
+@forward 'section';
+
 @forward 'container';
+
+/** list */
+@forward 'grid';
+@forward 'row';
+
+/** text */
 @forward 'subheader';
 @forward 'header';
-
-
-@forward 'center';
-@forward 'accent';
 
 @forward 'subtitle';
 @forward 'title';
 @forward 'section-title';
 
-@forward 'italic';
+@forward 'center';
+@forward 'accent';
 
-@forward 'grid';
+@forward 'italic';
 

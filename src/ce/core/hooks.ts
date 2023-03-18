@@ -11,8 +11,6 @@ export function useValidateMyElementProps<ElementName extends MyElementName>(
     props: MyElementProps<ElementName>,
     myname: ElementName
 ) {
-    let isContentInProps = false;
-
     /** Case 1. Filter by WCE condition */
     const isElementValidByCondition = useContentConditions(
         props.contentConditions,
@@ -26,25 +24,8 @@ export function useValidateMyElementProps<ElementName extends MyElementName>(
         return false;
     }
 
-    /** Case 2. Filter by is minimum required content or children in props */
-    const isChildrenInProps = Boolean(
-        React.Children.toArray(props.children).length
-    );
-
-    switch (myname) {
-        case "text":
-            isContentInProps =
-                isChildrenInProps || getIsContentInProps(props, myname);
-            break;
-        case "image":
-            return isContentInProps = getIsContentInProps(props, myname)
-        case "block":
-            return true
-        case "list":
-            return isChildrenInProps
-        default:
-            validateUnreachableCode(myname);
-    }
+    /** Case 2. Filter by 'is minimum required content' or children in props or else... */
+    const isContentInProps = getIsContentInProps(props, myname);
 
     if (!isContentInProps) {
         /**  IDEAS
@@ -57,8 +38,12 @@ export function useValidateMyElementProps<ElementName extends MyElementName>(
 
 function getIsContentInProps<ElementName extends MyElementName>(
     props: MyElementProps<ElementName>,
-    myname: ElementName
+    myname: ElementName,
 ) {
+    const isChildrenInProps = Boolean(
+        React.Children.toArray(props.children).length
+    );
+
     const isDefaultConfig =
         MY_ELEMENT_CONFIG_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
 
@@ -68,7 +53,7 @@ function getIsContentInProps<ElementName extends MyElementName>(
 
     switch (myname) {
         case "text":
-            return Boolean(
+            return isChildrenInProps || Boolean(
                 // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is stringc
                 // @ts-ignore
                 props.config?.text || props.text
@@ -78,7 +63,11 @@ function getIsContentInProps<ElementName extends MyElementName>(
             // @ts-ignore
             return props.config?.src || props.src
         case "block":
-            return true
+            return true;
+        case "list":
+            // TODO FAQ: How to fix ts
+            // @ts-ignore
+            return props.listItemTemplate || props.config?.listItemTemplate || isChildrenInProps
         default:
             validateUnreachableCode(myname)
             return false;

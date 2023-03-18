@@ -9,7 +9,7 @@
   }
 
   @media (min-width: $screen-md) {
-    grid-template-columns: repeat(3, 1fr);
+    //grid-template-columns: repeat(3, 1fr);
   }
 
   @media (min-width: $screen-xl) {
@@ -17,15 +17,19 @@
   }
 
   @include byName('item') {
+    @media (min-width: $screen-sm) {
+      &:nth-child(1) {
+        grid-column: auto/span 2;
+      }
+    }
 
     @media (min-width: $screen-xl) {
-      grid-template-columns: repeat(6, 1fr);
-
       grid-column: span 2;
 
       &:nth-child(1) {
         grid-column: auto/span 4;
       }
+
       &:nth-child(3) {
         grid-column: auto/span 3;
       }

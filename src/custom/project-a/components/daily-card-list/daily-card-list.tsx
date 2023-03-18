@@ -5,16 +5,19 @@ import { MyElementConfigProps } from "src/ce/core/types";
 
 interface DailyCardListProps {
   title?: MyElementConfigProps<"text">;
-  listData: DailyCardProps[];
+  dailyCards: DailyCardProps[];
 }
 
-export const DailyCardList = ({ title, listData }: DailyCardListProps) => {
+export const DailyCardList = ({ title, dailyCards }: DailyCardListProps) => {
   return (
     <>
       <CE.Text text={title} modifiers={["title", "i"]} />
-      <CE.List className="daily-card-list" listData={listData}>
-        <DailyCard />
-      </CE.List>
+      <CE.List
+        className="daily-card-list"
+        listItemTemplate={DailyCard}
+        listData={dailyCards}
+        // config={{ listData, listItemTemplate: DailyCard }}
+      />
     </>
   );
 };

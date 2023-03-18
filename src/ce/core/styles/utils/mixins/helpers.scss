@@ -11,3 +11,9 @@
     }
   }
 }
+
+@mixin nextByModifier($ce-modifier: '') {
+  & + #{$ce-base-name}--#{$ce-modifier} {
+    @content;
+  }
+}

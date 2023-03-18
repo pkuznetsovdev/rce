@@ -19,9 +19,9 @@ const imageSrcSet = BREAKPOINT_NAMES.reduce((res, name) => {
   };
 }, {});
 
-export const UsecasesList = () => {
+export const TestList = () => {
   return (
-    <CE.List className="usecases" modifiers={["grid"]}>
+    <CE.List className="test" modifiers={["grid"]}>
       <>
         <CE.Text>Content by children(image: srcSet)</CE.Text>
         <CE.Image

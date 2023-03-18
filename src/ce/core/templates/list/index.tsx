@@ -10,11 +10,12 @@ export const List = ({
   text,
   myElementKey,
   listData,
+  listItemTemplate: ItemTemplate,
   ...props
-}: ListProps & WithMyTemplateElementProps) => {
+}: WithMyTemplateElementProps & ListProps) => {
   const elementKeyByListProps = myElementKey || "id";
 
-  if (listData && React.Children.only(children)) {
+  if (listData && ItemTemplate) {
     return (
       <TagName {...props}>
         {listData.map((listItemData, idx) => {
@@ -28,10 +29,26 @@ export const List = ({
                 `${BASE_CLASSNAME}-item`
               )}
             >
+              <ItemTemplate {...{ ...listItemData, itemIndex: idx }} />
+            </ListItem>
+          );
+        })}
+      </TagName>
+    );
+  }
+
+  if (listData && React.Children.only(children)) {
+    return (
+      <TagName {...props}>
+        {listData.map((listItemData, idx) => {
+          const elementKeyValue = listItemData.id || idx;
+
+          return (
+            <ListItem key={elementKeyValue}>
               {/*{child}*/}
               {React.cloneElement(children, {
                 itemIndex: idx,
-                itemData: listItemData,
+                ...listItemData,
               })}
             </ListItem>
           );
@@ -54,17 +71,11 @@ export const List = ({
         }
 
         return (
-          <ListItem
-            key={elementKeyValue}
-            className={SHARED_UTILS.getClassNames(
-              BASE_CLASSNAME,
-              `${BASE_CLASSNAME}-item`
-            )}
-          >
+          <ListItem key={elementKeyValue}>
             {/*{child}*/}
             {React.cloneElement(child, {
               itemIndex: idx,
-              itemData: listData ? listData[idx] : undefined,
+              ...(listData && listData[idx] ? listData[idx] : {}),
             })}
           </ListItem>
         );
@@ -74,5 +85,15 @@ export const List = ({
 };
 
 export const ListItem = ({ children, ...props }: ListItemProps) => {
-  return <li {...props}>{children}</li>;
+  return (
+    <li
+      className={SHARED_UTILS.getClassNames(
+        BASE_CLASSNAME,
+        `${BASE_CLASSNAME}-item`
+      )}
+      {...props}
+    >
+      {children}
+    </li>
+  );
 };

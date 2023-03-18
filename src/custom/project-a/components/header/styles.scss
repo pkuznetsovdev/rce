@@ -1,0 +1,23 @@
+@import "src/ce/core/styles/utils";
+
+$name: 'header';
+
+.#{$name} {
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+
+  @include byModifier('#{$name}-logo') {
+    text-align: left;
+    margin: 0 auto 0 0;
+    color: var(--ce-accent-color);
+    font-size: var(--header-font-size);
+    font-weight: var(--header-font-weight);
+    line-height: var(--header-line-height);
+  }
+
+  @include byModifier('#{$name}-controls') {
+    flex-grow: 0;
+  }
+}

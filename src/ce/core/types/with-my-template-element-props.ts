@@ -1,4 +1,4 @@
-export type WithMyTemplateElementProps = {
+export interface WithMyTemplateElementProps {
     tag: keyof HTMLElementTagNameMap;
     text?: string;
 };
