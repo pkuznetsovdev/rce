@@ -44,7 +44,6 @@ const Index = () => {
             ]}
           />
         </CE.Block>
-        </CE.Block>
       </Layout>
     </>
   );

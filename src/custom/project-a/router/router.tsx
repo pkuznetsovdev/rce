@@ -11,15 +11,6 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/** index  */}
-        <Route
-          path="/rce"
-          element={
-            <React.Suspense fallback={"Loading..."}>
-              <PAGES_BY_LOCATION.index />
-            </React.Suspense>
-          }
-        />
         {/** pages  */}
         <Route
           path="sandbox"
@@ -37,7 +28,15 @@ const Router = () => {
             </React.Suspense>
           }
         />
-        <Route path="/" element={<Navigate to="/rce" replace />} />
+        {/** index  */}
+        <Route
+          path="/"
+          element={
+            <React.Suspense fallback={"Loading..."}>
+              <PAGES_BY_LOCATION.index />
+            </React.Suspense>
+          }
+        />
         {/** 404  */}
         <Route
           path="*"
