@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 const PAGES_BY_LOCATION = {
   index: React.lazy(() => import("../pages")),
@@ -13,7 +13,7 @@ const Router = () => {
       <Routes>
         {/** index  */}
         <Route
-          path="/"
+          path="/rce"
           element={
             <React.Suspense fallback={"Loading..."}>
               <PAGES_BY_LOCATION.index />
@@ -37,7 +37,7 @@ const Router = () => {
             </React.Suspense>
           }
         />
-
+        <Route path="/" element={<Navigate to="/rce" replace />} />
         {/** 404  */}
         <Route
           path="*"

@@ -12,7 +12,7 @@ const mainClass = "nav-list";
 const navLinks: Array<NavLinkProps> = [
   {
     to: "/",
-    title: "Home",
+    title: "Concept",
   },
   {
     to: "/usecases",
@@ -28,7 +28,7 @@ export const NavList = ({ modifiers = [] }: HeaderProps) => {
   return (
     <CE.List
       className={mainClass}
-      modifiers={["row", modifiers]}
+      modifiers={["row", ...modifiers]}
       listData={navLinks}
       listItemTemplate={ListItemTemplate}
     />

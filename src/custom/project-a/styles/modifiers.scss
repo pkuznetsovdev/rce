@@ -1,12 +1,11 @@
 @import "src/ce/core/styles/utils";
 
 @include byModifier('page-title') {
-  margin: var(--header-margin);
+  margin-right: 0;
 
-  color: var(--ce-accent-color);
+  //color: var(--ce-accent-color);
   font-size: var(--header-font-size);
   font-weight: var(--header-font-weight);
   line-height: var(--header-line-height);
-  text-align: var(--header-text-align);
   text-transform: var(--header-text-transform);
 }

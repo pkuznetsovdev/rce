@@ -67,7 +67,7 @@ function getIsContentInProps<ElementName extends MyElementName>(
         case "list":
             // TODO FAQ: How to fix ts
             // @ts-ignore
-            return props.listItemTemplate || props.config?.listItemTemplate || isChildrenInProps
+            return props.listItemTemplate || props.config?.listItemTemplate || isChildrenInProps || props.modifiers.includes('disc');
         default:
             validateUnreachableCode(myname)
             return false;

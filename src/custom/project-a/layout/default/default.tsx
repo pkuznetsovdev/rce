@@ -21,8 +21,8 @@ export const Layout = ({
     <CE.Block {...props} modifiers={["page", ...modifiers]}>
       <CE.Block modifiers={["container"]}>
         <Header />
+        <CE.Text modifiers={["page-title"]} config={title} />
       </CE.Block>
-      <CE.Text modifiers={["page-title"]} config={title} />
       <CE.Block tag="main" modifiers={["main"]}>
         {children}
       </CE.Block>
