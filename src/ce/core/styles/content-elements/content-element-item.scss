@@ -1,0 +1,13 @@
+@use '../utils' as *;
+
+@include byName('item') {
+  margin: var(--item-margin);
+
+  display: var(--item-display);
+  flex-direction: var(--item-flex-direction);
+  flex-grow: var(--item-flex-grow);
+
+  & + & {
+    margin: var(--item-margin);
+  }
+}

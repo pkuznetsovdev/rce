@@ -1,0 +1,9 @@
+@import "src/ce/core/styles/utils";
+
+$name: 'sandbox';
+
+.#{$name} {
+  @include byModifier('main') {
+    display: block;
+  }
+}

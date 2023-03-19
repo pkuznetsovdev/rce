@@ -6,14 +6,19 @@ import {
   processContentConditionBySchedule,
 } from "./utils";
 
-type ContentConditionParams = {
-  shouldSatisfyEveryCondition?: boolean;
-};
+export type ContentConditionParams = Partial<{
+  contentConditions: ContentConditions;
+  shouldSatisfyEveryCondition: boolean;
+}>;
 
 const getContentConditions = (
-  contentConditions: ContentConditions = [],
+  contentConditions: ContentConditions | undefined,
   { shouldSatisfyEveryCondition }: ContentConditionParams
 ) => {
+  if (!contentConditions) {
+    return true;
+  }
+
   // TODO: move to f params
   const groupsToVerifyByCondition: never[] = []; // useSelector(getUserGroups)
 
@@ -35,7 +40,7 @@ const getContentConditions = (
     : contentConditionResults.some(Boolean);
 };
 
-// const useContentConditions = getContentConditions
+export const useContentConditions = getContentConditions;
 
 const ContentElementCondition = ({
   showMultipleResults: shouldShowMultipleResults = false,

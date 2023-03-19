@@ -15,7 +15,7 @@ export const CONTENT_ELEMENT_BLOCK = {
 
 export type ContentElementBlock = typeof CONTENT_ELEMENT_BLOCK;
 
-export type backgroundImageProps = ContentElementImageProps &
+export type BackgroundImageProps = ContentElementImageProps &
   Partial<{
     srcSet: Record<BreakpointName, string>;
   }>;
@@ -30,6 +30,6 @@ export type ContentElementBlockProps = HTMLProps<
       typeof CONTENT_ELEMENT_BLOCK.modifiers[number]
     >[];
     // ??
-    backgroundImage?: backgroundImageProps;
+    backgroundImage?: BackgroundImageProps | string;
     withContainer?: boolean;
   }>;

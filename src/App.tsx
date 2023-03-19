@@ -1,12 +1,14 @@
-import React from "react";
-import "./custom/styles/index.scss";
-import IndexPage from "./custom/pages";
-import { useOmAppMountHook } from "./custom/hooks/useOmAppMountHook";
+import React, { useContext } from "react";
+import "./custom/project-a/styles/index.scss";
+import Router from "./custom/project-a/router/router";
+import { CustomProviders } from "src/custom";
 
 function App() {
-  useOmAppMountHook();
-
-  return <IndexPage />;
+  return (
+    <CustomProviders.AppProvider>
+      <Router />
+    </CustomProviders.AppProvider>
+  );
 }
 
 export default App;
