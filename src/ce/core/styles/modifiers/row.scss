@@ -1,0 +1,13 @@
+@use '../utils' as *;
+
+@include byModifier('row') {
+  display: var(--row-display);
+  flex-direction: var(--row-direction);
+
+  @include byName(){
+    @include nextByName() {
+      margin-top: 0;
+      margin-left: var(--ce-margin);
+    }
+  }
+}

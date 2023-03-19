@@ -13,6 +13,11 @@ import {
   ContentElementModifiers,
 } from "./types";
 import { ContentElementRenderer } from "./content-element-renderer";
+import { ContentConditions } from "../content-element-templates/content-element-condition/utils";
+import {
+  ContentConditionParams,
+  useContentConditions,
+} from "../content-element-templates/content-element-condition/content-element-condition";
 
 export function getContentElementRawContent<
   ElementName extends ContentElementName
@@ -47,17 +52,6 @@ type ContentElementConfig<ElementName extends ContentElementName> =
   | ContentElementProps<ElementName>
   | ContentElementConfigDefaultType;
 
-export function getContentElementByName<ElementName extends ContentElementName>(
-  name: ElementName
-) {
-  return (
-    props: ContentElementProps<ElementName> &
-      Partial<Record<ElementName, ContentElementConfig<ElementName>>>
-  ) => {
-    return ContentElementRenderer({ name, ...props });
-  };
-}
-
 export function getContentElementTemplateByName<
   Name extends ContentElementName
 >(name: Name) {
@@ -91,7 +85,8 @@ export function getContentElementClassName<Name extends ContentElementName>(
 
   const baseClassName = getBaseContentElementClassName(name, type);
 
-  const modifiersClassNames = modifiers?.map(getModifierClassName) || [];
+  const modifiersClassNames =
+    modifiers?.filter(Boolean).map(getModifierClassName) || [];
 
   if (
     contentElementProps &&
@@ -199,6 +194,16 @@ export function getContentElementProps<ElementName extends ContentElementName>(
   };
 }
 
-export const MockedContentElement = (props: {
-  children?: JSX.Element | JSX.Element[];
-}) => <>{props.children}</> || null;
+export const MockedContentElement = (props: React.PropsWithChildren<{}>) =>
+  <>{props.children}</> || null;
+
+export function getContentElementByName<ElementName extends ContentElementName>(
+  name: ElementName
+) {
+  return (
+    props: ContentElementProps<ElementName> &
+      Partial<Record<ElementName, ContentElementConfig<ElementName>>>
+  ) => {
+    return ContentElementRenderer({ name, ...props });
+  };
+}

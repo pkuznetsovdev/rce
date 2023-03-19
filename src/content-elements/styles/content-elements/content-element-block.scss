@@ -1,8 +1,0 @@
-@use '../mixins';
-
-@include mixins.byName('block') {
-  display: var(--block-display);
-  flex-direction: var(--block-flex-direction);
-  flex-grow: var(--block-flex-grow);
-  align-items: var(--block-align-items);
-}
