@@ -21,10 +21,12 @@ export const Header = ({ modifiers = [] }: HeaderProps) => {
         className={mainClass}
         modifiers={["row-above-md", ...modifiers]}
       >
-          <CE.Block modifiers={["header-logo"]}>
-              <CE.Text modifiers={["header-title"]}>React Content Elements</CE.Text>
-              <CE.Text modifiers={["header-text"]}>Your first Web Content factory</CE.Text>
-          </CE.Block>
+        <CE.Block modifiers={["header-logo"]}>
+          <CE.Text modifiers={["header-title"]}>React Content Elements</CE.Text>
+          <CE.Text modifiers={["header-text"]}>
+            Your first Web Content factory
+          </CE.Text>
+        </CE.Block>
         <CE.Block modifiers={["header-controls", "row"]}>
           <NavList />
           <button

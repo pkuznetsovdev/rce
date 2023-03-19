@@ -13,11 +13,10 @@ const Index = () => {
     <>
       <Layout className={mainClass} title="Web Content Development">
         <CE.Block modifiers={["section", "container"]}>
-
           <CE.Text>
             <b>Web Content Development</b> is appliance of your content data to
-            the digital page. <br />It stands for CRUD operations with the content data
-            of the page
+            the digital page. <br />
+            It stands for CRUD operations with the content data of the page
           </CE.Text>
 
           <CE.Text>How did you solve it before?</CE.Text>
