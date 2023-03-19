@@ -13,13 +13,10 @@ const Index = () => {
     <>
       <Layout className={mainClass} title="Web Content Development">
         <CE.Block modifiers={["section", "container"]}>
-          <CE.Text>
-            React Content Elements - your first Web Content factory
-          </CE.Text>
 
           <CE.Text>
             <b>Web Content Development</b> is appliance of your content data to
-            the digital pageIt stands for CRUD operations with the content data
+            the digital page. <br />It stands for CRUD operations with the content data
             of the page
           </CE.Text>
 

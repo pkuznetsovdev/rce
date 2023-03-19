@@ -1,7 +1,11 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate,
-    createHashRouter,
-    RouterProvider
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  createHashRouter,
+  RouterProvider,
 } from "react-router-dom";
 
 const PAGES_BY_LOCATION = {
@@ -11,44 +15,42 @@ const PAGES_BY_LOCATION = {
 };
 
 const router = createHashRouter([
-    {
-        path: "sandbox",
-        element: (
-            <React.Suspense fallback={"Loading..."}>
-                <PAGES_BY_LOCATION.sandbox />
-            </React.Suspense>
-        ),
-    },
-    {
-        path: "usecases",
-        element: (
-            <React.Suspense fallback={"Loading..."}>
-                <PAGES_BY_LOCATION.usecases />
-            </React.Suspense>
-        ),
-    },
-    {
-        path: "/",
-        element: (
-            <React.Suspense fallback={"Loading..."}>
-                <PAGES_BY_LOCATION.index />
-            </React.Suspense>
-        ),
-    },
-    {
-        path: "/*",
-        element: (
-            <React.Suspense fallback={"Loading..."}>
-                <h1>404</h1>
-            </React.Suspense>
-        ),
-    },
+  {
+    path: "sandbox",
+    element: (
+      <React.Suspense fallback={"Loading..."}>
+        <PAGES_BY_LOCATION.sandbox />
+      </React.Suspense>
+    ),
+  },
+  {
+    path: "usecases",
+    element: (
+      <React.Suspense fallback={"Loading..."}>
+        <PAGES_BY_LOCATION.usecases />
+      </React.Suspense>
+    ),
+  },
+  {
+    path: "/",
+    element: (
+      <React.Suspense fallback={"Loading..."}>
+        <PAGES_BY_LOCATION.index />
+      </React.Suspense>
+    ),
+  },
+  {
+    path: "/*",
+    element: (
+      <React.Suspense fallback={"Loading..."}>
+        <h1>404</h1>
+      </React.Suspense>
+    ),
+  },
 ]);
 
 const Router = () => {
-    return (
-        <RouterProvider router={router} />
-    )
+  return <RouterProvider router={router} />;
   // return (
   //   <BrowserRouter>
   //     <Routes>
