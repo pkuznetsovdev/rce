@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 const PAGES_BY_LOCATION = {
-  index: React.lazy(() => import("../pages")),
+  index: React.lazy(() => import("../pages/index")),
   sandbox: React.lazy(() => import("../pages/sandbox")),
   usecases: React.lazy(() => import("../pages/usecases")),
 };
