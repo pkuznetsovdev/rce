@@ -1,17 +1,17 @@
 import React from "react";
 import { CE } from "src/ce";
 
-import { Layout } from "../../layout/default/default";
+import { Layout } from "../../layout/default";
 
 import { useGetData } from "src/custom/project-a/data";
 
 const mainClass = "sandbox";
 
-const Sandbox = () => {
+const Template = () => {
   const pageData = useGetData("IndexPage");
 
   return (
-    <Layout className={mainClass} title="Sandbox">
+    <Layout className={mainClass} title="Template">
       <CE.Block modifiers={["container"]}>
         <iframe
           src="https://codesandbox.io/embed/dazzling-kowalevski-bvolky?fontsize=14&hidenavigation=1&theme=dark"
@@ -32,4 +32,4 @@ const Sandbox = () => {
   );
 };
 
-export default Sandbox;
+export default Template;
