@@ -7,4 +7,5 @@ export const CE = {
   Image: getMyElementByName("image"),
   Block: getMyElementByName("block"),
   List: getMyElementByName("list"),
+  Link: getMyElementByName("link"),
 } as const;

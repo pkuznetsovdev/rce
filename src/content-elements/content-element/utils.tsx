@@ -13,11 +13,6 @@ import {
   ContentElementModifiers,
 } from "./types";
 import { ContentElementRenderer } from "./content-element-renderer";
-import { ContentConditions } from "../content-element-templates/content-element-condition/utils";
-import {
-  ContentConditionParams,
-  useContentConditions,
-} from "../content-element-templates/content-element-condition/content-element-condition";
 
 export function getContentElementRawContent<
   ElementName extends ContentElementName

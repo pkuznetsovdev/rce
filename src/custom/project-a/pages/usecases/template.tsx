@@ -2,8 +2,8 @@ import React from "react";
 import { CE } from "src/ce";
 
 import { useGetData } from "src/custom/project-a/data";
-import { DailyCardList } from "../components";
-import { Layout } from "../layout/default/default";
+import { DailyCardList } from "src/custom/project-a/components";
+import { Layout } from "src/custom/project-a/layout";
 
 const mainClass = "usecases";
 
