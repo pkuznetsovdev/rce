@@ -15,7 +15,7 @@ const Usecases = () => {
   return (
     <Layout className={mainClass} title="Usecases">
       <CE.Block modifiers={["section", "container", "main"]}>
-        <CE.List>
+        <CE.List modifiers={["usecases-list"]}>
           <DailyCardList
             title="Daily Card list"
             dailyCards={dailyCardListData}

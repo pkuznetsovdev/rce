@@ -1,7 +1,6 @@
 @use '../utils' as *;
 
 @include byModifier('container') {
-  width: var(--container-width);
   max-width: var(--container-max-width);
   margin-left: var(--container-margin-left);
   margin-right: var(--container-margin-right);
@@ -27,6 +26,10 @@
 
     padding-right: var(--container-padding--lg);
     padding-left: var(--container-padding--lg);
+  }
+
+  @media (min-width: $container-content-max-width) {
+    width: var($container-content-max-width);
   }
 
   @media (min-width: $screen-xl) {
