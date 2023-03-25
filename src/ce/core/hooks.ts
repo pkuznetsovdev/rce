@@ -64,6 +64,10 @@ function getIsContentInProps<ElementName extends MyElementName>(
             return props.config?.src || props.src
         case "block":
             return true;
+        case "link":
+            // TODO FAQ: How to fix ts
+            // @ts-ignore
+            return Boolean(props.config?.to || props.to);
         case "list":
             // TODO FAQ: How to fix ts
             // @ts-ignore

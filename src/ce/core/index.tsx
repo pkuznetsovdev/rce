@@ -86,6 +86,8 @@ function getMyElementConfig<ElementName extends MyElementName>(
     ...restProps,
     ...configToUse,
     ...customProps,
+    // TODO FAQ: How to fix ts
+    // @ts-ignore
     className: `${configToUse.className ? configToUse.className : ""} ${
       props.className ? props.className : ""
     }`.trim(),
@@ -117,6 +119,12 @@ function getConfigByDefaultValue<ElementName extends MyElementName>(
         // TODO FAQ: How to fix ts
         // @ts-ignore
         text: config as MyElementConfigDefaultMap[ElementName],
+      });
+    case "link":
+      return getMyElementConfig(props, myname, {
+        // TODO FAQ: How to fix ts
+        // @ts-ignore
+        to: config as MyElementConfigDefaultMap[ElementName],
       });
     case "image":
       // TODO FAQ: How to fix ts

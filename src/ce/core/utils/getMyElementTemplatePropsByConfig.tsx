@@ -39,6 +39,7 @@ const TAG_BY_ELEMENT_NAME: Record<MyElementName, string> = {
   block: "div",
   image: "img",
   list: "ul",
+  link: "a",
 };
 
 const TAG_BY_ELEMENT_MODIFIER = {

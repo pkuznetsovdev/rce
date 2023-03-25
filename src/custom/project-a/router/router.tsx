@@ -1,22 +1,18 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  createHashRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import { APP_PATHS } from "./constants";
 
 const PAGES_BY_LOCATION = {
   index: React.lazy(() => import("../pages/index")),
   sandbox: React.lazy(() => import("../pages/sandbox")),
   usecases: React.lazy(() => import("../pages/usecases")),
+  concept: React.lazy(() => import("../pages/concept")),
+  docs: React.lazy(() => import("../pages/docs")),
 };
 
 const router = createHashRouter([
   {
-    path: "sandbox",
+    path: APP_PATHS.sandbox.route,
     element: (
       <React.Suspense fallback={"Loading..."}>
         <PAGES_BY_LOCATION.sandbox />
@@ -24,7 +20,7 @@ const router = createHashRouter([
     ),
   },
   {
-    path: "usecases",
+    path: APP_PATHS.usecases.route,
     element: (
       <React.Suspense fallback={"Loading..."}>
         <PAGES_BY_LOCATION.usecases />
@@ -32,7 +28,23 @@ const router = createHashRouter([
     ),
   },
   {
-    path: "/",
+    path: APP_PATHS.concept.route,
+    element: (
+      <React.Suspense fallback={"Loading..."}>
+        <PAGES_BY_LOCATION.concept />
+      </React.Suspense>
+    ),
+  },
+  {
+    path: APP_PATHS.docs.route,
+    element: (
+      <React.Suspense fallback={"Loading..."}>
+        <PAGES_BY_LOCATION.docs />
+      </React.Suspense>
+    ),
+  },
+  {
+    path: APP_PATHS.home.route,
     element: (
       <React.Suspense fallback={"Loading..."}>
         <PAGES_BY_LOCATION.index />

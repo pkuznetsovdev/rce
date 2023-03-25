@@ -13,24 +13,13 @@ export const List = ({
   listItemTemplate: ItemTemplate,
   ...props
 }: WithMyTemplateElementProps & ListProps) => {
-  console.log(props);
   const elementKeyByListProps = myElementKey || "id";
 
   if (listData && typeof listData[0] === "string" && !ItemTemplate) {
     return (
       <TagName {...props}>
         {listData.map((listItemText, idx) => {
-          return (
-            <ListItem
-              key={idx}
-              className={SHARED_UTILS.getClassNames(
-                BASE_CLASSNAME,
-                `${BASE_CLASSNAME}-item`
-              )}
-            >
-              {listItemText as string}
-            </ListItem>
-          );
+          return <ListItem key={idx}>{listItemText as string}</ListItem>;
         })}
       </TagName>
     );
@@ -43,13 +32,7 @@ export const List = ({
           const elementKeyValue = listItemData.id || idx;
 
           return (
-            <ListItem
-              key={elementKeyValue}
-              className={SHARED_UTILS.getClassNames(
-                BASE_CLASSNAME,
-                `${BASE_CLASSNAME}-item`
-              )}
-            >
+            <ListItem key={elementKeyValue}>
               <ItemTemplate {...{ ...listItemData, itemIndex: idx }} />
             </ListItem>
           );

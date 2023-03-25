@@ -4,6 +4,7 @@ import {
 import { MyElementModifiers, MyElementName, MyElementSpecialProps, MyElementTag } from "./my-element";
 import React, { HTMLProps } from "react";
 import { ListProps } from "src/ce/core/templates/list/types";
+import { LinkProps } from "src/ce/core/templates/link/types";
 
 
 /** START: MyElementConfig */
@@ -22,6 +23,7 @@ interface MyElementCofigContentMap<ElementName extends MyElementName, ListElemen
     }
     block: never;
     list: ListProps<ListElementTemplateProps>;
+    link: LinkProps;
 }
 
 type MyElementCofigContent<ElementName extends MyElementName> = MyElementCofigContentMap<ElementName>[ElementName]
@@ -41,6 +43,7 @@ export interface MyElementConfigDefaultMap {
     image?: string;
     block?: never;
     list?: never;
+    link?: string;
 }
 
 /** END: MyElementConfig */

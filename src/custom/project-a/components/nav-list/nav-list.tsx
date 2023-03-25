@@ -2,6 +2,7 @@ import React from "react";
 import { CE } from "src/ce";
 import { MyElementConfigProps } from "src/ce/core/types";
 import { NavLink, NavLinkProps } from "react-router-dom";
+import { APP_PATHS } from "src/custom/project-a/router";
 
 interface HeaderProps extends MyElementConfigProps<"list"> {
   // navLinks: Array<NavLinkProps>;
@@ -9,20 +10,9 @@ interface HeaderProps extends MyElementConfigProps<"list"> {
 
 const mainClass = "nav-list";
 
-const navLinks: Array<NavLinkProps> = [
-  {
-    to: "/",
-    title: "Concept",
-  },
-  {
-    to: "/usecases",
-    title: "Usecases",
-  },
-  {
-    to: "/sandbox",
-    title: "Sandbox",
-  },
-];
+const navLinks = Object.entries(APP_PATHS).map(([k, { route, title }]) => {
+  return { to: route, title };
+});
 
 export const NavList = ({ modifiers = [] }: HeaderProps) => {
   return (
@@ -38,5 +28,5 @@ export const NavList = ({ modifiers = [] }: HeaderProps) => {
 function ListItemTemplate(props: NavLinkProps) {
   const { itemIndex, ...navLinkProps } = props;
 
-  return <NavLink {...navLinkProps}>{navLinkProps.title}</NavLink>;
+  return <CE.Link {...navLinkProps} />;
 }
