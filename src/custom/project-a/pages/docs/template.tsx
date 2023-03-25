@@ -1,7 +1,7 @@
 import React from "react";
 import { CE } from "src/ce";
 
-import { Layout } from "../../layout/default";
+import { Layout } from "../../layout";
 
 import { useGetData } from "src/custom/project-a/data";
 
