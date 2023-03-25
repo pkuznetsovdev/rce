@@ -1,6 +1,5 @@
 @use '../utils' as *;
 
 @include byModifier('section') {
-  width: var(--section-width);
   margin: var(--section-margin);
 }

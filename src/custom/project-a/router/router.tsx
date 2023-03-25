@@ -3,11 +3,11 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import { APP_PATHS } from "./constants";
 
 const PAGES_BY_LOCATION = {
-  index: React.lazy(() => import("../pages/index")),
-  sandbox: React.lazy(() => import("../pages/sandbox")),
-  usecases: React.lazy(() => import("../pages/usecases")),
-  concept: React.lazy(() => import("../pages/concept")),
-  docs: React.lazy(() => import("../pages/docs")),
+  Index: React.lazy(() => import("../pages/index")),
+  Sandbox: React.lazy(() => import("../pages/sandbox")),
+  Usecases: React.lazy(() => import("../pages/usecases")),
+  Concept: React.lazy(() => import("../pages/concept")),
+  Docs: React.lazy(() => import("../pages/docs")),
 };
 
 const router = createHashRouter([
@@ -15,7 +15,7 @@ const router = createHashRouter([
     path: APP_PATHS.sandbox.route,
     element: (
       <React.Suspense fallback={"Loading..."}>
-        <PAGES_BY_LOCATION.sandbox />
+        <PAGES_BY_LOCATION.Sandbox />
       </React.Suspense>
     ),
   },
@@ -23,7 +23,7 @@ const router = createHashRouter([
     path: APP_PATHS.usecases.route,
     element: (
       <React.Suspense fallback={"Loading..."}>
-        <PAGES_BY_LOCATION.usecases />
+        <PAGES_BY_LOCATION.Usecases />
       </React.Suspense>
     ),
   },
@@ -31,7 +31,7 @@ const router = createHashRouter([
     path: APP_PATHS.concept.route,
     element: (
       <React.Suspense fallback={"Loading..."}>
-        <PAGES_BY_LOCATION.concept />
+        <PAGES_BY_LOCATION.Concept />
       </React.Suspense>
     ),
   },
@@ -39,7 +39,7 @@ const router = createHashRouter([
     path: APP_PATHS.docs.route,
     element: (
       <React.Suspense fallback={"Loading..."}>
-        <PAGES_BY_LOCATION.docs />
+        <PAGES_BY_LOCATION.Docs />
       </React.Suspense>
     ),
   },
@@ -47,7 +47,7 @@ const router = createHashRouter([
     path: APP_PATHS.home.route,
     element: (
       <React.Suspense fallback={"Loading..."}>
-        <PAGES_BY_LOCATION.index />
+        <PAGES_BY_LOCATION.Index />
       </React.Suspense>
     ),
   },
@@ -63,47 +63,6 @@ const router = createHashRouter([
 
 const Router = () => {
   return <RouterProvider router={router} />;
-  // return (
-  //   <BrowserRouter>
-  //     <Routes>
-  //       {/** pages  */}
-  //       <Route
-  //         path="sandbox"
-  //         element={
-  //           <React.Suspense fallback={"Loading..."}>
-  //             <PAGES_BY_LOCATION.sandbox />
-  //           </React.Suspense>
-  //         }
-  //       />
-  //       <Route
-  //         path="usecases"
-  //         element={
-  //           <React.Suspense fallback={"Loading..."}>
-  //             <PAGES_BY_LOCATION.usecases />
-  //           </React.Suspense>
-  //         }
-  //       />
-  //       {/** index  */}
-  //       <Route
-  //         path="/"
-  //         element={
-  //           <React.Suspense fallback={"Loading..."}>
-  //             <PAGES_BY_LOCATION.index />
-  //           </React.Suspense>
-  //         }
-  //       />
-  //       {/** 404  */}
-  //       <Route
-  //         path="*"
-  //         element={
-  //           <React.Suspense fallback={"Loading..."}>
-  //             <h1>404</h1>
-  //           </React.Suspense>
-  //         }
-  //       />
-  //     </Routes>
-  //   </BrowserRouter>
-  // );
 };
 
 export default Router;
