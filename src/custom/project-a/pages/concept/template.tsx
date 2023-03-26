@@ -17,21 +17,20 @@ const Template = () => {
           <CE.Block modifiers={["concept"]}>
             <CE.Text>
               The content data of digital pages is constantly updating. That
-              might be correct for most of business projects. It includes{" "}
-              <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">
-                CRUD
-              </a>
-              operations to the loads of datasets. We use CMS to handle the{" "}
-              <mark>content data management</mark>.
+              might be correct for most of business projects. It includes CRUD
+              operations to the loads of datasets.
+              <br />
+              We use CMS to handle the <mark>content data management</mark>.
             </CE.Text>
             <CE.Text>
               From the developers perspective that's an abstract factory
               pattern.
               <br />
-              Two of <mark>content data</mark> properties are <mark>type</mark>{" "}
-              and <mark>content</mark>. We want to generate different HTML
-              structures depending on the the <mark>type</mark> or{" "}
-              <mark>content</mark> of each data entity.
+              Two of <mark>content data</mark> properties are{" "}
+              <mark>content type </mark>and <mark>content data </mark>. We want
+              to generate different HTML structures depending on the the{" "}
+              <mark>content type </mark>and/or <mark>content data </mark>of each
+              data entity.
               <br />
               We pick a framework, create reusable components, style system,
               then scale and maintain the codebase.
@@ -52,7 +51,8 @@ const Template = () => {
               Every developer provides a custom solution for the particular
               content data element. This solution is based on general
               requirements by every project.
-              <br />
+            </CE.Text>
+            <CE.Text>
               Web Content Elements is a formalized way to create low level HTML
               structures and manage style system of the entire project.
               <br />
