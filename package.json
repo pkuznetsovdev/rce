@@ -2,7 +2,12 @@
   "name": "rce",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://aimanptz.github.io/rce",
+  "homepage": "https://pkuznetsov.github.io/rce",
+  "author": {
+    "name" : "Pavel Kuznetsov",
+    "email" : "kuznetsov.pavel@protonmail.com",
+    "url" : "https://www.linkedin.com/in/pkuznetsovdev/"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

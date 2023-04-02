@@ -1,5 +1,12 @@
-@import "src/ce/core/styles/utils/index";
+@use "src/ce/core/styles/utils" as *;
 
 .nav-list {
   width: auto;
+
+  @include byName('link') {
+    &.active {
+      text-decoration: none;
+      transform: scale(1.2);
+    }
+  }
 }

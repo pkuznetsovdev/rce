@@ -16,8 +16,6 @@ export const Layout = ({
   ...props
 }: LayoutProps) => {
   return (
-    // TODO: FAQ HOW TO FIX?
-    // @ts-ignore
     <CE.Block {...props} modifiers={["page", ...modifiers]}>
       <CE.Block modifiers={["container"]}>
         <Header />

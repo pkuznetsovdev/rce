@@ -3,4 +3,12 @@
 $name: 'docs';
 
 .#{$name} {
+  @include byModifier('#{$name}-grid') {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+
+  @include byModifier('aside') {
+    width: 200px;
+  }
 }

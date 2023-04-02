@@ -1,6 +1,6 @@
 @use "src/ce/core/styles/utils" as *;
 
-.daily-card {
+.code-snippet {
   flex-direction: row;
 
   @include byName('image') {
