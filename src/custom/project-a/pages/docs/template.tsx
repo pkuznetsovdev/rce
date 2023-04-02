@@ -39,7 +39,7 @@ const Template = () => {
   return (
     <>
       <Layout className={mainClass} title="Docs">
-          <CE.Block modifiers={["container"]}>
+        <CE.Block modifiers={["container"]}>
           <CE.Block modifiers={["content"]}>
             <CE.Text>
               Content Elemements have 3 main properties:
@@ -49,35 +49,38 @@ const Template = () => {
             </CE.Text>
             <CE.Text>Modifiers</CE.Text>
             <CE.Text>
-              By modifiers you adjust styles or behavoiur of the Content Element. Modifiers is an array of strings.
+              By modifiers you adjust styles or behavoiur of the Content
+              Element. Modifiers is an array of strings.
             </CE.Text>
             <CE.Text>Tag</CE.Text>
             <CE.Text>
-              The value of the property represents tag name that will be used for the HTML element in DOM.
+              The value of the property represents tag name that will be used
+              for the HTML element in DOM.
             </CE.Text>
             <CE.Text>Config</CE.Text>
             <CE.Text>
-              By config you provide content data and adjust bahaviour of the Content Element.
+              By config you provide content data and adjust bahaviour of the
+              Content Element.
             </CE.Text>
             <CE.Text>Content elements</CE.Text>
             <CE.Text>Text</CE.Text>
             <CE.Text>
               The `text` Content Element represents a text node in HTML.
-              <hr/>
+              <hr />
               <CodeSnippet>{`<CE.Text>Text Content Element</CE.Text>`}</CodeSnippet>
               <CE.Text>Result:</CE.Text>
               <CE.Text>Text Content Element</CE.Text>
-              <hr/>
+              <hr />
               <CodeSnippet>{`<CE.Text config="Text Content Element" />`}</CodeSnippet>
               <CE.Text>Result:</CE.Text>
               <CE.Text config="Text Content Element" />
-              <hr/>
+              <hr />
               <CodeSnippet>{`<CE.Text text="Text Content Element" />`}</CodeSnippet>
               <CE.Text>Result:</CE.Text>
               <CE.Text text="Text Content Element" />
             </CE.Text>
           </CE.Block>
-          </CE.Block>
+        </CE.Block>
       </Layout>
     </>
   );

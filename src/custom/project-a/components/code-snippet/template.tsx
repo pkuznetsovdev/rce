@@ -11,7 +11,9 @@ export interface CodeSnippetProps extends React.PropsWithChildren {
 export const CodeSnippet = ({ children }: CodeSnippetProps) => {
   return (
     <CE.Block className="code-snippet">
-        <pre><code>{children}</code></pre>
+      <pre>
+        <code>{children}</code>
+      </pre>
     </CE.Block>
   );
 };
