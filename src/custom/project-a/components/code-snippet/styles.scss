@@ -1,0 +1,14 @@
+@use "src/ce/core/styles/utils" as *;
+
+.code-snippet {
+  flex-direction: row;
+
+  @include byName('image') {
+    border-radius: 10px;
+    width: 150px;
+  }
+
+  @include byModifier('card-info') {
+    margin-left: 15px;
+  }
+}

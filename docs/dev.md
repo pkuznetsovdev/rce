@@ -4,6 +4,11 @@ Content Element renderer and the logic before Content Element template
 - path: `core`
 
 
+Add default _modifiers_ value 'string':
+- if one modifier is passed, you can pass it as a string instead of array
+  Developer can faster and easier provide a routine operation / DevUX  
+
+
 
 
 
