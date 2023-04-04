@@ -11,7 +11,7 @@ interface DailyCardListProps {
 export const DailyCardList = ({ title, dailyCards }: DailyCardListProps) => {
   return (
     <>
-      <CE.Text text={title} modifiers={["title", "i"]} />
+      <CE.Text content={title} modifiers={["title", "i"]} />
       <CE.List
         className="daily-card-list"
         listItemTemplate={DailyCard}
