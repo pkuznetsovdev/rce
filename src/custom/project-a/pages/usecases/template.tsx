@@ -10,7 +10,7 @@ const mainClass = "usecases";
 const Usecases = () => {
   const pageData = useGetData("IndexPage");
 
-  const { dailyCardListData } = useRefactor();
+  const { dailyCardcontent } = useRefactor();
 
   return (
     <Layout className={mainClass} title="Usecases">
@@ -18,7 +18,7 @@ const Usecases = () => {
         <CE.List modifiers={["usecases-list"]}>
           <DailyCardList
             title="Daily Card list"
-            dailyCards={dailyCardListData}
+            dailyCards={dailyCardcontent}
           />
         </CE.List>
       </CE.Block>
@@ -49,7 +49,7 @@ function useRefactor() {
     "https://www.frommers.com/system/media_items/attachments/000/866/196/s980/p264_cp.jpg",
   ];
 
-  const dailyCardListData = Object.keys(DAILY_TRANSLATIONS).map((key, idx) => {
+  const dailyCardcontent = Object.keys(DAILY_TRANSLATIONS).map((key, idx) => {
     return {
       day: key,
       title: {
@@ -60,5 +60,5 @@ function useRefactor() {
       image: imageUrls[parseInt(idx)],
     };
   });
-  return { dailyCardListData };
+  return { dailyCardcontent };
 }

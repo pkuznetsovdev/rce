@@ -10,7 +10,10 @@ Add default _modifiers_ value 'string':
 
 
 
-
+[]
 
 ### Why not TODO:
 - The modules/logic that can be extracted from RCE and wrapped with another api, f.e. Angular, Node.js 
+- cli rce c/daily-card
+`mkdir projectFolder/components/daily-card/[daily-card.tsx & index.ts & styles.scss]`
+- 

@@ -8,4 +8,6 @@ export const CE = {
   Block: getMyElementByName("block"),
   List: getMyElementByName("list"),
   Link: getMyElementByName("link"),
+  Divider: getMyElementByName("divider"),
+  Button: getMyElementByName("button"),
 } as const;

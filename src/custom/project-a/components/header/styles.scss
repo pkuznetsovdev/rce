@@ -13,7 +13,6 @@ $name: 'header';
     margin: 0 auto 0 0;
   }
 
-
   @include byModifier('#{$name}-title') {
     text-align: left;
     color: var(--ce-accent-color);
@@ -21,8 +20,7 @@ $name: 'header';
     font-weight: var(--header-font-weight);
     line-height: var(--header-line-height);
   }
-
-
+  
   @include byModifier('#{$name}-text') {
     margin: 0;
   }

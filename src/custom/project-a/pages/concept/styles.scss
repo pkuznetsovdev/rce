@@ -3,14 +3,4 @@
 $name: 'concept';
 
 .#{$name} {
-  @include byModifier('concept') {
-    //display: block;
-
-    mark {
-      background-color: unset;
-      color: var(--text-color);
-      font-style: italic;
-      font-weight: 500;
-    }
-  }
 }
