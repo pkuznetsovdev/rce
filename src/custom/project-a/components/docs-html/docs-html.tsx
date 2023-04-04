@@ -21,7 +21,7 @@ export const DocsHtml = ({ image, title }: DailyCardProps) => {
   return (
     <CE.Block className="docs-html">
       <CE.Text modifiers={["list-title"]}>
-        <mark>Content Elements</mark>
+        <mark>Content Elements</mark>{' '}
         are grouped by its role in the page:
       </CE.Text>
       <CE.List

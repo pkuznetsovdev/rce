@@ -34,7 +34,7 @@ export const DocsCss = ({ image, title }: DailyCardProps) => {
 
       <CE.Text
         content={[
-          "Styles are applied to the *Content Elements* via mixins.",
+          "Styles are applied to the <mark>Content Elements</mark> via mixins.",
           "Most used are following:",
         ]}
       />
