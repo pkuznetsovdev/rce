@@ -9,26 +9,31 @@ export const List = ({
   tag: TagName,
   text,
   myElementKey,
-  listData,
+  content,
   listItemTemplate: ItemTemplate,
   ...props
 }: WithMyTemplateElementProps & ListProps) => {
   const elementKeyByListProps = myElementKey || "id";
 
-  if (listData && typeof listData[0] === "string" && !ItemTemplate) {
+  if (content && typeof content[0] === "string" && !ItemTemplate) {
     return (
       <TagName {...props}>
-        {listData.map((listItemText, idx) => {
-          return <ListItem key={idx}>{listItemText as string}</ListItem>;
+        {content.map((listItemText, idx) => {
+          return (
+            <ListItem
+              key={idx}
+              dangerouslySetInnerHTML={{ __html: listItemText }}
+            />
+          );
         })}
       </TagName>
     );
   }
 
-  if (listData && ItemTemplate) {
+  if (content && ItemTemplate) {
     return (
       <TagName {...props}>
-        {listData.map((listItemData, idx) => {
+        {content.map((listItemData, idx) => {
           const elementKeyValue = listItemData.id || idx;
 
           return (
@@ -41,10 +46,10 @@ export const List = ({
     );
   }
 
-  if (listData && React.Children.only(children)) {
+  if (content && React.Children.only(children)) {
     return (
       <TagName {...props}>
-        {listData.map((listItemData, idx) => {
+        {content.map((listItemData, idx) => {
           const elementKeyValue = listItemData.id || idx;
 
           return (
@@ -79,7 +84,7 @@ export const List = ({
             {/*{child}*/}
             {React.cloneElement(child, {
               itemIndex: idx,
-              ...(listData && listData[idx] ? listData[idx] : {}),
+              ...(content && content[idx] ? content[idx] : {}),
             })}
           </ListItem>
         );

@@ -52,26 +52,35 @@ function getIsContentInProps<ElementName extends MyElementName>(
     }
 
     switch (myname) {
+        case "block":
+        case "divider":
+            return true;
+        case "button":
+            // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is string
+            // @ts-ignore
+            return isChildrenInProps || Boolean(props.content || props.config?.content);
         case "text":
             return isChildrenInProps || Boolean(
-                // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is stringc
+                // TODO FAQ: How to fix ts: isDefaultConfig & myname is text -> typeof content is string
                 // @ts-ignore
-                props.config?.text || props.text
+                props.config?.text || props.text || props.content || props.config?.content
             );
         case "image":
             // TODO FAQ: How to fix ts
             // @ts-ignore
             return props.config?.src || props.src
-        case "block":
-            return true;
         case "link":
             // TODO FAQ: How to fix ts
             // @ts-ignore
             return Boolean(props.config?.to || props.to);
         case "list":
+            const itemTemplate = props.listItemTemplate || props.config?.listItemTemplate;
+            const content = props.content || props.config?.content;
+            const isValidcontent = content && typeof content[0] === 'string';
+
             // TODO FAQ: How to fix ts
             // @ts-ignore
-            return props.listItemTemplate || props.config?.listItemTemplate || isChildrenInProps;
+            return  Boolean(itemTemplate|| isChildrenInProps || isValidcontent);
         default:
             validateUnreachableCode(myname)
             return false;

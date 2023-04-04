@@ -16,6 +16,21 @@ export const WithMyElementConfig =
   (myElementConfig: ElementConfig) => {
     const myElementTemplateProps =
       getMyElementTemplatePropsByConfig(myElementConfig);
+    if (
+      myElementConfig.myname === "text" &&
+      Array.isArray(myElementConfig.content)
+    ) {
+      return (
+        <>
+          {myElementConfig.content.map((elementContent) => (
+            <MyElementTemplate
+              {...myElementTemplateProps}
+              content={elementContent}
+            />
+          ))}
+        </>
+      );
+    }
 
     //some magic with props
     // if image

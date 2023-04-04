@@ -15,8 +15,8 @@ export const DailyCardList = ({ title, dailyCards }: DailyCardListProps) => {
       <CE.List
         className="daily-card-list"
         listItemTemplate={DailyCard}
-        listData={dailyCards}
-        // config={{ listData, listItemTemplate: DailyCard }}
+        content={dailyCards}
+        // config={{ content, listItemTemplate: DailyCard }}
       />
     </>
   );

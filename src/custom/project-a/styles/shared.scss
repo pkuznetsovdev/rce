@@ -1,6 +1,10 @@
-.prettyprint {
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
-  padding: 20px;
+@import "src/ce/core/styles/utils";
+
+#{$ce-base-name} {
+  & > mark {
+    background-color: unset;
+    color: var(--text-color);
+    font-style: italic;
+    font-weight: 500;
+  }
 }

@@ -19,7 +19,7 @@ export const NavList = ({ modifiers = [] }: HeaderProps) => {
     <CE.List
       className={mainClass}
       modifiers={["row", ...modifiers]}
-      listData={navLinks}
+      content={navLinks}
       listItemTemplate={ListItemTemplate}
     />
   );

@@ -118,7 +118,7 @@ function getConfigByDefaultValue<ElementName extends MyElementName>(
       return getMyElementConfig(props, myname, {
         // TODO FAQ: How to fix ts
         // @ts-ignore
-        text: config as MyElementConfigDefaultMap[ElementName],
+        content: config as MyElementConfigDefaultMap[ElementName],
       });
     case "link":
       return getMyElementConfig(props, myname, {
@@ -135,6 +135,10 @@ function getConfigByDefaultValue<ElementName extends MyElementName>(
     case "block":
     case "list":
       return getMyElementConfig(props, myname);
+    case "button":
+      return getMyElementConfig(props, myname, {
+        content: config as MyElementConfigDefaultMap[ElementName],
+      });
     default:
       validateUnreachableCode(myname);
       return getMyElementConfig(props, myname);

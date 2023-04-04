@@ -5,14 +5,14 @@ import { WithMyTemplateElementProps } from "../../types";
 export const Text = ({
   children,
   tag: TagName,
-  text,
+  content,
   ...props
 }: TextProps & WithMyTemplateElementProps) => {
-  if (text && typeof text === "string") {
+  if (content && typeof content === "string") {
     return (
       // TODO: FIX TS className type
       // @ts-ignore-next-line
-      <TagName {...props} dangerouslySetInnerHTML={{ __html: text }} />
+      <TagName {...props} dangerouslySetInnerHTML={{ __html: content }} />
     );
   }
 
