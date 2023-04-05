@@ -8,9 +8,16 @@ import React, {
 import { applyTheme, getCurrentTheme } from "./utils";
 import { AppColorTheme } from "./constants";
 
-export const ThemeContext = createContext({
+interface ThemeContextModel {
+  theme: "default" | "dark";
+  onChangeAppColorTheme: (t: AppColorTheme) => void;
+  onToggleTheme: () => void;
+}
+
+export const ThemeContext = createContext<ThemeContextModel>({
   theme: "default",
-  onChangeAppColorTheme: (t: AppColorTheme) => {},
+  onChangeAppColorTheme: (newTheme: AppColorTheme) => {},
+  onToggleTheme: () => {},
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
@@ -23,6 +30,14 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     _setCurrentTheme((currentTheme) => applyTheme(newTheme, currentTheme));
   }, []);
 
+  const onToggleTheme = useCallback(() => {
+    _setCurrentTheme((currentTheme) => {
+      const newTheme = currentTheme === "dark" ? "default" : "dark";
+      applyTheme(newTheme, currentTheme);
+      return newTheme;
+    });
+  }, []);
+
   useLayoutEffect(() => {
     const isDarkThemeByBrowser = getCurrentTheme();
 
@@ -31,10 +46,11 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       onChangeAppColorTheme("dark");
     }
   });
+  console.log("currentTheme: ", currentTheme);
 
   return (
     <ThemeContext.Provider
-      value={{ theme: currentTheme, onChangeAppColorTheme }}
+      value={{ theme: currentTheme, onChangeAppColorTheme, onToggleTheme }}
     >
       {children}
     </ThemeContext.Provider>

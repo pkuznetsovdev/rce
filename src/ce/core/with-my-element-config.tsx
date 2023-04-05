@@ -22,8 +22,9 @@ export const WithMyElementConfig =
     ) {
       return (
         <>
-          {myElementConfig.content.map((elementContent) => (
+          {myElementConfig.content.map((elementContent, idx) => (
             <MyElementTemplate
+              key={idx}
               {...myElementTemplateProps}
               content={elementContent}
             />

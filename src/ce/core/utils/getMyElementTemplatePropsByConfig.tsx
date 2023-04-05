@@ -11,6 +11,7 @@ export function getMyElementTemplatePropsByConfig<
   ElementConfig extends MyElementConfig<ElementName>
 >(config: ElementConfig) {
   const myElementClassName = getMyElementClassName(config);
+
   const myElementTag = getMyElementTag(config);
 
   const { modifiers, myname, contentConditions, ...nativeProps } = config;
@@ -85,12 +86,21 @@ function getMyElementClassName<ElementName extends MyElementName>(
   // @ts-ignore
   const { modifiers, className } = config;
   const classNameByMyName = `${BASE_CLASSNAME}-${config.myname}`;
+  const classNameByCustomName = config.customName
+    ? `${BASE_CLASSNAME}-${config.customName}`
+    : undefined;
 
   const classNameByModifiers = (modifiers || [])
     .filter((m) => m && typeof m === "string")
     .map(getClassNameByModifier);
 
-  return [className, BASE_CLASSNAME, classNameByMyName, ...classNameByModifiers]
+  return [
+    className,
+    BASE_CLASSNAME,
+    classNameByMyName,
+    classNameByCustomName,
+    ...classNameByModifiers,
+  ]
     .filter(Boolean)
     .join(" ");
 }

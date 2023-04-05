@@ -1,0 +1,5 @@
+@import "src/ce/core/styles/utils";
+
+@include byName('icon') {
+  line-height: 0;
+}

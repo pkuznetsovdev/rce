@@ -10,4 +10,6 @@ export const CE = {
   Link: getMyElementByName("link"),
   Divider: getMyElementByName("divider"),
   Button: getMyElementByName("button"),
+  Icon: getMyElementByName("icon"),
+  Custom: getMyElementByName("custom"),
 } as const;

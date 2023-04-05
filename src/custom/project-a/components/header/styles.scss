@@ -8,12 +8,11 @@ $name: 'header';
   padding-bottom: 1em;
   align-items: center;
 
-
-  @include byModifier('#{$name}-logo') {
+  @include byModifier('logo') {
     margin: 0 auto 0 0;
   }
 
-  @include byModifier('#{$name}-title') {
+  @include byModifier('title') {
     text-align: left;
     color: var(--ce-accent-color);
     font-size: var(--header-font-size);
@@ -21,11 +20,12 @@ $name: 'header';
     line-height: var(--header-line-height);
   }
   
-  @include byModifier('#{$name}-text') {
+  @include byModifier('text') {
     margin: 0;
   }
 
-  @include byModifier('#{$name}-controls') {
+  @include byModifier('controls') {
     flex-grow: 0;
+    align-items: center;
   }
 }

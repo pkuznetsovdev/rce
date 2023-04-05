@@ -15,7 +15,6 @@ export const Layout = ({
   title,
   ...props
 }: LayoutProps) => {
-  console.log(title);
   return (
     <CE.Block {...props} modifiers={["page", ...modifiers]}>
       <CE.Block modifiers={["container"]}>

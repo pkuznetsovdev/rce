@@ -2,14 +2,14 @@ import React from "react";
 import { CE } from "src/ce";
 import { MyElementConfigProps } from "src/ce/core/types";
 import { CodeExample } from "../code-example";
-import ImageCE from "../../assets/Screenshot 2023-04-02 at 15.22.18.png";
-import ImageCE2 from "../../assets/Screenshot 2023-04-02 at 15.22.28.png";
-import ImageTag from "../../assets/Screenshot 2023-04-02 at 15.22.35.png";
-import ImageModifier from "../../assets/Screenshot 2023-04-02 at 15.22.45.png";
-import ImageModifier1 from "../../assets/Screenshot 2023-04-02 at 15.23.04.png";
-import ImageModifier2 from "../../assets/Screenshot 2023-04-02 at 15.23.16.png";
-import ImageModifier3 from "../../assets/Screenshot 2023-04-04 at 22.24.54.png";
-import ImageConfig from "../../assets/Screenshot 2023-04-02 at 15.23.38.png";
+import ImageCE from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.18.png";
+import ImageCE2 from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.28.png";
+import ImageTag from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.35.png";
+import ImageModifier from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.45.png";
+import ImageModifier1 from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.04.png";
+import ImageModifier2 from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.16.png";
+import ImageModifier3 from "../../assets/images/code-examples/Screenshot 2023-04-04 at 22.24.54.png";
+import ImageConfig from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.38.png";
 
 export interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;
@@ -21,8 +21,7 @@ export const DocsHtml = ({ image, title }: DailyCardProps) => {
   return (
     <CE.Block className="docs-html">
       <CE.Text modifiers={["list-title"]}>
-        <mark>Content Elements</mark>{' '}
-        are grouped by its role in the page:
+        <mark>Content Elements</mark> are grouped by its role in the page:
       </CE.Text>
       <CE.List
         modifiers={["disc"]}

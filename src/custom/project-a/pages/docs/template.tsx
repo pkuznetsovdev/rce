@@ -4,7 +4,7 @@ import { CE } from "src/ce";
 import { Layout } from "../../layout";
 
 import { useGetData } from "src/custom/project-a/data";
-import { DocsHeader } from "src/custom/project-a/components/docs-header";
+import { DocsContentHeader } from "src/custom/project-a/components/docs-content-header";
 import { DocsHtml } from "src/custom/project-a/components/docs-html";
 import { DocsCss } from "src/custom/project-a/components/docs-css";
 
@@ -30,7 +30,7 @@ const Template = () => {
     <>
       <Layout className={mainClass} title="Docs">
         <CE.Block modifiers={["container", "docs-content"]}>
-          <DocsHeader />
+          <DocsContentHeader />
           <CE.Block modifiers={["row"]}>
             <CE.Button
               modifiers={["docs-tab"]}
