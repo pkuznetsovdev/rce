@@ -6,8 +6,8 @@ import { useBgBySrcSet } from "../../utils";
 export const Block = ({
   children,
   tag: TagName,
-  text,
   backgroundImage,
+  content,
   ...props
 }: BlockProps & WithMyTemplateElementProps) => {
   const backgroundImageUrl = useBgBySrcSet(backgroundImage);

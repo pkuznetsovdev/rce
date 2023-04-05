@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { CE } from "src/ce";
 import { MyElementConfigProps, MyElementModifiers } from "src/ce/core/types";
 import { NavList } from "../nav-list";
-import { ThemeContext } from "src/custom/providers/theme";
+import { StyleThemeToggler } from "../style-theme-toggler";
 
 interface HeaderProps {
   title?: MyElementConfigProps<"text">;
@@ -12,28 +12,19 @@ interface HeaderProps {
 const mainClass = "header";
 
 export const Header = ({ modifiers = [] }: HeaderProps) => {
-  const { theme, onChangeAppColorTheme } = useContext(ThemeContext);
-
-  // @ts-ignore
   return (
     <>
       <CE.Block
         className={mainClass}
         modifiers={["row-above-md", ...modifiers]}
       >
-        <CE.Block modifiers={["header-logo"]}>
-          <CE.Text modifiers={["header-title"]}>React Content Elements</CE.Text>
-          <CE.Text modifiers={["header-text"]}>
-            Your first Web Content factory
-          </CE.Text>
+        <CE.Block modifiers={["logo"]}>
+          <CE.Text modifiers={["title"]}>React Content Elements</CE.Text>
+          <CE.Text modifiers={["text"]}>Your first Web Content factory</CE.Text>
         </CE.Block>
-        <CE.Block modifiers={["header-controls", "row"]}>
+        <CE.Block modifiers={["controls", "row"]}>
           <NavList />
-          <button
-            className="ce ce-button"
-            type="button"
-            onClick={() => onChangeAppColorTheme("dark")}
-          >{`current mode: ${theme}`}</button>
+          <StyleThemeToggler />
         </CE.Block>
       </CE.Block>
     </>

@@ -1,4 +1,4 @@
-import { Text, Image, Block, List, Link, Divider, Button } from "../templates";
+import { Text, Image, Block, List, Link, Divider, Button, Custom, Icon } from "../templates";
 
 export const MY_ELEMENTS_BY_NAME = {
     text: Text,
@@ -8,4 +8,6 @@ export const MY_ELEMENTS_BY_NAME = {
     link: Link,
     divider: Divider,
     button: Button,
+    icon: Icon,
+    custom: Custom,
 } as const;

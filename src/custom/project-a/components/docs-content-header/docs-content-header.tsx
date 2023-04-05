@@ -8,9 +8,9 @@ export interface DailyCardProps extends React.PropsWithChildren {
   title?: MyElementConfigProps<"text">;
 }
 
-export const DocsHeader = ({ image, title }: DailyCardProps) => {
+export const DocsContentHeader = ({ image, title }: DailyCardProps) => {
   return (
-    <CE.Block className="docs-header">
+    <CE.Block className="docs-content-header">
       <CE.Text>
         <mark>Content Elements</mark> represent basic HTML structures.
         <br />

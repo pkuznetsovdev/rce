@@ -2,10 +2,10 @@ import React from "react";
 import { CE } from "src/ce";
 import { MyElementConfigProps } from "src/ce/core/types";
 import { CodeExample } from "../code-example";
-import ImageByName from "../../assets/Screenshot 2023-04-02 at 15.23.46.png";
-import ImageByModifier from "../../assets/Screenshot 2023-04-02 at 15.23.55.png";
-import ImageWithModifier from "../../assets/Screenshot 2023-04-02 at 15.24.06.png";
-import ImageOtherModifiers from "../../assets/Screenshot 2023-04-02 at 15.24.12.png";
+import ImageByName from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.46.png";
+import ImageByModifier from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.55.png";
+import ImageWithModifier from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.24.06.png";
+import ImageOtherModifiers from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.24.12.png";
 
 export interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;

@@ -14,9 +14,9 @@ export const DailyCardList = ({ title, dailyCards }: DailyCardListProps) => {
       <CE.Text content={title} modifiers={["title", "i"]} />
       <CE.List
         className="daily-card-list"
+        // config={{ content: dailyCards, listItemTemplate: DailyCard }}
         listItemTemplate={DailyCard}
         content={dailyCards}
-        // config={{ content, listItemTemplate: DailyCard }}
       />
     </>
   );

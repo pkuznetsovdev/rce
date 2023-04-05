@@ -52,7 +52,10 @@ function getIsContentInProps<ElementName extends MyElementName>(
     }
 
     switch (myname) {
+        case "icon":
+            return false;
         case "block":
+        case "custom":
         case "divider":
             return true;
         case "button":
