@@ -28,6 +28,10 @@ const Template = () => {
             Simple, quick and linear solution for all of your daily base
             development routine.
           </CE.Text>
+          <CE.Text>
+            Following webpage is created within the RCE library. The result is
+            available in 'Elements' tab via developer tools.
+          </CE.Text>
         </CE.Block>
       </Layout>
     </>
