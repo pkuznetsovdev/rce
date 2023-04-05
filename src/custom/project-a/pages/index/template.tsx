@@ -12,8 +12,23 @@ const Template = () => {
 
   return (
     <>
-      <Layout className={mainClass} title="Home page">
-        {/*<CE.Text modifiers={['header']}>Home page</CE.Text>*/}
+      <Layout className={mainClass} title="What?">
+        <CE.Block modifiers={["section", "container"]}>
+          <CE.Text>
+            React Content Elements is another JavaScript Library.
+          </CE.Text>
+          <CE.Text>
+            It is designed to provide another level of development experience.
+          </CE.Text>
+          <CE.Text>
+            It handles your HTML and CSS development routine as jQuery does with
+            JavaScript.
+          </CE.Text>
+          <CE.Text>
+            Simple, quick and linear solution for all of your daily base
+            development routine.
+          </CE.Text>
+        </CE.Block>
       </Layout>
     </>
   );

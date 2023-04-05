@@ -32,8 +32,8 @@ const Template = () => {
               <mark>content type </mark>and/or <mark>content data </mark>of each
               data entity.
               <br />
-              We pick a framework, create reusable components, style system,
-              then scale and maintain the codebase.
+              We pick a framework, create reusable components, design a style
+              system, then scale and maintain the codebase.
               <br />
               We pick trusted and known solutions.
             </CE.Text>
