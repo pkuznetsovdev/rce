@@ -42,7 +42,6 @@ export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
       }
 
       const myElementConfig = getConfigByValidatedProps(props, myname);
-      console.log("myElementConfig: ", myElementConfig);
 
       return WithMyElementConfig(MyElementTemplate)(myElementConfig);
     };

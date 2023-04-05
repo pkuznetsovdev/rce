@@ -7,6 +7,7 @@ import { useGetData } from "src/custom/project-a/data";
 import { DocsContentHeader } from "src/custom/project-a/components/docs-content-header";
 import { DocsHtml } from "src/custom/project-a/components/docs-html";
 import { DocsCss } from "src/custom/project-a/components/docs-css";
+import { DailyCard } from "../../components";
 
 const mainClass = "docs";
 
@@ -31,20 +32,20 @@ const Template = () => {
       <Layout className={mainClass} title="Docs">
         <CE.Block modifiers={["container", "docs-content"]}>
           <DocsContentHeader />
-          <CE.Block modifiers={["row"]}>
-            <CE.Button
-              modifiers={["docs-tab"]}
-              onClick={() => setActiveTabId(TABS[0])}
-            >
-              HTML
-            </CE.Button>
-            <CE.Button
-              modifiers={["docs-tab"]}
-              onClick={() => setActiveTabId(TABS[1])}
-            >
-              CSS
-            </CE.Button>
-          </CE.Block>
+          <CE.List
+            modifiers={["row", "docs-tabs"]}
+            listItemTemplate={({ tab }) => {
+              return (
+                <CE.Button
+                  modifiers={["docs-tab", activeTabId === tab && "active"]}
+                  onClick={() => setActiveTabId(tab)}
+                >
+                  {tab}
+                </CE.Button>
+              );
+            }}
+            content={TABS.map((tab) => ({ tab }))}
+          />
           <CE.Divider />
           <ActiveTabTemplate />
         </CE.Block>

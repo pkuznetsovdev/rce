@@ -46,7 +46,6 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       onChangeAppColorTheme("dark");
     }
   });
-  console.log("currentTheme: ", currentTheme);
 
   return (
     <ThemeContext.Provider

@@ -37,7 +37,7 @@ export const DocsHtml = ({ image, title }: DailyCardProps) => {
       <CE.List
         modifiers={["disc"]}
         content={[
-          "ce ce-[name]<br />f.e. ‘ce ce-text’ for <mark>Text Content Element</mark>",
+          "<code>ce ce-[name]</code><br />f.e. ‘ce ce-text’ for <mark>Text Content Element</mark>",
         ]}
       />
       <CodeExample src={ImageCE} />

@@ -32,12 +32,9 @@ export const DocsCss = ({ image, title }: DailyCardProps) => {
         ]}
       />
 
-      <CE.Text
-        content={[
-          "Styles are applied to the <mark>Content Elements</mark> via mixins.",
-          "Most used are following:",
-        ]}
-      />
+      <CE.Text>
+        Styles are applied to the <mark>Content Elements</mark> via mixins.
+      </CE.Text>
       <CE.Text modifiers={["title"]}>@byName</CE.Text>
       <CodeExample src={ImageByName} />
 
@@ -52,7 +49,7 @@ export const DocsCss = ({ image, title }: DailyCardProps) => {
       </CE.Text>
       <CE.List
         modifiers={["disc"]}
-        content={["nextByName", "nextByModifier"]}
+        content={["<code>@nextByName</code>", "<code>@nextByModifier</code>"]}
       />
       <CodeExample src={ImageOtherModifiers} />
     </CE.Block>

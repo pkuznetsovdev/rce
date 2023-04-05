@@ -45,6 +45,7 @@ const TAG_BY_ELEMENT_NAME: Record<MyElementName, string> = {
 
 const TAG_BY_ELEMENT_MODIFIER = {
   header: "h1",
+  section: "section",
   title: "h3",
   subtitle: "h5",
   ol: "ol",
