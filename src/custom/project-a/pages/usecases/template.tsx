@@ -54,7 +54,7 @@ function useRefactor() {
       day: key,
       title: {
         // @ts-ignore
-        text: DAILY_TRANSLATIONS[key],
+        content: DAILY_TRANSLATIONS[key],
         modifiers: ["title"],
       },
       image: imageUrls[parseInt(idx)],
