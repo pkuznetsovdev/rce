@@ -7,6 +7,7 @@ import { useGetData } from "src/custom/project-a/data";
 const mainClass = "home";
 
 const Template = () => {
+    console.log(CE)
   const pageData = useGetData("IndexPage");
 
   return (
