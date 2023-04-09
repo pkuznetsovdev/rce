@@ -67,7 +67,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.8.4",
-    "react-content-elements": "^1.1.1",
+    "react-content-elements": "^1.1.101",
     "sass": "^1.58.0"
   }
 }
