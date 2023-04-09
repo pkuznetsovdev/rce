@@ -4,9 +4,9 @@
   "private": true,
   "homepage": "https://pkuznetsov.github.io/rce",
   "author": {
-    "name" : "Pavel Kuznetsov",
-    "email" : "kuznetsov.pavel@protonmail.com",
-    "url" : "https://www.linkedin.com/in/pkuznetsovdev/"
+    "name": "Pavel Kuznetsov",
+    "email": "kuznetsov.pavel@protonmail.com",
+    "url": "https://www.linkedin.com/in/pkuznetsovdev/"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -67,6 +67,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.8.4",
+    "react-content-elements": "^1.1.1",
     "sass": "^1.58.0"
   }
 }

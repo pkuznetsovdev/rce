@@ -1,5 +1,5 @@
 import React from "react";
-import { CE } from "src/ce";
+import { CE } from "react-content-elements";
 
 import { Layout } from "../../layout";
 
