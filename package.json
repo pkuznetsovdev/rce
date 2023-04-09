@@ -1,6 +1,6 @@
 {
   "name": "react-content-elements",
-  "version": "1.1.102",
+  "version": "1.1.103",
   "private": false,
   "main": "./dist/cjs/ce/index.js",
   "module": "./dist/esm/ce/index.js",
@@ -29,7 +29,7 @@
     "build:webpack": "webpack --mode production",
     "lint": "eslint --fix \"{src/ce/**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src/ce,example}/**/*.{js,ts,jsx,tsx}\"",
-    "prepare": "npm run build",
+    "prepare": "npm run build:webpack",
     "prepublishOnly": "npm run prettier && npm run lint",
     "publish": "npm publish"
   },
