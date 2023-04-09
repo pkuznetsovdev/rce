@@ -1,10 +1,10 @@
 {
   "name": "react-content-elements",
-  "version": "1.1.1",
+  "version": "1.1.101",
   "private": false,
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "main": "./dist/cjs/ce/index.js",
+  "module": "./dist/esm/ce/index.js",
+  "types": "./dist/esm/ce/index.d.ts",
   "homepage": "https://pkuznetsov.github.io/rce",
   "author": {
     "name": "Pavel Kuznetsov",
