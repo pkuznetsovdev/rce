@@ -1,6 +1,5 @@
 import React from "react";
 import { CE } from "react-content-elements";
-
 import { Layout } from "../../layout";
 
 import { useGetData } from "src/custom/project-a/data";
@@ -13,7 +12,7 @@ const Template = () => {
   return (
     <>
       <Layout className={mainClass} title="What?">
-        <CE.Block modifiers={["section", "container"]}>
+        {/*<CE.Block modifiers={["section", "container"]}>
           <CE.Text>
             React Content Elements is another JavaScript Library.
           </CE.Text>
@@ -32,7 +31,7 @@ const Template = () => {
             Following webpage is created within the RCE library. The result is
             available in 'Elements' tab via developer tools.
           </CE.Text>
-        </CE.Block>
+        </CE.Block>*/}
       </Layout>
     </>
   );
