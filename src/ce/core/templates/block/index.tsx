@@ -1,7 +1,7 @@
-import React from "react";
-import { BlockProps } from "./types";
-import { WithMyTemplateElementProps } from "../../types";
-import { useBgBySrcSet } from "../../utils";
+import React from 'react';
+import { BlockProps } from './types';
+import { WithMyTemplateElementProps } from '../../types';
+import { useBgBySrcSet } from '../../utils';
 
 export const Block = ({
   children,
@@ -19,10 +19,7 @@ export const Block = ({
   return (
     // TODO: FIX TS contentElementTag type
     // @ts-ignore-next-line
-    <TagName
-      {...props}
-      style={{ ...style, ...(props.style ? props.style : {}) }}
-    >
+    <TagName {...props} style={{ ...style, ...(props.style ? props.style : {}) }}>
       {children}
     </TagName>
   );

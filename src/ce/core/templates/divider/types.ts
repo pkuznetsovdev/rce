@@ -1,2 +1,1 @@
-export interface DividerProps extends React.HTMLProps<HTMLHRElement> {
-}
+export type DividerProps = React.HTMLProps<HTMLHRElement>;

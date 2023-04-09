@@ -1,2 +1,1 @@
-export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
-}
+export type ButtonProps = React.HTMLProps<HTMLButtonElement>;

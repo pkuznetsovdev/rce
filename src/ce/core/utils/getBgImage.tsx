@@ -1,10 +1,8 @@
-import { BREAKPOINT_NAMES, useBreakpoints } from "../constants";
-import React from "react";
-import { ImageSrcSetProp } from "./getSrcSet";
+import { BREAKPOINT_NAMES, useBreakpoints } from '../constants';
+import React from 'react';
+import { ImageSrcSetProp } from './getSrcSet';
 
-export const useBgBySrcSet = (
-  srcSetConfig?: ImageSrcSetProp | string
-): string | undefined => {
+export const useBgBySrcSet = (srcSetConfig?: ImageSrcSetProp | string): string | undefined => {
   const [breakpointName] = useBreakpoints();
 
   const srcBySrcSet = React.useMemo(() => {
@@ -14,7 +12,7 @@ export const useBgBySrcSet = (
 
     let srcBySrcSet;
 
-    if (typeof srcSetConfig === "string") {
+    if (typeof srcSetConfig === 'string') {
       return srcSetConfig;
     }
 
@@ -26,15 +24,9 @@ export const useBgBySrcSet = (
     }
 
     // by breakpoint key above current
-    const currentBreakpointIndex = BREAKPOINT_NAMES.findIndex(
-      (v) => v === breakpointName
-    );
+    const currentBreakpointIndex = BREAKPOINT_NAMES.findIndex((v) => v === breakpointName);
 
-    for (
-      let bpIndex = currentBreakpointIndex;
-      bpIndex < BREAKPOINT_NAMES.length;
-      bpIndex++
-    ) {
+    for (let bpIndex = currentBreakpointIndex; bpIndex < BREAKPOINT_NAMES.length; bpIndex++) {
       srcBySrcSet = srcSetConfig[BREAKPOINT_NAMES[bpIndex]];
       if (srcBySrcSet) {
         break;

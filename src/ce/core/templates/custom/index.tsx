@@ -1,6 +1,6 @@
-import React from "react";
-import { CustomProps } from "./types";
-import { WithMyTemplateElementProps } from "../../types";
+import React from 'react';
+import { CustomProps } from './types';
+import { WithMyTemplateElementProps } from '../../types';
 
 export const Custom = ({
   CustomTemplate,

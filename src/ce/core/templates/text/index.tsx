@@ -1,14 +1,9 @@
-import React from "react";
-import { TextProps } from "./types";
-import { WithMyTemplateElementProps } from "../../types";
+import React from 'react';
+import { TextProps } from './types';
+import { WithMyTemplateElementProps } from '../../types';
 
-export const Text = ({
-  children,
-  tag: TagName,
-  content,
-  ...props
-}: TextProps & WithMyTemplateElementProps) => {
-  if (content && typeof content === "string") {
+export const Text = ({ children, tag: TagName, content, ...props }: TextProps & WithMyTemplateElementProps) => {
+  if (content && typeof content === 'string') {
     return (
       // TODO: FIX TS className type
       // @ts-ignore-next-line

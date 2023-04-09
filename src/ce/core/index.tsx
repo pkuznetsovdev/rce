@@ -1,24 +1,18 @@
-import React from "react";
+import React from 'react';
 import {
   MyElementProps,
   MyElementName,
   MyElementConfig,
   MyElementTemplateProps,
   MyElementConfigDefaultMap,
-} from "./types";
-import {
-  MY_ELEMENT_CONFIG_DEFAULT_VALUE_BY_NAME,
-  MY_ELEMENTS_BY_NAME,
-} from "./constants";
-import { WithMyElementConfig } from "./with-my-element-config";
-import { validateUnreachableCode } from "./utils";
-import { useValidateMyElementProps } from "./hooks";
+} from './types';
+import { MY_ELEMENT_CONFIG_DEFAULT_VALUE_BY_NAME, MY_ELEMENTS_BY_NAME } from './constants';
+import { WithMyElementConfig } from './with-my-element-config';
+import { validateUnreachableCode } from './utils';
+import { useValidateMyElementProps } from './hooks/hooks';
 
 export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
-  elementTemplatesByName?: Record<
-    ElementName,
-    React.FC<MyElementProps<ElementName>>
-  >
+  elementTemplatesByName?: Record<ElementName, React.FC<MyElementProps<ElementName>>>,
 ) => {
   const elementTemplatesByNameWithDefaultValues = {
     ...MY_ELEMENTS_BY_NAME,
@@ -33,9 +27,9 @@ export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
         return null;
       }
 
-      const MyElementTemplate = elementTemplatesByNameWithDefaultValues[
-        myname
-      ] as React.FC<MyElementTemplateProps<ElementName>>;
+      const MyElementTemplate = elementTemplatesByNameWithDefaultValues[myname] as React.FC<
+        MyElementTemplateProps<ElementName>
+      >;
 
       if (!MyElementTemplate) {
         return null;
@@ -50,17 +44,16 @@ export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
 
 function getConfigByValidatedProps<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
-  myname: ElementName
+  myname: ElementName,
 ): MyElementConfig<ElementName> {
   return getMyElementConfigFromProps(props, myname);
 }
 
 function getMyElementConfigFromProps<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
-  myname: ElementName
+  myname: ElementName,
 ) {
-  const isDefaultConfig =
-    MY_ELEMENT_CONFIG_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
+  const isDefaultConfig = MY_ELEMENT_CONFIG_DEFAULT_VALUE_BY_NAME[myname] === typeof props.config;
 
   if (isDefaultConfig) {
     return getConfigByDefaultValue(props, myname);
@@ -72,11 +65,11 @@ function getMyElementConfigFromProps<ElementName extends MyElementName>(
 function getMyElementConfig<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
   myname: ElementName,
-  customProps: Partial<MyElementProps<ElementName>> = {}
+  customProps: Partial<MyElementProps<ElementName>> = {},
 ): MyElementConfig<ElementName> {
   const { config, ...restProps } = props;
 
-  const configToUse = config && typeof config !== "string" ? config : {};
+  const configToUse = config && typeof config !== 'string' ? config : {};
 
   const modifiers = mergeModifiersInConfig(props, customProps);
 
@@ -88,9 +81,7 @@ function getMyElementConfig<ElementName extends MyElementName>(
     ...customProps,
     // TODO FAQ: How to fix ts
     // @ts-ignore
-    className: `${configToUse.className ? configToUse.className : ""} ${
-      props.className ? props.className : ""
-    }`.trim(),
+    className: `${configToUse.className ? configToUse.className : ''} ${props.className ? props.className : ''}`.trim(),
     modifiers,
     myname,
   } as const;
@@ -98,7 +89,7 @@ function getMyElementConfig<ElementName extends MyElementName>(
 
 function mergeModifiersInConfig<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
-  customProps: Partial<MyElementProps<ElementName>> = {}
+  customProps: Partial<MyElementProps<ElementName>> = {},
 ) {
   return [
     // TODO FAQ: How to fix ts
@@ -110,32 +101,32 @@ function mergeModifiersInConfig<ElementName extends MyElementName>(
 
 function getConfigByDefaultValue<ElementName extends MyElementName>(
   props: MyElementProps<ElementName>,
-  myname: ElementName
+  myname: ElementName,
 ): MyElementConfig<ElementName> {
   const { config } = props;
   switch (myname) {
-    case "text":
+    case 'text':
       return getMyElementConfig(props, myname, {
         // TODO FAQ: How to fix ts
         // @ts-ignore
         content: config as MyElementConfigDefaultMap[ElementName],
       });
-    case "link":
+    case 'link':
       return getMyElementConfig(props, myname, {
         // TODO FAQ: How to fix ts
         // @ts-ignore
         to: config as MyElementConfigDefaultMap[ElementName],
       });
-    case "image":
+    case 'image':
       // TODO FAQ: How to fix ts
       // @ts-ignore
       return getMyElementConfig(props, myname, {
         src: config as MyElementConfigDefaultMap[ElementName],
       });
-    case "block":
-    case "list":
+    case 'block':
+    case 'list':
       return getMyElementConfig(props, myname);
-    case "button":
+    case 'button':
       return getMyElementConfig(props, myname, {
         content: config as MyElementConfigDefaultMap[ElementName],
       });

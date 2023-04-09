@@ -1,3 +1,3 @@
 export interface WithMyTemplateElementProps {
-    tag: keyof HTMLElementTagNameMap;
-};
+  tag: keyof HTMLElementTagNameMap;
+}

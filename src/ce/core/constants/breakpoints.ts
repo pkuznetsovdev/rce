@@ -36,7 +36,7 @@ export type BreakpointName = keyof typeof BREAKPOINTS_BY_NAME;
 /** shared export end */
 
 export const BREAKPOINT_NAMES = Object.keys(BREAKPOINTS_BY_NAME).map(
-  (breakpointName) => breakpointName
+  (breakpointName) => breakpointName,
 ) as Array<BreakpointName>;
 
 function useGetCurrentBreakpointName() {
@@ -47,10 +47,7 @@ function useGetCurrentBreakpointName() {
     const breakpointName = bpName as BreakpointName; // ts type fix
     const breakpoint = BREAKPOINTS_BY_NAME[breakpointName];
 
-    if (
-      breakpoint.from <= currentScreenWidth &&
-      breakpoint.to >= currentScreenWidth
-    ) {
+    if (breakpoint.from <= currentScreenWidth && breakpoint.to >= currentScreenWidth) {
       currentBreakpoint = breakpointName;
       break;
     }

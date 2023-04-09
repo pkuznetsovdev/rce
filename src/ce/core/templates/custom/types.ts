@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
 export interface CustomProps extends React.HTMLProps<unknown> {
-    CustomTemplate: React.FC<React.PropsWithChildren>
+  CustomTemplate: React.FC<React.PropsWithChildren>;
 }

@@ -1,13 +1,8 @@
-import React from "react";
-import { IconProps } from "./types";
-import { WithMyTemplateElementProps } from "../../types";
+import React from 'react';
+import { IconProps } from './types';
+import { WithMyTemplateElementProps } from '../../types';
 
-export const Icon = ({
-  children,
-  tag,
-  name,
-  ...props
-}: IconProps & WithMyTemplateElementProps) => {
+export const Icon = ({ children, tag, name, ...props }: IconProps & WithMyTemplateElementProps) => {
   return null;
   // return (
   // <TagName

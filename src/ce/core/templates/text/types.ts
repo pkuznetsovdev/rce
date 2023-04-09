@@ -1,2 +1,1 @@
-export interface TextProps extends React.HTMLProps<HTMLParagraphElement> {
-}
+export type TextProps = React.HTMLProps<HTMLParagraphElement>;

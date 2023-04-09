@@ -1,8 +1,8 @@
-import React from "react";
-import { ListItemProps, ListProps } from "./types";
-import { WithMyTemplateElementProps } from "../../types";
-import { BASE_CLASSNAME } from "../../constants";
-import { SHARED_UTILS } from "src/shared";
+import React from 'react';
+import { ListItemProps, ListProps } from './types';
+import { WithMyTemplateElementProps } from '../../types';
+import { BASE_CLASSNAME } from '../../constants';
+import { SHARED_UTILS } from '../../../utils';
 
 export const List = ({
   children,
@@ -13,18 +13,13 @@ export const List = ({
   listItemTemplate: ItemTemplate,
   ...props
 }: WithMyTemplateElementProps & ListProps) => {
-  const elementKeyByListProps = myElementKey || "id";
+  const elementKeyByListProps = myElementKey || 'id';
 
-  if (content && typeof content[0] === "string" && !ItemTemplate) {
+  if (content && typeof content[0] === 'string' && !ItemTemplate) {
     return (
       <TagName {...props}>
         {content.map((listItemText, idx) => {
-          return (
-            <ListItem
-              key={idx}
-              dangerouslySetInnerHTML={{ __html: listItemText }}
-            />
-          );
+          return <ListItem key={idx} dangerouslySetInnerHTML={{ __html: listItemText }} />;
         })}
       </TagName>
     );
@@ -95,13 +90,7 @@ export const List = ({
 
 export const ListItem = ({ children, ...props }: ListItemProps) => {
   return (
-    <li
-      className={SHARED_UTILS.getClassNames(
-        BASE_CLASSNAME,
-        `${BASE_CLASSNAME}-item`
-      )}
-      {...props}
-    >
+    <li className={SHARED_UTILS.getClassNames(BASE_CLASSNAME, `${BASE_CLASSNAME}-item`)} {...props}>
       {children}
     </li>
   );
