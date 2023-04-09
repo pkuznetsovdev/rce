@@ -29,7 +29,8 @@
     "lint": "eslint --fix \"{src/ce/**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src/ce,example}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run prettier && npm run lint"
+    "prepublishOnly": "npm run prettier && npm run lint",
+    "publish": "npm publish"
   },
   "peerDependencies": {
     "react": "^18.2.0",
