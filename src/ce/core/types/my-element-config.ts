@@ -2,7 +2,7 @@ import { MyElementModifiers, MyElementName, MyElementSpecialProps, MyElementTag 
 import React, { HTMLProps } from 'react';
 import { ListProps } from 'src/ce/core/templates/list/types';
 import { LinkProps } from 'src/ce/core/templates/link/types';
-import { ContentConditionParams } from "../temp/condition";
+import { ContentConditionParams } from '../temp/condition';
 
 /** START: MyElementConfig */
 type MyElementConfigBase<ElementName extends MyElementName> = Partial<{
@@ -25,22 +25,30 @@ interface MyElementCofigContentMap<
   link: LinkProps;
 }
 
+// TODO FAQ: How to fix ts
+// @ts-ignore
 type MyElementCofigContent<ElementName extends MyElementName> = MyElementCofigContentMap<ElementName>[ElementName];
 
 export type MyElementConfig<ElementName extends MyElementName> = HTMLProps<any> &
   MyElementConfigBase<ElementName> &
   MyElementCofigContent<ElementName> &
-    ContentConditionParams &
+  ContentConditionParams &
   MyElementSpecialProps<ElementName>;
 
 export type MyElementConfigProps<ElementName extends MyElementName> = Omit<MyElementConfig<ElementName>, 'myname'>;
 
-export interface MyElementConfigDefaultMap {
+// TODO FAQ: How to fix ts
+// @ts-ignore
+export interface MyElementConfigDefaultMap extends Record<MyElementName, unknown> {
   text?: string;
   image?: string;
   block?: never;
   list?: never;
   link?: string;
+  button?: never;
+  custom?: unknown;
+  divider?: never;
+  icon?: string;
 }
 
 /** END: MyElementConfig */

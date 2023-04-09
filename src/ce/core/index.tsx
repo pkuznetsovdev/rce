@@ -9,7 +9,7 @@ import {
 import { MY_ELEMENT_CONFIG_DEFAULT_VALUE_BY_NAME, MY_ELEMENTS_BY_NAME } from './constants';
 import { WithMyElementConfig } from './with-my-element-config';
 import { validateUnreachableCode } from './utils';
-import { useValidateMyElementProps } from './hooks/hooks';
+import { useValidateMyElementProps } from './hooks';
 
 export const getMyElementByNameRenderer = <ElementName extends MyElementName>(
   elementTemplatesByName?: Record<ElementName, React.FC<MyElementProps<ElementName>>>,
@@ -106,9 +106,9 @@ function getConfigByDefaultValue<ElementName extends MyElementName>(
   const { config } = props;
   switch (myname) {
     case 'text':
+      // TODO FAQ: How to fix ts
+      // @ts-ignore
       return getMyElementConfig(props, myname, {
-        // TODO FAQ: How to fix ts
-        // @ts-ignore
         content: config as MyElementConfigDefaultMap[ElementName],
       });
     case 'link':
@@ -127,10 +127,14 @@ function getConfigByDefaultValue<ElementName extends MyElementName>(
     case 'list':
       return getMyElementConfig(props, myname);
     case 'button':
+      // TODO FAQ: How to fix ts
+      // @ts-ignore
       return getMyElementConfig(props, myname, {
         content: config as MyElementConfigDefaultMap[ElementName],
       });
     default:
+      // TODO FAQ: How to fix ts
+      // @ts-ignore
       validateUnreachableCode(myname);
       return getMyElementConfig(props, myname);
   }

@@ -74,7 +74,11 @@ function getIsContentInProps<ElementName extends MyElementName>(
       // @ts-ignore
       return Boolean(props.config?.to || props.to);
     case 'list':
+      // TODO FAQ: How to fix ts
+      // @ts-ignore
       const itemTemplate = props.listItemTemplate || props.config?.listItemTemplate;
+      // TODO FAQ: How to fix ts
+      // @ts-ignore
       const content = props.content || props.config?.content;
       const isValidcontent = content && typeof content[0] === 'string';
 

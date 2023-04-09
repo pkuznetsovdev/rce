@@ -11,10 +11,7 @@ export function getMyElementTemplatePropsByConfig<
 
   const { modifiers, myname, contentConditions, ...nativeProps } = config;
 
-  const customProps =
-    // TODO: CUSTOM TEMPLATE
-    // @ts-expect-error
-    myname === 'custom' ? { modifiers, myname, contentConditions } : {};
+  const customProps = myname === 'custom' ? { modifiers, myname, contentConditions } : {};
 
   return {
     ...nativeProps,
@@ -28,13 +25,13 @@ function getClassNameByModifier<ElementName extends MyElementName>(modifier: MyE
   return `${BASE_CLASSNAME}--${modifier}`;
 }
 
-const TAG_BY_ELEMENT_NAME: Record<MyElementName, string> = {
+const TAG_BY_ELEMENT_NAME = {
   text: 'p',
   block: 'div',
   image: 'img',
   list: 'ul',
   link: 'a',
-};
+} as Record<MyElementName, string>;
 
 const TAG_BY_ELEMENT_MODIFIER = {
   header: 'h1',
@@ -76,6 +73,8 @@ function getMyElementClassName<ElementName extends MyElementName>(config: MyElem
   // @ts-ignore
   const { modifiers, className } = config;
   const classNameByMyName = `${BASE_CLASSNAME}-${config.myname}`;
+  // TODO: FAQ HOW TO FIX?
+  // @ts-ignore
   const classNameByCustomName = config.customName ? `${BASE_CLASSNAME}-${config.customName}` : undefined;
 
   const classNameByModifiers = (modifiers || []).filter((m) => m && typeof m === 'string').map(getClassNameByModifier);

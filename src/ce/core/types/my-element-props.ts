@@ -2,7 +2,7 @@
 import React from 'react';
 import { MyElementName } from './my-element';
 import { MyElementConfigDefaultMap, MyElementConfigProps } from './my-element-config';
-import { ContentConditionParams } from "../temp/condition";
+import { ContentConditionParams } from '../temp/condition';
 
 // TODO FAQ: How to make one of props required: config by default value, or config with required attr by name, or
 // children?

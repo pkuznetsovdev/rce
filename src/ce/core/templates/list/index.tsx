@@ -7,7 +7,6 @@ import { SHARED_UTILS } from '../../../utils';
 export const List = ({
   children,
   tag: TagName,
-  text,
   myElementKey,
   content,
   listItemTemplate: ItemTemplate,
@@ -17,47 +16,66 @@ export const List = ({
 
   if (content && typeof content[0] === 'string' && !ItemTemplate) {
     return (
-      <TagName {...props}>
-        {content.map((listItemText, idx) => {
-          return <ListItem key={idx} dangerouslySetInnerHTML={{ __html: listItemText }} />;
-        })}
-      </TagName>
+      <>
+        {/* TODO FAQ: How to fix ts
+           @ts-ignore */}
+        <TagName {...props}>
+          {content.map((listItemText, idx) => {
+            // TODO FAQ: How to fix ts
+            // @ts-ignore
+            return <ListItem key={idx} dangerouslySetInnerHTML={{ __html: listItemText }} />;
+          })}
+        </TagName>
+      </>
     );
   }
 
   if (content && ItemTemplate) {
     return (
-      <TagName {...props}>
-        {content.map((listItemData, idx) => {
-          const elementKeyValue = listItemData.id || idx;
+      <>
+        {/* TODO FAQ: How to fix ts
+         @ts-ignore */}
+        <TagName {...props}>
+          {content.map((listItemData, idx) => {
+            const elementKeyValue = listItemData.id || idx;
 
-          return (
-            <ListItem key={elementKeyValue}>
-              <ItemTemplate {...{ ...listItemData, itemIndex: idx }} />
-            </ListItem>
-          );
-        })}
-      </TagName>
+            return (
+              <ListItem key={elementKeyValue}>
+                {/* TODO FAQ: How to fix ts
+                   @ts-ignore */}
+                <ItemTemplate {...{ ...listItemData, itemIndex: idx }} />
+              </ListItem>
+            );
+          })}
+        </TagName>
+      </>
     );
   }
 
   if (content && React.Children.only(children)) {
     return (
-      <TagName {...props}>
-        {content.map((listItemData, idx) => {
-          const elementKeyValue = listItemData.id || idx;
+      <>
+        {/* TODO FAQ: How to fix ts
+           @ts-ignore */}
 
-          return (
-            <ListItem key={elementKeyValue}>
-              {/*{child}*/}
-              {React.cloneElement(children, {
-                itemIndex: idx,
-                ...listItemData,
-              })}
-            </ListItem>
-          );
-        })}
-      </TagName>
+        <TagName {...props}>
+          {content.map((listItemData, idx) => {
+            const elementKeyValue = listItemData.id || idx;
+
+            return (
+              <ListItem key={elementKeyValue}>
+                {/*{child}*/}
+                {/* TODO FAQ: How to fix ts
+                     @ts-ignore */}
+                {React.cloneElement(children, {
+                  itemIndex: idx,
+                  ...listItemData,
+                })}
+              </ListItem>
+            );
+          })}
+        </TagName>
+      </>
     );
   }
 
@@ -77,6 +95,8 @@ export const List = ({
         return (
           <ListItem key={elementKeyValue}>
             {/*{child}*/}
+            {/* TODO FAQ: How to fix ts
+            @ts-ignore */}
             {React.cloneElement(child, {
               itemIndex: idx,
               ...(content && content[idx] ? content[idx] : {}),

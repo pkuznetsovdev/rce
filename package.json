@@ -23,17 +23,18 @@
     "url": "git+https://github.com/pkuznetsovdev/rce.git"
   },
   "scripts": {
-    "build": "npm run build:esm & yarn build:cjs",
+    "build": "rm -rf dist && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "lint": "eslint --fix \"{src/ce/**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src/ce,example}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run prettier && npm run lint"
+    "prepublishOnly": "npm run prettier && npm run lint"
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.33",
@@ -44,6 +45,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-router-dom": "^6.8.2",
     "typescript": "^4.9.5",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

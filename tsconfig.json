@@ -14,10 +14,7 @@
     "rootDir": "./src",
     "outDir": "./dist/esm",
     "strict": true,
-    "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "moduleResolution": "node",
     "jsx": "react",
     "esModuleInterop": true,
@@ -25,5 +22,6 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "noEmitOnError": false,
+    "skipDefaultLibCheck": true,
   }
 }

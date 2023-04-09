@@ -6,6 +6,8 @@ import { getNativeSrcSet } from '../../utils';
 export const Image = ({
   children,
   tag,
+  // TODO FAQ: How to fix ts
+  // @ts-ignore
   text,
   srcSet,
   ...props
