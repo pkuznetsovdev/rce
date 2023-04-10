@@ -1,18 +1,10 @@
-import React from "react";
-import {
-  ContentElementProps,
-  ContentElementTemplatesMap,
-  ContentElementName,
-} from "./types";
-import {
-  getContentElementTag,
-  getContentElementClassName,
-  getBaseContentElementClassName,
-} from "./utils";
+import React from 'react';
+import { ContentElementProps, ContentElementTemplatesMap, ContentElementName } from './types';
+import { getContentElementTag, getContentElementClassName, getBaseContentElementClassName } from './utils';
 
-export function WithContentElementTemplateProps<
-  Name extends ContentElementName
->(ContentElementTemplate: ContentElementTemplatesMap<Name>) {
+export function WithContentElementTemplateProps<Name extends ContentElementName>(
+  ContentElementTemplate: ContentElementTemplatesMap<Name>,
+) {
   return (name: Name, contentElementConfig: ContentElementProps<Name>) => {
     // extract content element config props(f.e. 'modifiers')
     const { modifiers, ...restContentElementProps } = contentElementConfig;
@@ -28,11 +20,11 @@ export function WithContentElementTemplateProps<
     };
 
     // TODO: REFACTOR
-    if (name === "list" || name === "ceList") {
+    if (name === 'list' || name === 'ceList') {
       // @ts-ignore-next-line
-      contentElementTemplateProps["listItem"] = {
+      contentElementTemplateProps['listItem'] = {
         // @ts-ignore-next-line
-        className: getBaseContentElementClassName("list-item"),
+        className: getBaseContentElementClassName('list-item'),
       };
     }
 

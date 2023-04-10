@@ -1,10 +1,7 @@
 import { CONTENT_ELEMENT_BASE_MODIFIERS } from '../constants';
 import { ExtendsString } from 'src/shared/types';
 
-export type ContentElementBaseModifier =
-  typeof CONTENT_ELEMENT_BASE_MODIFIERS[number];
+export type ContentElementBaseModifier = (typeof CONTENT_ELEMENT_BASE_MODIFIERS)[number];
 
 // TODO: Not working as expected, CONTENT_ELEMENT_BASE_MODIFIERS are not autocompleted, only name specific
-export type WithContentElementBaseModifier<T extends string> = ExtendsString<
-  ContentElementBaseModifier | T
->;
+export type WithContentElementBaseModifier<T extends string> = ExtendsString<ContentElementBaseModifier | T>;

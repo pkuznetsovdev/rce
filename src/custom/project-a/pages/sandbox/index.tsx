@@ -1,4 +1,4 @@
-import "./styles.scss";
-import { default as SandboxPage } from "./template";
+import './styles.scss';
+import { default as SandboxPage } from './template';
 
 export default SandboxPage;

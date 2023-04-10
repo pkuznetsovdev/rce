@@ -19,23 +19,20 @@ export const CONTENT_ELEMENT_LIST = (() => {
 
 export type ContentElementList = typeof CONTENT_ELEMENT_LIST;
 
-
-export type ContentElementListProps<Item> = Partial<HTMLProps<
-  typeof CONTENT_ELEMENT_LIST.tags[number]
-> &
-  PropsWithChildren<{
-    type: typeof CONTENT_ELEMENT_LIST.types[number];
-    tag: typeof CONTENT_ELEMENT_LIST.tags[number];
-    modifiers: WithContentElementBaseModifier<
-      typeof CONTENT_ELEMENT_LIST.modifiers[number]
-    >[];
-    className?: string;
-    //
-    listItem?: {
+export type ContentElementListProps<Item> = Partial<
+  HTMLProps<(typeof CONTENT_ELEMENT_LIST.tags)[number]> &
+    PropsWithChildren<{
+      type: (typeof CONTENT_ELEMENT_LIST.types)[number];
+      tag: (typeof CONTENT_ELEMENT_LIST.tags)[number];
+      modifiers: WithContentElementBaseModifier<(typeof CONTENT_ELEMENT_LIST.modifiers)[number]>[];
       className?: string;
-    };
-    ceList: {
+      //
+      listItem?: {
+        className?: string;
+      };
+      ceList: {
         items?: Array<Item> | Readonly<Array<Item>>;
         ItemTemplate?: React.FC<Item>;
-    }
-  }>>;
+      };
+    }>
+>;

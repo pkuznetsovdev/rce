@@ -1,2 +1,2 @@
 import './styles.scss';
-export * from './daily-card'
+export * from './daily-card';

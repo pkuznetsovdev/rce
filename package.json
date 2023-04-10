@@ -32,8 +32,8 @@
     "eject": "react-scripts eject",
     "predeploy": "CI=false && npm run build",
     "deploy": "gh-pages -d build",
-    "format": "prettier --write src/**/*.ts{,x}",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}"
+    "lint": "eslint --fix \"{src/**/*,*}.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"{src,example}/**/*.{js,ts,jsx,tsx}\""
   },
   "eslintConfig": {
     "extends": [
@@ -66,8 +66,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.8.4",
     "react-content-elements": "^1.1.107",
-    "sass": "^1.58.0"
+    "sass": "^1.58.0",
+    "prettier": "^2.8.7"
   }
 }

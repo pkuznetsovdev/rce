@@ -1,15 +1,7 @@
-import ContentElementText, {
-  CONTENT_ELEMENT_TEXT,
-} from '../content-element-templates/content-element-text';
-import ContentElementImage, {
-  CONTENT_ELEMENT_IMAGE,
-} from '../content-element-templates/content-element-image';
-import ContentElementBlock, {
-  CONTENT_ELEMENT_BLOCK,
-} from '../content-element-templates/content-element-block';
-import ContentElementList, {
-  CONTENT_ELEMENT_LIST,
-} from '../content-element-templates/content-element-list';
+import ContentElementText, { CONTENT_ELEMENT_TEXT } from '../content-element-templates/content-element-text';
+import ContentElementImage, { CONTENT_ELEMENT_IMAGE } from '../content-element-templates/content-element-image';
+import ContentElementBlock, { CONTENT_ELEMENT_BLOCK } from '../content-element-templates/content-element-block';
+import ContentElementList, { CONTENT_ELEMENT_LIST } from '../content-element-templates/content-element-list';
 import ContentElementCondition from '../content-element-templates/content-element-condition';
 
 export const CONTENT_ELEMENT_ICON = {

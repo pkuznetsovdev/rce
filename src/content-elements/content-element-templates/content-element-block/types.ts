@@ -20,15 +20,11 @@ export type BackgroundImageProps = ContentElementImageProps &
     srcSet: Record<BreakpointName, string>;
   }>;
 
-export type ContentElementBlockProps = HTMLProps<
-  typeof CONTENT_ELEMENT_BLOCK.tags[number]
-> &
+export type ContentElementBlockProps = HTMLProps<(typeof CONTENT_ELEMENT_BLOCK.tags)[number]> &
   PropsWithChildren<{
-    type: typeof CONTENT_ELEMENT_BLOCK.types[number];
-    tag: typeof CONTENT_ELEMENT_BLOCK.tags[number];
-    modifiers: WithContentElementBaseModifier<
-      typeof CONTENT_ELEMENT_BLOCK.modifiers[number]
-    >[];
+    type: (typeof CONTENT_ELEMENT_BLOCK.types)[number];
+    tag: (typeof CONTENT_ELEMENT_BLOCK.tags)[number];
+    modifiers: WithContentElementBaseModifier<(typeof CONTENT_ELEMENT_BLOCK.modifiers)[number]>[];
     // ??
     backgroundImage?: BackgroundImageProps | string;
     withContainer?: boolean;

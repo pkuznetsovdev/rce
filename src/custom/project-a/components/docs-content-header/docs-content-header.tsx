@@ -1,35 +1,34 @@
-import React from "react";
-import { CE } from "react-content-elements";
-import { MyElementConfigProps } from "react-content-elements";
+import React from 'react';
+import { CE } from 'react-content-elements';
+import { MyElementConfigProps } from 'react-content-elements';
 
 export interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;
-  image?: MyElementConfigProps<"image">;
-  title?: MyElementConfigProps<"text">;
+  image?: MyElementConfigProps<'image'>;
+  title?: MyElementConfigProps<'text'>;
 }
 
 export const DocsContentHeader = ({ image, title }: DailyCardProps) => {
   return (
-    <CE.Block className="docs-content-header">
+    <CE.Block className='docs-content-header'>
       <CE.Text>
         <mark>Content Elements</mark> represent basic HTML structures.
         <br />
-        Development process with <mark>Content Elements</mark> is formalized in
-        terms of generating basic structures(HTML) and styles(CSS).
+        Development process with <mark>Content Elements</mark> is formalized in terms of generating basic
+        structures(HTML) and styles(CSS).
         <br />
-        Basic structure is any piece of HTML or/and CSS that is generated via{" "}
-        <mark>Content Elements</mark>.
+        Basic structure is any piece of HTML or/and CSS that is generated via <mark>Content Elements</mark>.
       </CE.Text>
       <CE.Text
-        modifiers={["list-title"]}
-        content="Let’s clarify a set of dependencies for the web content development flow:"
+        modifiers={['list-title']}
+        content='Let’s clarify a set of dependencies for the web content development flow:'
       />
       <CE.List
-        modifiers={["disc"]}
+        modifiers={['disc']}
         content={[
-          "HTML (set of basic structures instead of manual code duplications)",
-          "CSS (simple and scalable style system, less dependent on HTML structure)",
-          "SEO (tag name, aria-attributes, e.t.c. - simple adjustment in one click)",
+          'HTML (set of basic structures instead of manual code duplications)',
+          'CSS (simple and scalable style system, less dependent on HTML structure)',
+          'SEO (tag name, aria-attributes, e.t.c. - simple adjustment in one click)',
         ]}
       ></CE.List>
     </CE.Block>

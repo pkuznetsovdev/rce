@@ -1,5 +1,5 @@
-import React, { PropsWithChildren } from "react";
-import { ContentElementProps } from "../../content-element/types";
+import React, { PropsWithChildren } from 'react';
+import { ContentElementProps } from '../../content-element/types';
 
 const ContentElementList = ({
   children,
@@ -11,7 +11,7 @@ const ContentElementList = ({
   modifiers,
   ceList,
   ...props
-}: ContentElementProps<"ceList">) => {
+}: ContentElementProps<'ceList'>) => {
   const { items, ItemTemplate } = ceList || {};
   const ListItem = React.useCallback(
     ({ children, ...props }: PropsWithChildren<object>, index: number) => {
@@ -21,7 +21,7 @@ const ContentElementList = ({
         </li>
       );
     },
-    [listItem?.className]
+    [listItem?.className],
   );
 
   const ItemTemplateList = React.useCallback(() => {

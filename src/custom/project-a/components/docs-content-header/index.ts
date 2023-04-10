@@ -1,2 +1,2 @@
 import './styles.scss';
-export * from './docs-content-header'
+export * from './docs-content-header';

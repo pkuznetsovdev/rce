@@ -1,2 +1,2 @@
 import './styles.scss';
-export * from './template'
+export * from './template';

@@ -1,10 +1,6 @@
-import React, { useMemo } from "react";
-import { ContentElementProps } from "../../content-element/types";
-import {
-  ContentConditions,
-  processContentConditionByGroups,
-  processContentConditionBySchedule,
-} from "./utils";
+import React, { useMemo } from 'react';
+import { ContentElementProps } from '../../content-element/types';
+import { ContentConditions, processContentConditionByGroups, processContentConditionBySchedule } from './utils';
 
 export type ContentConditionParams = Partial<{
   contentConditions: ContentConditions;
@@ -13,7 +9,7 @@ export type ContentConditionParams = Partial<{
 
 const getContentConditions = (
   contentConditions: ContentConditions | undefined,
-  { shouldSatisfyEveryCondition }: ContentConditionParams
+  { shouldSatisfyEveryCondition }: ContentConditionParams,
 ) => {
   if (!contentConditions) {
     return true;
@@ -24,20 +20,18 @@ const getContentConditions = (
 
   const contentConditionResults = contentConditions.map((condition) => {
     switch (condition.type) {
-      case "groups":
+      case 'groups':
         return processContentConditionByGroups(condition, {
           currentGroups: groupsToVerifyByCondition,
         });
-      case "schedule":
+      case 'schedule':
         return processContentConditionBySchedule(condition);
       default:
         return true;
     }
   });
 
-  return shouldSatisfyEveryCondition
-    ? contentConditionResults.every(Boolean)
-    : contentConditionResults.some(Boolean);
+  return shouldSatisfyEveryCondition ? contentConditionResults.every(Boolean) : contentConditionResults.some(Boolean);
 };
 
 export const useContentConditions = getContentConditions;
@@ -46,7 +40,7 @@ const ContentElementCondition = ({
   showMultipleResults: shouldShowMultipleResults = false,
   satisfyEveryCondition = true,
   children,
-}: ContentElementProps<"condition">) => {
+}: ContentElementProps<'condition'>) => {
   const isFirstResultProvided = React.useRef(false);
 
   const elementsToRender = useMemo(
@@ -55,8 +49,7 @@ const ContentElementCondition = ({
         React.Children.map(children, (item) => {
           if (
             getContentConditions(item?.props.contentConditions, {
-              shouldSatisfyEveryCondition:
-                item?.props.satisfyEveryCondition || satisfyEveryCondition,
+              shouldSatisfyEveryCondition: item?.props.satisfyEveryCondition || satisfyEveryCondition,
             })
           ) {
             if (isFirstResultProvided.current) {
@@ -70,7 +63,7 @@ const ContentElementCondition = ({
           return null;
         }) || []
       ).filter(Boolean),
-    [children, shouldShowMultipleResults, satisfyEveryCondition]
+    [children, shouldShowMultipleResults, satisfyEveryCondition],
   );
 
   isFirstResultProvided.current = false;

@@ -1,3 +1,3 @@
-import AppProvider from "./app";
+import AppProvider from './app';
 
-export { AppProvider }
+export { AppProvider };

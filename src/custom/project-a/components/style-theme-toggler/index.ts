@@ -1,2 +1,2 @@
 import './styles.scss';
-export * from './style-theme-toggler'
+export * from './style-theme-toggler';

@@ -1,18 +1,18 @@
-import React from "react";
-import { CE } from "react-content-elements";
-import { Layout } from "../../layout";
+import React from 'react';
+import { CE } from 'react-content-elements';
+import { Layout } from '../../layout';
 
-import { useGetData } from "src/custom/project-a/data";
+import { useGetData } from 'src/custom/project-a/data';
 
-const mainClass = "home";
+const mainClass = 'home';
 
 const Template = () => {
-    console.log(CE)
-  const pageData = useGetData("IndexPage");
+  console.log(CE);
+  const pageData = useGetData('IndexPage');
 
   return (
     <>
-      <Layout className={mainClass} title="What?">
+      <Layout className={mainClass} title='What?'>
         {/*<CE.Block modifiers={["section", "container"]}>
           <CE.Text>
             React Content Elements is another JavaScript Library.
