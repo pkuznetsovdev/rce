@@ -1,6 +1,6 @@
 import React from "react";
-import { CE } from "src/ce";
-import { MyElementConfigProps } from "src/ce/core/types";
+import { CE } from "react-content-elements";
+import { MyElementConfigProps } from "react-content-elements";
 import { CodeExample } from "../code-example";
 import ImageByName from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.46.png";
 import ImageByModifier from "../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.55.png";

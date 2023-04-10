@@ -1,6 +1,6 @@
 import React from "react";
-import { CE } from "src/ce";
-import { MyElementConfigProps, MyElementModifiers } from "src/ce/core/types";
+import { CE } from "react-content-elements";
+import { MyElementConfigProps, MyElementModifiers } from "react-content-elements";
 import { NavList } from "../nav-list";
 import { StyleThemeToggler } from "../style-theme-toggler";
 

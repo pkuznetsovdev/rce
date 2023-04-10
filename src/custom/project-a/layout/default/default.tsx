@@ -1,6 +1,6 @@
 import React from "react";
-import { CE } from "src/ce";
-import { MyElementConfig, MyElementProps } from "src/ce/core/types";
+import { CE } from "react-content-elements";
+import { MyElementConfig, MyElementProps } from "react-content-elements";
 import { Header } from "../../components";
 
 interface LayoutProps

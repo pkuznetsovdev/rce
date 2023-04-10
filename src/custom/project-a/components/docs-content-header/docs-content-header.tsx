@@ -1,6 +1,6 @@
 import React from "react";
-import { CE } from "src/ce";
-import { MyElementConfigProps } from "src/ce/core/types";
+import { CE } from "react-content-elements";
+import { MyElementConfigProps } from "react-content-elements";
 
 export interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;

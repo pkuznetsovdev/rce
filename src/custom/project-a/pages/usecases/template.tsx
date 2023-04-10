@@ -1,5 +1,5 @@
 import React from "react";
-import { CE } from "src/ce";
+import { CE } from "react-content-elements";
 
 import { useGetData } from "src/custom/project-a/data";
 import { DailyCardList } from "src/custom/project-a/components";
