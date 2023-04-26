@@ -66,8 +66,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "react-content-elements": "^1.1.107",
-    "sass": "^1.58.0",
-    "prettier": "^2.8.7"
+    "prettier": "^2.8.7",
+    "react-content-elements": "^1.1.108-webpack-umd",
+    "sass": "^1.58.0"
   }
 }

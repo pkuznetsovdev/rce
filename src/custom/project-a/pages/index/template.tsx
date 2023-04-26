@@ -1,17 +1,17 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+// import { CE } from 'react-content-elements';
 import { Layout } from '../../layout';
 
 import { useGetData } from 'src/custom/project-a/data';
 
 const mainClass = 'home';
 
-const Template = () => {
-  console.log(CE);
+const Index = () => {
   const pageData = useGetData('IndexPage');
 
-  return (
+    return (
     <>
+      {/* @ts-ignore*/}
       <Layout className={mainClass} title='What?'>
         {/*<CE.Block modifiers={["section", "container"]}>
           <CE.Text>
@@ -38,4 +38,4 @@ const Template = () => {
   );
 };
 
-export default Template;
+export default Index;

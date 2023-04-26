@@ -3,7 +3,7 @@ import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { APP_PATHS } from './constants';
 
 const PAGES_BY_LOCATION = {
-  Index: React.lazy(() => import('../pages/index')),
+  Index: React.lazy(() => import('../pages/index/template')),
   Sandbox: React.lazy(() => import('../pages/sandbox')),
   Usecases: React.lazy(() => import('../pages/usecases')),
   Concept: React.lazy(() => import('../pages/concept')),
