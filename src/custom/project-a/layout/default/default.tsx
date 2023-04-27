@@ -1,5 +1,5 @@
 import React from 'react';
-import Test, { RCE as CE } from 'react-content-elements';
+import Test, { CE } from 'react-content-elements';
 import { MyElementConfig, MyElementProps } from 'react-content-elements';
 import { Header } from '../../components';
 
@@ -10,7 +10,7 @@ interface LayoutProps extends React.PropsWithChildren<Pick<MyElementProps<'text'
 
 export const Layout = ({modifiers = [], children, title, ...props}: LayoutProps) => {
     console.log('Layout')
-    console.log('RCE: ', CE)
+    console.log('CE: ', CE)
     console.log('Test: ', Test)
     return (
         <CE.Block {...props} modifiers={['page', ...modifiers]}>
