@@ -1,10 +1,10 @@
 import React from 'react';
 import { CE } from 'react-content-elements';
-import { MyElementConfigProps } from 'react-content-elements';
+import { ContentElementConfigProps } from 'react-content-elements';
 import { NavLink, NavLinkProps } from 'react-router-dom';
 import { APP_PATHS } from 'src/custom/project-a/router';
 
-type HeaderProps = MyElementConfigProps<'list'>;
+type HeaderProps = ContentElementConfigProps<'list'>;
 
 const mainClass = 'nav-list';
 

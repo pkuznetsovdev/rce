@@ -10,7 +10,7 @@ export const StyleThemeToggler = () => {
 
   return (
     <CE.Button className='style-theme-toggler' onClick={onToggleTheme}>
-      <CE.Custom CustomTemplate={ICONS[iconName]} customName='icon' />
+      <CE.Custom CustomTemplate={ICONS[iconName]} />
     </CE.Button>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CE } from 'react-content-elements';
-import { MyElementConfigProps } from 'react-content-elements';
+import { ContentElementConfigProps } from 'react-content-elements';
 import { CodeExample } from '../code-example';
 import ImageByName from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.46.png';
 import ImageByModifier from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.55.png';
@@ -9,8 +9,8 @@ import ImageOtherModifiers from '../../assets/images/code-examples/Screenshot 20
 
 export interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;
-  image?: MyElementConfigProps<'image'>;
-  title?: MyElementConfigProps<'text'>;
+  image?: ContentElementConfigProps<'image'>;
+  title?: ContentElementConfigProps<'text'>;
 }
 
 export const DocsCss = ({ image, title }: DailyCardProps) => {

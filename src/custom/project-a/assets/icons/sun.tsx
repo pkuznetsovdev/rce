@@ -1,6 +1,7 @@
 import React from 'react';
+import type { WithContentTemplateElementProps } from 'react-content-elements';
 
-export const Sun = (props: React.SVGProps<SVGSVGElement>) => {
+export const Sun = ({ className }: React.SVGProps<SVGSVGElement> & WithContentTemplateElementProps) => {
   return (
     <svg
       version='1.1'
@@ -10,7 +11,7 @@ export const Sun = (props: React.SVGProps<SVGSVGElement>) => {
       viewBox='0 0 16 16'
       fill='currentColor'
       stroke='currentColor'
-      {...props}
+      className={className}
     >
       <title>sun</title>
       <path d='M7.313 12.556c-0.761-0.057-1.498-0.349-2.086-0.836-0.378-0.313-0.835-0.519-1.194-0.856-1.040-0.916-0.712-2.463-0.423-3.651 0.464-1.96 1.775-2.905 3.758-2.978 0.436 0.049 1.556-0.119 1.505 0.546-0.024 0.363-0.4 0.321-0.661 0.265-0.29-0.041-0.584-0.058-0.877-0.064-0.967-0.017-1.934 0.345-2.661 0.982-0.875 0.982-0.733 2.447-0.617 3.664 0.337 0.945 1.36 1.462 2.249 1.772 1.454 0.384 3.37 0.727 4.403-0.662 0.664-0.916 0.787-2.097 0.77-3.199-0.072-0.884-0.484-1.772-1.088-2.415-0.414-0.268-0.926-0.317-1.388-0.468-0.159-0.046-0.185-0.273-0.086-0.388 0.156-0.151 0.718 0.15 0.939 0.172 0.832 0.15 1.375 0.825 1.784 1.515 0.822 1.429 0.556 3.313-0.263 4.686-0.918 1.23-2.517 2.044-4.062 1.915z'></path>

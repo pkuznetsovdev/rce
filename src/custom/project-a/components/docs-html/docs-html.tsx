@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE, MyElementConfigProps } from 'react-content-elements';
+import { CE, ContentElementConfigProps } from 'react-content-elements';
 import { CodeExample } from '../code-example';
 import ImageCE from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.18.png';
 import ImageCE2 from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.28.png';
@@ -12,8 +12,8 @@ import ImageConfig from '../../assets/images/code-examples/Screenshot 2023-04-02
 
 export interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;
-  image?: MyElementConfigProps<'image'>;
-  title?: MyElementConfigProps<'text'>;
+  image?: ContentElementConfigProps<'image'>;
+  title?: ContentElementConfigProps<'text'>;
 }
 
 export const DocsHtml = ({ image, title }: DailyCardProps) => {
@@ -22,7 +22,7 @@ export const DocsHtml = ({ image, title }: DailyCardProps) => {
       <CE.Text modifiers={['list-title']}>
         <mark>Content Elements</mark> are grouped by its role in the page:
       </CE.Text>
-      <CE.List modifiers={['disc']} content={['Text', 'Image', 'Block', 'List', 'Link']} />
+      <CE.List modifiers={['disc']} content={Object.keys(CE)} />
       <CE.Text modifiers={['list-title']}>
         All <mark>Content Elements</mark> have 3 main properties:
       </CE.Text>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { CE, MyElementConfigProps } from 'react-content-elements';
+import { CE, ContentElementConfigProps } from 'react-content-elements';
 import { DailyCard, DailyCardProps } from '../daily-card';
 
 interface DailyCardListProps {
-  title?: MyElementConfigProps<'text'>;
+  title?: ContentElementConfigProps<'text'>;
   dailyCards: DailyCardProps[];
 }
 

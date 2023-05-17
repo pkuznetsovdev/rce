@@ -1,11 +1,11 @@
 import React from 'react';
 import { CE } from 'react-content-elements';
-import { MyElementConfigProps } from 'react-content-elements';
+import type { ContentElementConfigProps } from 'react-content-elements';
 
 export interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;
-  image?: MyElementConfigProps<'image'>;
-  title?: MyElementConfigProps<'text'>;
+  image?: ContentElementConfigProps<'image'>;
+  title?: ContentElementConfigProps<'text'>;
 }
 
 export const DocsContentHeader = ({ image, title }: DailyCardProps) => {
