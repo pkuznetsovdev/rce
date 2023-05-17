@@ -1,5 +1,5 @@
 // import { getContentElementByName, MockedContentElement } from "./utils";
-import { MockedContentElement } from "./utils";
+import { MockedContentElement } from './utils';
 // import 'src/content-elements/styles/index.scss';
 
 // TODO: add dynamic generation

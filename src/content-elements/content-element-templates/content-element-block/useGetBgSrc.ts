@@ -1,4 +1,4 @@
-import { useBreakpoints } from "../../constants";
+import { useBreakpoints } from '../../constants';
 import { ContentElementProps } from '../../content-element/types';
 
 export function useGetBgSrc(bg: ContentElementProps<'block'>['backgroundImage']) {

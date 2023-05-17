@@ -1,17 +1,17 @@
-import React from "react";
-import { CE } from "src/ce";
+import React from 'react';
+import { CE } from 'react-content-elements';
 
-import { Layout } from "../../layout";
+import { Layout } from '../../layout';
 
-import { useGetData } from "src/custom/project-a/data";
-import { DocsContentHeader } from "src/custom/project-a/components/docs-content-header";
-import { DocsHtml } from "src/custom/project-a/components/docs-html";
-import { DocsCss } from "src/custom/project-a/components/docs-css";
-import { DailyCard } from "../../components";
+import { useGetData } from 'src/custom/project-a/data';
+import { DocsContentHeader } from 'src/custom/project-a/components/docs-content-header';
+import { DocsHtml } from 'src/custom/project-a/components/docs-html';
+import { DocsCss } from 'src/custom/project-a/components/docs-css';
+import { DailyCard } from '../../components';
 
-const mainClass = "docs";
+const mainClass = 'docs';
 
-const TABS = ["HTML", "CSS"] as const;
+const TABS = ['HTML', 'CSS'] as const;
 
 const TemplateByTab = {
   HTML: DocsHtml,
@@ -19,25 +19,23 @@ const TemplateByTab = {
 } as const;
 
 const Template = () => {
-  const pageData = useGetData("IndexPage");
+  const pageData = useGetData('IndexPage');
 
-  const [activeTabId, setActiveTabId] = React.useState<(typeof TABS)[number]>(
-    () => TABS[0]
-  );
+  const [activeTabId, setActiveTabId] = React.useState<(typeof TABS)[number]>(() => TABS[0]);
 
   const ActiveTabTemplate = TemplateByTab[activeTabId];
 
   return (
     <>
-      <Layout className={mainClass} title="Docs">
-        <CE.Block modifiers={["container", "docs-content"]}>
+      <Layout className={mainClass} title='Docs'>
+        <CE.Block modifiers={['container', 'docs-content']}>
           <DocsContentHeader />
           <CE.List
-            modifiers={["row", "docs-tabs"]}
+            modifiers={['row', 'docs-tabs']}
             listItemTemplate={({ tab }) => {
               return (
                 <CE.Button
-                  modifiers={["docs-tab", activeTabId === tab && "active"]}
+                  modifiers={['docs-tab', activeTabId === tab && 'active']}
                   onClick={() => setActiveTabId(tab)}
                 >
                   {tab}

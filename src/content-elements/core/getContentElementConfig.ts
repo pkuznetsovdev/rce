@@ -1,11 +1,12 @@
-import React from "react";
-import { ContentElementName, ContentElementProps, ContentElementRendererProps } from "../content-element/types";
+import React from 'react';
+import { ContentElementName, ContentElementProps, ContentElementRendererProps } from '../content-element/types';
 
 export function getContentElementConfig<Name extends ContentElementName>(
   elementType: Name,
-  configByName: Omit<React.PropsWithChildren<
-    ContentElementProps<Name> & ContentElementRendererProps<Name>
-    >, 'name' | 'tag' | 'modifiers'>,
+  configByName: Omit<
+    React.PropsWithChildren<ContentElementProps<Name> & ContentElementRendererProps<Name>>,
+    'name' | 'tag' | 'modifiers'
+  >,
 ) {
   if (typeof configByName === 'string') {
     return getCustomElementPropsByDefaultValue(configByName, elementType);

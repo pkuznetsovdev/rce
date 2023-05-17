@@ -1,2 +1,2 @@
 import './styles.scss';
-export * from './code-example'
+export * from './code-example';

@@ -1,2 +1,2 @@
 import './styles.scss';
-export * from './docs-css'
+export * from './docs-css';

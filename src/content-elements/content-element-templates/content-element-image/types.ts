@@ -16,7 +16,5 @@ export type ContentElementImageProps = Partial<HTMLImageElement> &
   Partial<{
     type: ContentElementImage['types'][number];
     tag: ContentElementImage['tags'][number];
-    modifiers: WithContentElementBaseModifier<
-      ContentElementImage['modifiers'][number]
-    >[];
+    modifiers: WithContentElementBaseModifier<ContentElementImage['modifiers'][number]>[];
   }>;

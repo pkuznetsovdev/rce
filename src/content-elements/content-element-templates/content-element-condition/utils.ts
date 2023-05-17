@@ -12,16 +12,14 @@ type ContentConditionScheduleRuleBase = {
 };
 
 type ContentConditionScheduleRuleByDay = ContentConditionScheduleRuleBase & {
-  day: typeof VALID_DAY_VALUES[number];
+  day: (typeof VALID_DAY_VALUES)[number];
 };
 
 type ContentConditionScheduleRuleByDate = ContentConditionScheduleRuleBase & {
   date: string;
 };
 
-type ContentConditionScheduleRuleTypes =
-  | ContentConditionScheduleRuleByDate
-  | ContentConditionScheduleRuleByDay;
+type ContentConditionScheduleRuleTypes = ContentConditionScheduleRuleByDate | ContentConditionScheduleRuleByDay;
 type ContentConditionScheduleRule = {
   start: ContentConditionScheduleRuleTypes;
   end?: ContentConditionScheduleRuleTypes;
@@ -49,10 +47,9 @@ type ProcessContentConditionByGroupsParams = {
 
 export const processContentConditionByGroups = (
   condition: ContentConditionGroups,
-  { currentGroups }: ProcessContentConditionByGroupsParams
+  { currentGroups }: ProcessContentConditionByGroupsParams,
 ) => {
-  const { satisfyEveryRule: shouldSatisfyEveryRule = true, rules = [] } =
-    condition;
+  const { satisfyEveryRule: shouldSatisfyEveryRule = true, rules = [] } = condition;
 
   if (!rules.length) {
     return true;
@@ -65,11 +62,8 @@ export const processContentConditionByGroups = (
     : rules.some((group) => userGroups.has(group));
 };
 
-export const processContentConditionBySchedule = (
-  condition: ContentConditionSchedule
-) => {
-  const { satisfyEveryRule: shouldSatisfyEveryRule = true, rules = [] } =
-    condition;
+export const processContentConditionBySchedule = (condition: ContentConditionSchedule) => {
+  const { satisfyEveryRule: shouldSatisfyEveryRule = true, rules = [] } = condition;
 
   if (!rules.length) {
     return true;
@@ -103,27 +97,21 @@ function getConditionResultBySchedule(schedule: ContentConditionScheduleRule) {
   if (!schedule.start) return false;
 
   const startDateData = 'date' in schedule.start && schedule.start.date;
-  const startDay =
-    schedule.start && 'day' in schedule.start && Number(schedule.start.day);
+  const startDay = schedule.start && 'day' in schedule.start && Number(schedule.start.day);
 
   if (startDateData && startDay) return false;
   if (!startDateData && !startDay) return false;
   if (startDay && !VALID_DAY_VALUES.includes(startDay)) return false;
 
-  const endDateData =
-    schedule.end && 'date' in schedule.end && schedule.end.date;
-  const endDay =
-    schedule.end && 'day' in schedule.end && Number(schedule.end.day);
+  const endDateData = schedule.end && 'date' in schedule.end && schedule.end.date;
+  const endDay = schedule.end && 'day' in schedule.end && Number(schedule.end.day);
 
   if (endDateData && endDay) return false;
   if (schedule.end && !endDateData && !endDay) return false;
 
   // Define required utility variables
   const currentDateObj = new Date();
-  const [currentTime, currentDay] = [
-    currentDateObj.getTime(),
-    currentDateObj.getDay(),
-  ];
+  const [currentTime, currentDay] = [currentDateObj.getTime(), currentDateObj.getDay()];
 
   let isStarted = false;
 
@@ -137,10 +125,7 @@ function getConditionResultBySchedule(schedule: ContentConditionScheduleRule) {
     const dateStartTime = startDateObj.getTime();
     // if no end date provided
     if (!endDateData) {
-      return (
-        checkIfDatesAreEqual(startDateObj, currentDateObj) &&
-        currentTime >= dateStartTime
-      );
+      return checkIfDatesAreEqual(startDateObj, currentDateObj) && currentTime >= dateStartTime;
     }
 
     const endDateObj = new Date(endDateData + 'T' + endTimeData);

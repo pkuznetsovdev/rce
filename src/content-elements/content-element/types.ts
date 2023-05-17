@@ -14,32 +14,24 @@ import type { ContentElementBlockProps } from '../content-element-templates/cont
 import type { ContentElementListProps } from '../content-element-templates/content-element-list';
 
 export type ContentElementIcon = {
-  type: typeof CONTENT_ELEMENT_ICON.types[number];
-  tag: typeof CONTENT_ELEMENT_ICON.tags[number];
-  modifiers: WithContentElementBaseModifier<
-    typeof CONTENT_ELEMENT_ICON.modifiers[number]
-  >[];
+  type: (typeof CONTENT_ELEMENT_ICON.types)[number];
+  tag: (typeof CONTENT_ELEMENT_ICON.tags)[number];
+  modifiers: WithContentElementBaseModifier<(typeof CONTENT_ELEMENT_ICON.modifiers)[number]>[];
 };
 export type ContentElementButton = {
-  type: typeof CONTENT_ELEMENT_BUTTON.types[number];
-  tag: typeof CONTENT_ELEMENT_BUTTON.tags[number];
-  modifiers: WithContentElementBaseModifier<
-    typeof CONTENT_ELEMENT_BUTTON.modifiers[number]
-  >[];
+  type: (typeof CONTENT_ELEMENT_BUTTON.types)[number];
+  tag: (typeof CONTENT_ELEMENT_BUTTON.tags)[number];
+  modifiers: WithContentElementBaseModifier<(typeof CONTENT_ELEMENT_BUTTON.modifiers)[number]>[];
 };
 export type ContentElementLink = {
-  type: typeof CONTENT_ELEMENT_LINK.types[number];
-  tag: typeof CONTENT_ELEMENT_LINK.tags[number];
-  modifiers: WithContentElementBaseModifier<
-    typeof CONTENT_ELEMENT_LINK.modifiers[number]
-  >[];
+  type: (typeof CONTENT_ELEMENT_LINK.types)[number];
+  tag: (typeof CONTENT_ELEMENT_LINK.tags)[number];
+  modifiers: WithContentElementBaseModifier<(typeof CONTENT_ELEMENT_LINK.modifiers)[number]>[];
 };
 export type ContentElementDivider = {
-  type: typeof CONTENT_ELEMENT_DIVIDER.types[number];
-  tag: typeof CONTENT_ELEMENT_DIVIDER.tags[number];
-  modifiers: WithContentElementBaseModifier<
-    typeof CONTENT_ELEMENT_DIVIDER.modifiers[number]
-  >[];
+  type: (typeof CONTENT_ELEMENT_DIVIDER.types)[number];
+  tag: (typeof CONTENT_ELEMENT_DIVIDER.tags)[number];
+  modifiers: WithContentElementBaseModifier<(typeof CONTENT_ELEMENT_DIVIDER.modifiers)[number]>[];
 };
 
 type ContentElementConditionProps = {
@@ -69,20 +61,16 @@ export type ContentElementsByName = {
 
 export type ContentElementName = keyof ContentElementsByName;
 
-export type ContentElementsMap<T extends ContentElementName> =
-  ContentElementsByName[T];
+export type ContentElementsMap<T extends ContentElementName> = ContentElementsByName[T];
 
-export type ContentElementTag =
-  ContentElementsByName[ContentElementName]['tag'];
-export type ContentElementType =
-  ContentElementsByName[ContentElementName]['type'];
+export type ContentElementTag = ContentElementsByName[ContentElementName]['tag'];
+export type ContentElementType = ContentElementsByName[ContentElementName]['type'];
 export type ContentElementModifiers = Exclude<
   ContentElementsByName[ContentElementName]['modifiers'],
   undefined | never
 >;
 
-export type ContentElementMap<T extends ContentElementName> =
-  ContentElementsByName[T];
+export type ContentElementMap<T extends ContentElementName> = ContentElementsByName[T];
 
 export type ContentElementRendererProps<T extends ContentElementName> = {
   name: T;
@@ -99,9 +87,9 @@ type ContentElementConfig = {
 
 type WithContentElementConfig<T> = T & ContentElementConfig;
 
-export type ContentElementProps<T extends ContentElementName> =
-  WithContentElementConfig<Partial<ContentElementsMap<T>>>;
+export type ContentElementProps<T extends ContentElementName> = WithContentElementConfig<
+  Partial<ContentElementsMap<T>>
+>;
 
-export type ContentElementTemplatesMap<
-  T extends keyof typeof CONTENT_ELEMENT_TEMPLATES_BY_NAME
-> = typeof CONTENT_ELEMENT_TEMPLATES_BY_NAME[T];
+export type ContentElementTemplatesMap<T extends keyof typeof CONTENT_ELEMENT_TEMPLATES_BY_NAME> =
+  (typeof CONTENT_ELEMENT_TEMPLATES_BY_NAME)[T];

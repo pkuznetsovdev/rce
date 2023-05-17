@@ -1,3 +1,3 @@
-export { default } from "./content-element-image";
+export { default } from './content-element-image';
 
-export * from "./types";
+export * from './types';

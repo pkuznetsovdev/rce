@@ -1,7 +1,7 @@
-import React from "react";
-import { ContentElementProps } from "../../content-element/types";
-import { getContentDataByKey } from "./utils";
-import { useGetBgSrc } from "./useGetBgSrc";
+import React from 'react';
+import { ContentElementProps } from '../../content-element/types';
+import { getContentDataByKey } from './utils';
+import { useGetBgSrc } from './useGetBgSrc';
 
 const ContentElementBlock = ({
   children,
@@ -13,7 +13,7 @@ const ContentElementBlock = ({
   contentData,
   withContainer,
   ...props
-}: ContentElementProps<"block">) => {
+}: ContentElementProps<'block'>) => {
   const bgSrc = useGetBgSrc(backgroundImage);
 
   return (
@@ -33,10 +33,7 @@ const ContentElementBlock = ({
         let childContentData = null;
 
         if (children && contentData && childContentDataKey) {
-          childContentData = getContentDataByKey(
-            contentData,
-            childContentDataKey
-          );
+          childContentData = getContentDataByKey(contentData, childContentDataKey);
         }
 
         return child && contentData

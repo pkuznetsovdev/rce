@@ -1,5 +1,4 @@
-@forward "src/ce/core/styles";
-@forward "variables";
-@forward "custom-content-elements";
-@forward "modifiers";
-@forward "shared";
+@import "variables";
+@import "custom-content-elements";
+@import "modifiers";
+@import "shared";

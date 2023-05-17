@@ -1,40 +1,26 @@
-import React from "react";
-import {
-  ContentElementProps,
-  ContentElementName,
-  ContentElementRendererProps,
-} from "./types";
-import { getContentElementTemplateByName } from "./utils";
-import { WithContentElementTemplateProps } from "./hoc";
-import { getContentElementConfig } from "../core/getContentElementConfig";
+import React from 'react';
+import { ContentElementProps, ContentElementName, ContentElementRendererProps } from './types';
+import { getContentElementTemplateByName } from './utils';
+import { WithContentElementTemplateProps } from './hoc';
+import { getContentElementConfig } from '../core/getContentElementConfig';
 
 const getConfigByName = <Name extends ContentElementName>(
   name: Name,
   contentElementProps: Omit<
-    React.PropsWithChildren<
-      ContentElementProps<Name> & ContentElementRendererProps<Name>
-    >,
-    "name" | "tag" | "modifiers"
+    React.PropsWithChildren<ContentElementProps<Name> & ContentElementRendererProps<Name>>,
+    'name' | 'tag' | 'modifiers'
   >,
   {
     modifiers,
     tag,
-  }: Pick<
-    React.PropsWithChildren<
-      ContentElementProps<Name> & ContentElementRendererProps<Name>
-    >,
-    "modifiers" | "tag"
-  >
+  }: Pick<React.PropsWithChildren<ContentElementProps<Name> & ContentElementRendererProps<Name>>, 'modifiers' | 'tag'>,
 ) => {
   // @ts-ignore
   const contentElementPropsByName = contentElementProps[name]
     ? // @ts-ignore
       contentElementProps[name]
     : contentElementProps;
-  const processedContentElementProps = getContentElementConfig(
-    name,
-    contentElementPropsByName
-  );
+  const processedContentElementProps = getContentElementConfig(name, contentElementPropsByName);
 
   const mergedModifiers = [
     ...(modifiers || []),
@@ -56,9 +42,7 @@ export const ContentElementRenderer = <Name extends ContentElementName>({
   tag,
   modifiers,
   ...contentElementProps
-}: React.PropsWithChildren<
-  ContentElementProps<Name> & ContentElementRendererProps<Name>
->) => {
+}: React.PropsWithChildren<ContentElementProps<Name> & ContentElementRendererProps<Name>>) => {
   // @ts-ignore
   // if (!contentElementProps || !contentElementProps[name]) {
   //   return null
@@ -77,6 +61,6 @@ export const ContentElementRenderer = <Name extends ContentElementName>({
     // TODO: WTF?
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore-next-line
-    contentElementConfig
+    contentElementConfig,
   );
 };
