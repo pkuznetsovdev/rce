@@ -9,6 +9,7 @@ import ImageModifier1 from '../../assets/images/code-examples/Screenshot 2023-04
 import ImageModifier2 from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.16.png';
 import ImageModifier3 from '../../assets/images/code-examples/Screenshot 2023-04-04 at 22.24.54.png';
 import ImageConfig from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.38.png';
+import { BasicUsage } from "../code-examples";
 
 export interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;
@@ -34,6 +35,8 @@ export const DocsHtml = ({ image, title }: DailyCardProps) => {
         modifiers={['disc']}
         content={['<code>ce ce-[name]</code><br />f.e. ‘ce ce-text’ for <mark>Text Content Element</mark>']}
       />
+      <CE.Text modifiers={['list-title']}>Basic usage:</CE.Text>
+      <BasicUsage />
       <CodeExample src={ImageCE} />
       <CodeExample src={ImageCE2} />
       <CE.Text modifiers={['title']}>Tag</CE.Text>

@@ -18,7 +18,7 @@
     "@types/react-dom": "^18.0.10",
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
-    "react-content-elements": "^1.1.109-rollup",
+    "react-content-elements": "1.1.109-rollup",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
@@ -68,6 +68,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.8.7",
+    "react-element-to-jsx-string": "^15.0.0",
     "sass": "^1.58.0"
   }
 }
