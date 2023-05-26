@@ -30,3 +30,4 @@ yarn-error.log*
 /.idea/rce.iml
 /.idea/vcs.xml
 /.idea/watcherTasks.xml
+/package-lock.json
