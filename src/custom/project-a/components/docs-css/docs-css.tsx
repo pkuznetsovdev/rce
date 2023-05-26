@@ -1,7 +1,7 @@
 import React from 'react';
 import { CE } from 'react-content-elements';
 import { ContentElementConfigProps } from 'react-content-elements';
-import { CodeExample } from '../code-example';
+import { CodeExampleImage } from '../code-example-image';
 import ImageByName from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.46.png';
 import ImageByModifier from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.55.png';
 import ImageWithModifier from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.24.06.png';
@@ -28,19 +28,19 @@ export const DocsCss = ({ image, title }: DailyCardProps) => {
         Styles are applied to the <mark>Content Elements</mark> via mixins.
       </CE.Text>
       <CE.Text modifiers={['title']}>@byName</CE.Text>
-      <CodeExample src={ImageByName} />
+      <CodeExampleImage src={ImageByName} />
 
       <CE.Text modifiers={['title']}>@byModifier</CE.Text>
-      <CodeExample src={ImageByModifier} />
+      <CodeExampleImage src={ImageByModifier} />
 
       <CE.Text modifiers={['title']}>@withModifier</CE.Text>
-      <CodeExample src={ImageWithModifier} />
+      <CodeExampleImage src={ImageWithModifier} />
 
       <CE.Text modifiers={['list-title']}>
         <mark>Additional mixins:</mark>
       </CE.Text>
       <CE.List modifiers={['disc']} content={['<code>@nextByName</code>', '<code>@nextByModifier</code>']} />
-      <CodeExample src={ImageOtherModifiers} />
+      <CodeExampleImage src={ImageOtherModifiers} />
     </CE.Block>
   );
 };

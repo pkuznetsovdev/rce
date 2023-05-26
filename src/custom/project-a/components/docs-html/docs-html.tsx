@@ -1,15 +1,14 @@
 import React from 'react';
 import { CE, ContentElementConfigProps } from 'react-content-elements';
-import { CodeExample } from '../code-example';
-import ImageCE from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.18.png';
-import ImageCE2 from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.28.png';
+import { CodeExample } from '../../modules';
 import ImageTag from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.35.png';
 import ImageModifier from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.45.png';
 import ImageModifier1 from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.04.png';
 import ImageModifier2 from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.16.png';
 import ImageModifier3 from '../../assets/images/code-examples/Screenshot 2023-04-04 at 22.24.54.png';
 import ImageConfig from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.38.png';
-import { BasicUsage } from "../code-examples";
+import { CODE_EXAMPLES } from '../../constants';
+import { CodeExampleImage } from '../code-example-image';
 
 export interface DailyCardProps extends React.PropsWithChildren {
   itemIndex?: number;
@@ -36,9 +35,7 @@ export const DocsHtml = ({ image, title }: DailyCardProps) => {
         content={['<code>ce ce-[name]</code><br />f.e. ‘ce ce-text’ for <mark>Text Content Element</mark>']}
       />
       <CE.Text modifiers={['list-title']}>Basic usage:</CE.Text>
-      <BasicUsage />
-      <CodeExample src={ImageCE} />
-      <CodeExample src={ImageCE2} />
+      <CodeExample ex={CODE_EXAMPLES.BASIC_USAGE} />
       <CE.Text modifiers={['title']}>Tag</CE.Text>
       <CE.Text
         content={[
@@ -47,7 +44,7 @@ export const DocsHtml = ({ image, title }: DailyCardProps) => {
           'It also depends on a template’s implementation.',
         ]}
       />
-      <CodeExample src={ImageTag} />
+      <CodeExampleImage src={ImageTag} />
       <CE.Text modifiers={['title']}>Modifiers</CE.Text>
       <CE.Text
         content={[
@@ -56,24 +53,24 @@ export const DocsHtml = ({ image, title }: DailyCardProps) => {
           'Modifiers extend base <mark>Content Element</mark> class name and might change bahaviour, f.e. override a default tag in case tag was not provided explicitely via ‘tag’ property.',
         ]}
       />
-      <CodeExample src={ImageModifier} />
+      <CodeExampleImage src={ImageModifier} />
       <CE.Text modifiers={['list-title']}>Modifiers have following features:</CE.Text>
       <CE.List modifiers={['disc']}>
         <>
           <CE.Text>Above and Beyond</CE.Text>
-          <CodeExample src={ImageModifier1} />
+          <CodeExampleImage src={ImageModifier1} />
           <CE.Text
             content={[
               '<code>above-[$ce-breakpoint]</code> - styles are applied for screen size ≥ <code>$ce-breakpoint-value</code>',
               '<code>beyond-[$ce-breakpoint]</code> - styles are applied for screen size < <code>$ce-breakpoint-value</code>',
             ]}
           />
-          <CodeExample src={ImageModifier2} />
+          <CodeExampleImage src={ImageModifier2} />
         </>
         <>
           <CE.Text>Size</CE.Text>
           <CE.Text>To define Content Element size use breakpoint key as a modifier:</CE.Text>
-          <CodeExample src={ImageModifier3} />
+          <CodeExampleImage src={ImageModifier3} />
         </>
       </CE.List>
       <CE.Text modifiers={['title']}>Config</CE.Text>
@@ -83,7 +80,7 @@ export const DocsHtml = ({ image, title }: DailyCardProps) => {
           'Properties provided via config will be applied at main priority.',
         ]}
       />
-      <CodeExample src={ImageConfig} />
+      <CodeExampleImage src={ImageConfig} />
     </CE.Block>
   );
 };
