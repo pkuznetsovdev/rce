@@ -1,0 +1,24 @@
+@import "react-content-elements/dist/styles/utils";
+
+$name: 'code-example';
+$listName: 'code-examples';
+
+@include byModifier($listName) {
+  width: auto;
+  margin: 0 auto;
+
+  @include byName('item') {
+    margin: 10px 0 0;
+  }
+}
+
+@include byModifier($name) {
+  --text-color: #000000;
+
+  padding: 15px;
+  border: 3px solid #cccccc;
+  background: bisque;
+  width: 100%;
+  max-width: 700px;
+  color: var(--text-color);
+}

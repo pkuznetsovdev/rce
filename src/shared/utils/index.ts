@@ -8,7 +8,7 @@ export const SHARED_UTILS = {
       .map((n) => n.trim().toLowerCase())
       .join(STRING_LITERALS.space);
   },
-  capitalizeFirstLetter(str: string) {
+  capitalize(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   },
 };
