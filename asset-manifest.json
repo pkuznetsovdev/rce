@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rce/static/css/main.1a7c3b2a.css",
-    "main.js": "/rce/static/js/main.17d849c6.js",
+    "main.css": "/rce/static/css/main.b6601888.css",
+    "main.js": "/rce/static/js/main.7eedbedc.js",
     "static/js/39.2b079815.chunk.js": "/rce/static/js/39.2b079815.chunk.js",
     "static/css/794.e18896ab.chunk.css": "/rce/static/css/794.e18896ab.chunk.css",
     "static/js/794.0ea5667b.chunk.js": "/rce/static/js/794.0ea5667b.chunk.js",
@@ -9,24 +9,22 @@
     "static/js/565.9afa23f5.chunk.js": "/rce/static/js/565.9afa23f5.chunk.js",
     "static/css/619.ab95f74f.chunk.css": "/rce/static/css/619.ab95f74f.chunk.css",
     "static/js/619.9f13eece.chunk.js": "/rce/static/js/619.9f13eece.chunk.js",
-    "static/css/426.50b05e25.chunk.css": "/rce/static/css/426.50b05e25.chunk.css",
-    "static/js/426.dc88cb33.chunk.js": "/rce/static/js/426.dc88cb33.chunk.js",
+    "static/css/74.e8aa32d3.chunk.css": "/rce/static/css/74.e8aa32d3.chunk.css",
+    "static/js/74.4b03372b.chunk.js": "/rce/static/js/74.4b03372b.chunk.js",
     "static/js/787.eb2500ae.chunk.js": "/rce/static/js/787.eb2500ae.chunk.js",
     "static/media/Screenshot 2023-04-02 at 15.22.45.png": "/rce/static/media/Screenshot 2023-04-02 at 15.22.45.74430c33a77f55c61a7b.png",
     "static/media/Screenshot 2023-04-02 at 15.23.38.png": "/rce/static/media/Screenshot 2023-04-02 at 15.23.38.90c7a1eddea6c9cf4410.png",
     "static/media/Screenshot 2023-04-02 at 15.23.16.png": "/rce/static/media/Screenshot 2023-04-02 at 15.23.16.c64c93d352991ff7f89a.png",
     "static/media/Screenshot 2023-04-02 at 15.24.06.png": "/rce/static/media/Screenshot 2023-04-02 at 15.24.06.a7cfd745f84a2bb8169c.png",
-    "static/media/Screenshot 2023-04-02 at 15.22.18.png": "/rce/static/media/Screenshot 2023-04-02 at 15.22.18.9ed0c6cbc10a7184aca0.png",
     "static/media/Screenshot 2023-04-04 at 22.24.54.png": "/rce/static/media/Screenshot 2023-04-04 at 22.24.54.ad711c009afe8b33158e.png",
     "static/media/Screenshot 2023-04-02 at 15.23.46.png": "/rce/static/media/Screenshot 2023-04-02 at 15.23.46.0f35e87bb1da68f1e85d.png",
     "static/media/Screenshot 2023-04-02 at 15.24.12.png": "/rce/static/media/Screenshot 2023-04-02 at 15.24.12.281aa8ce74373ba1f046.png",
     "static/media/Screenshot 2023-04-02 at 15.23.55.png": "/rce/static/media/Screenshot 2023-04-02 at 15.23.55.e4433e7cba1cb63bfd7b.png",
     "static/media/Screenshot 2023-04-02 at 15.22.35.png": "/rce/static/media/Screenshot 2023-04-02 at 15.22.35.c5b13795741b6bdaa12b.png",
-    "static/media/Screenshot 2023-04-02 at 15.22.28.png": "/rce/static/media/Screenshot 2023-04-02 at 15.22.28.9a004faf46e0ab48f77d.png",
     "static/media/Screenshot 2023-04-02 at 15.23.04.png": "/rce/static/media/Screenshot 2023-04-02 at 15.23.04.b7e4f3ccba15c597a0c7.png",
     "index.html": "/rce/index.html",
-    "main.1a7c3b2a.css.map": "/rce/static/css/main.1a7c3b2a.css.map",
-    "main.17d849c6.js.map": "/rce/static/js/main.17d849c6.js.map",
+    "main.b6601888.css.map": "/rce/static/css/main.b6601888.css.map",
+    "main.7eedbedc.js.map": "/rce/static/js/main.7eedbedc.js.map",
     "39.2b079815.chunk.js.map": "/rce/static/js/39.2b079815.chunk.js.map",
     "794.e18896ab.chunk.css.map": "/rce/static/css/794.e18896ab.chunk.css.map",
     "794.0ea5667b.chunk.js.map": "/rce/static/js/794.0ea5667b.chunk.js.map",
@@ -34,12 +32,12 @@
     "565.9afa23f5.chunk.js.map": "/rce/static/js/565.9afa23f5.chunk.js.map",
     "619.ab95f74f.chunk.css.map": "/rce/static/css/619.ab95f74f.chunk.css.map",
     "619.9f13eece.chunk.js.map": "/rce/static/js/619.9f13eece.chunk.js.map",
-    "426.50b05e25.chunk.css.map": "/rce/static/css/426.50b05e25.chunk.css.map",
-    "426.dc88cb33.chunk.js.map": "/rce/static/js/426.dc88cb33.chunk.js.map",
+    "74.e8aa32d3.chunk.css.map": "/rce/static/css/74.e8aa32d3.chunk.css.map",
+    "74.4b03372b.chunk.js.map": "/rce/static/js/74.4b03372b.chunk.js.map",
     "787.eb2500ae.chunk.js.map": "/rce/static/js/787.eb2500ae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a7c3b2a.css",
-    "static/js/main.17d849c6.js"
+    "static/css/main.b6601888.css",
+    "static/js/main.7eedbedc.js"
   ]
 }
