@@ -68,7 +68,7 @@ const CodeExampleTemplate = ({ el, stringified, noResult }: CodeExampleTemplateP
         {`// HTML 
 ${innerHtml}`}
       </SyntaxHighlighter>
-      <CE.Block id='code-example-result' style={{ display: 'none' }}>
+      <CE.Block id='code-example-result' style={{ visibility: 'collapse' }}>
         {el}
       </CE.Block>
     </CE.Block>
