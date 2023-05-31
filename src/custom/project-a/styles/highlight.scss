@@ -15,5 +15,9 @@
     width: 100%;
     border-radius: 0 !important;
     margin: 0 !important;
+
+    & + pre {
+      padding-top: 0 !important;
+    }
   }
 }

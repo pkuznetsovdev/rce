@@ -1,9 +1,10 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import { CE } from 'react-content-elements';
 import { SHARED_UTILS } from 'src/shared';
 import Highlight from 'react-highlight';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { a11yDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { ThemeContext } from "../../../providers/theme";
 
 type DisplayNameByIdMap = {
     [CEKey in Lowercase<keyof typeof CE>]: `CE.${Capitalize<CEKey>}`;
@@ -49,6 +50,7 @@ export type CodeExampleTemplate = CodeExampleTemplateProps;
 const CodeExampleTemplate = ({el, stringified, noResult}: CodeExampleTemplateProps) => {
     const testRef = React.useRef<HTMLDivElement>(null);
     const [innerHtml, setInnerHtml] = React.useState('');
+    const { theme } = useContext(ThemeContext);
 
     React.useEffect(() => {
         if (innerHtml === '') {
@@ -59,10 +61,10 @@ const CodeExampleTemplate = ({el, stringified, noResult}: CodeExampleTemplatePro
     return (
         <CE.Block modifiers={['code-example']}>
             <div ref={testRef} style={{display: 'none'}}>{el}</div>
-            <SyntaxHighlighter language='javascript' style={a11yDark} wrapLongLines>
+            <SyntaxHighlighter language='javascript' style={theme === 'dark' ? a11yDark : oneLight} wrapLongLines>
                 {stringified}
             </SyntaxHighlighter>
-            <SyntaxHighlighter language='html' style={a11yDark} wrapLongLines>
+            <SyntaxHighlighter language='html' style={theme === 'dark' ? a11yDark : oneLight} wrapLongLines>
                 {`// HTML 
 ${innerHtml}`}
             </SyntaxHighlighter>
