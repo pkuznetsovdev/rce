@@ -1,0 +1,26 @@
+@import "react-content-elements/dist/styles/utils";
+
+:root {
+  --font-weight-bold: 700;
+  --font-weight-bolder: 500;
+}
+
+@include byName('list') {
+  max-width: 100%;
+}
+
+@mixin bold {
+  font-weight: var(--font-weight-bold);
+}
+
+@include byModifier('b') {
+  @include bold;
+}
+
+@include byModifier('bold') {
+  @include bold;
+}
+
+@include byModifier('bolder') {
+  font-weight: var(--font-weight-bolder);
+}

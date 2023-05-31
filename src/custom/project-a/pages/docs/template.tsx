@@ -7,7 +7,7 @@ import { useGetData } from 'src/custom/project-a/data';
 import { DocsContentHeader } from 'src/custom/project-a/components/docs-content-header';
 import { DocsHtml } from 'src/custom/project-a/components/docs-html';
 import { DocsCss } from 'src/custom/project-a/components/docs-css';
-import { DailyCard } from '../../components';
+import { useValueFromList } from 'src/shared';
 
 const mainClass = 'docs';
 
@@ -21,9 +21,9 @@ const TemplateByTab = {
 const Template = () => {
   const pageData = useGetData('IndexPage');
 
-  const [activeTabId, setActiveTabId] = React.useState<(typeof TABS)[number]>(() => TABS[0]);
+  const [activeTabId, setActiveTabId] = useValueFromList(TABS);
 
-  const ActiveTabTemplate = TemplateByTab[activeTabId];
+  const ActiveTabTemplate = React.useMemo(() => TemplateByTab[activeTabId], [activeTabId]);
 
   return (
     <>
@@ -32,7 +32,7 @@ const Template = () => {
           <DocsContentHeader />
           <CE.List
             modifiers={['row', 'docs-tabs']}
-            listItemTemplate={({ tab }) => {
+            listItemTemplate={({ tab }: { tab: (typeof TABS)[number] }) => {
               return (
                 <CE.Button
                   modifiers={['docs-tab', activeTabId === tab && 'active']}

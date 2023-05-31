@@ -1,0 +1,19 @@
+@import "react-content-elements/dist/styles/utils";
+
+.property-access.maybe-class-name {
+  color: rgb(255, 160, 122);
+}
+
+#code-example-result {
+  .ce {
+    color: #c4c4c4;
+  }
+}
+
+@include byModifier('code-example') {
+  pre {
+    width: 100%;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+}
