@@ -10,22 +10,30 @@
   }
 }
 
-#code-example-result {
-  .ce {
-    color: #c4c4c4;
-  }
-}
-
 @include byModifier('code-example') {
   pre {
     width: 100%;
     border-radius: 0 !important;
     margin: 0 !important;
-    font-size: 14px;
 
     & + pre {
       padding-top: 0 !important;
       margin-top: -1em !important;
     }
   }
+}
+
+body:not(.dark-theme) {
+  pre {
+    font-size: 14px;
+    background: #efefef !important;
+
+    & > code {
+      background: #efefef !important;
+    }
+  }
+}
+
+pre {
+  font-size: 14px;
 }
