@@ -50,27 +50,23 @@ const CodeExampleTemplate = ({ el, stringified, noResult }: CodeExampleTemplateP
   const [innerHtml, setInnerHtml] = React.useState('');
 
   React.useEffect(() => {
-    if (!testRef.current) {
-      testRef.current = document.getElementById(stringified)?.querySelector('#code-example-result');
-    } else {
-      setInnerHtml(testRef.current.innerHTML);
+    if (innerHtml === '') {
+        setInnerHtml(testRef.current.innerHTML);
     }
-  }, [stringified]);
+  }, [innerHtml]);
 
   return (
     <CE.Block modifiers={['code-example']} id={stringified}>
-      {/*<CE.Text modifiers={['i', 'bolder']}>Code:</CE.Text>*/}
+        <div id='code-example-result' ref={testRef}>
+            {el}
+        </div>
       <SyntaxHighlighter language='javascript' style={a11yDark} wrapLongLines>
         {stringified}
       </SyntaxHighlighter>
-      {/*<CE.Text modifiers={['i']}>HTML:</CE.Text>*/}
       <SyntaxHighlighter language='html' style={a11yDark} wrapLongLines>
         {`// HTML 
 ${innerHtml}`}
       </SyntaxHighlighter>
-      <CE.Block id='code-example-result'>
-        {el}
-      </CE.Block>
     </CE.Block>
   );
 };
