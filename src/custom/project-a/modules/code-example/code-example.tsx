@@ -1,10 +1,9 @@
 import React, { ReactElement, useContext } from 'react';
 import { CE } from 'react-content-elements';
 import { SHARED_UTILS } from 'src/shared';
-import Highlight from 'react-highlight';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { a11yDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { ThemeContext } from "../../../providers/theme";
+import { a11yDark, oneLight, base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { ThemeContext } from "src/custom/providers/theme";
 
 type DisplayNameByIdMap = {
     [CEKey in Lowercase<keyof typeof CE>]: `CE.${Capitalize<CEKey>}`;
