@@ -1,0 +1,12 @@
+@import "react-content-elements/dist/styles/utils";
+
+
+@include byModifier('collapsible-trigger') {
+  text-decoration: underline;
+}
+
+@include byModifier('collapsible-content') {
+  @include withModifier('collapsed') {
+    display: none;
+  }
+}

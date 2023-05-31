@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react';
 import { CE } from 'react-content-elements';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 import { SHARED_UTILS } from 'src/shared';
+import Highlight from 'react-highlight';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 type DisplayNameByIdMap = {
   [CEKey in Lowercase<keyof typeof CE>]: `CE.${Capitalize<CEKey>}`;
@@ -34,19 +36,41 @@ export const CodeExample = ({ ex }: CodeExampleProps) => {
   return <CodeExampleTemplate key={ex.el.toString()} {...ex} />;
 };
 
-type CodeExampleTemplateProps = { el: ReactElement; id?: number | string; displayNameId: DisplayNameIds[number] };
+type CodeExampleTemplateProps = {
+  el: ReactElement;
+  stringified: string;
+  id?: number | string;
+  noResult?: boolean;
+};
 
 export type CodeExampleTemplate = CodeExampleTemplateProps;
 
-const CodeExampleTemplate = ({ el, id, displayNameId }: CodeExampleTemplateProps) => {
-  console.log('displayNameId: ', displayNameId);
+const CodeExampleTemplate = ({ el, stringified, noResult }: CodeExampleTemplateProps) => {
+  const testRef = React.useRef<Element>(null);
+  const [innerHtml, setInnerHtml] = React.useState('');
+
+  React.useEffect(() => {
+    if (!testRef.current) {
+      testRef.current = document.getElementById(stringified)?.querySelector('#code-example-result');
+    } else {
+      setInnerHtml(testRef.current.innerHTML);
+    }
+  }, [stringified]);
+
   return (
-    <CE.Block modifiers={['code-example']}>
-      <CE.Text>
-        <code>{reactElementToJSXString(el, { displayName: () => DISPLAY_NAME_BY_ID[displayNameId] })}</code>
-      </CE.Text>
-      <CE.Text modifiers={['i', 'sm']}>Result:</CE.Text>
-      {el}
+    <CE.Block modifiers={['code-example']} id={stringified}>
+      {/*<CE.Text modifiers={['i', 'bolder']}>Code:</CE.Text>*/}
+      <SyntaxHighlighter language='javascript' style={a11yDark} wrapLongLines>
+        {stringified}
+      </SyntaxHighlighter>
+      {/*<CE.Text modifiers={['i']}>HTML:</CE.Text>*/}
+      <SyntaxHighlighter language='html' style={a11yDark} wrapLongLines>
+        {`// HTML 
+${innerHtml}`}
+      </SyntaxHighlighter>
+      <CE.Block id='code-example-result' style={{ display: 'none' }}>
+        {el}
+      </CE.Block>
     </CE.Block>
   );
 };

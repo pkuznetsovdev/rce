@@ -55,6 +55,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react-highlight": "^0.12.5",
+    "@types/react-syntax-highlighter": "^15.5.7",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
     "eslint": "^8.2.0",
@@ -68,7 +70,8 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.8.7",
-    "react-element-to-jsx-string": "^15.0.0",
+    "react-highlight": "^0.15.0",
+    "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.58.0"
   }
 }
