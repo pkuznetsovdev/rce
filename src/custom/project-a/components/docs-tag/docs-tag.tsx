@@ -14,17 +14,6 @@ export const DocsTag = () => {
           `The deafult value can be overriden by special modifers as well, f.e. 'title' modifier will change the default 'p' tag to 'h3'`,
         ]}
       />
-      <CodeBlock>{`const DEFAULT_TAGS_BY_NAME = {
-    text: 'p',
-    block: 'div',
-    image: 'img',
-    list: 'ul',
-    link: 'a',
-    divider: 'hr',
-    button: 'button',
-}
-`}
-      </CodeBlock>
       <CodeExample ex={CODE_EXAMPLES.TAG_USAGE} />
     </>
   );

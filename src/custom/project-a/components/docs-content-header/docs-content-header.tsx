@@ -12,12 +12,9 @@ export const DocsContentHeader = ({ image, title }: DailyCardProps) => {
   return (
     <CE.Block className='docs-content-header'>
       <CE.Text>
-        <mark>Content Elements</mark> represent basic HTML structures.
-        <br />
-        Development process with <mark>Content Elements</mark> is formalized in terms of generating basic
-        structures(HTML) and styles(CSS).
-        <br />
-        Basic structure is any piece of HTML or/and CSS that is generated via <mark>Content Elements</mark>.
+        <b>Content Elements</b> represent basic HTML structures. Development process with <b>Content Elements</b> is
+        formalized in terms of generating basic structures(HTML) and styles(CSS). Basic structure is any piece of HTML
+        or/and CSS that is generated via <b>Content Elements</b>.
       </CE.Text>
       <CE.Text
         modifiers={['list-title']}

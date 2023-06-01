@@ -4,7 +4,32 @@
   & > mark {
     background-color: unset;
     color: var(--text-color);
-    font-style: italic;
     font-weight: 500;
+  }
+}
+
+@include byName() {
+  & > code {
+    background-color: var(--text-bg-color);
+    color: var(--text-color);
+  }
+}
+
+.dark-theme {
+  @include byName() {
+    & > code {
+      color: var(--text-color-inverted);
+    }
+  }
+}
+
+c-spec {
+  background-color: rgba(255,229,100,0.2);
+}
+
+.dark-theme {
+  c-spec {
+    background-color: unset;
+    font-style: italic;
   }
 }

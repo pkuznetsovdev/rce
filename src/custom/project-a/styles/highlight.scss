@@ -13,8 +13,9 @@
 @include byModifier('code-example') {
   pre {
     width: 100%;
-    border-radius: 0 !important;
-    margin: 0 !important;
+    border-radius: 10px !important;
+    margin: 0 auto !important;
+    padding: 1em 4em !important;
 
     & + pre {
       padding-top: 0 !important;

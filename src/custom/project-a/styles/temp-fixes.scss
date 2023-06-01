@@ -1,12 +1,36 @@
-@import "react-content-elements/dist/styles/utils";
+@use "react-content-elements/dist/styles/utils" as *;
 
 :root {
-  --font-weight-bold: 700;
-  --font-weight-bolder: 500;
+  body {
+    --font-weight-bold: 700;
+    --font-weight-bolder: 500;
+
+    --text-font-size: 17px;
+    --text-line-height: 1.7;
+
+    line-height: var(--text-line-height);
+  }
+}
+
+@include byModifier('page') {
+  height: auto;
+  min-height: 100%;
 }
 
 @include byName('list') {
   max-width: 100%;
+}
+
+@include byName('item') {
+  font-size: var(--text-font-size);
+  display: flex;
+  flex-direction: column;
+}
+
+@include byModifier('disc') {
+  @include byName('item') {
+    display: list-item;
+  }
 }
 
 @mixin bold {
@@ -24,3 +48,8 @@
 @include byModifier('bolder') {
   font-weight: var(--font-weight-bolder);
 }
+
+@include byModifier('container') {
+  max-width: calc(var(--screen-lg) + 60px);
+}
+

@@ -25,8 +25,8 @@ const Template = () => {
               From the developers perspective that's an abstract factory pattern.
               <br />
               Two of <mark>content data</mark> properties are <mark>content type </mark>and <mark>content data </mark>.
-              We want to generate different HTML structures depending on the the <mark>content type </mark>and/or{' '}
-              <mark>content data </mark>of each data entity.
+              We want to generate different HTML structures and styles systems depending on the the{' '}
+              <mark>content type </mark>and/or <mark>content data </mark>of each data entity.
               <br />
               We pick a framework, create reusable components, design a style system, then scale and maintain the
               codebase.
@@ -41,7 +41,7 @@ const Template = () => {
               We do it manually with every element. Create wrappers or reuse from the 3rd party lib. Style and extend
               them.
               <br />
-              We provide the solutions.
+              <i>We provide the solutions.</i>
             </CE.Text>
             <CE.Text>
               Every developer provides a custom solution for the particular content data element. This solution is based
