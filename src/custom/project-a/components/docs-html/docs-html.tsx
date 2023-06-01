@@ -18,21 +18,36 @@ const TemplateByTab: Record<(typeof CE_PROPERTIES)[number], React.ElementType> =
   Config: DocsConfig,
 };
 
+const joinSpecWords = (words: string[] | ReadonlyArray<string>) =>
+  words.map((w, i) => (
+    <>
+      <c-spec key={w}>{w}</c-spec>
+      {i === words.length - 1 ? '.' : ', '}
+    </>
+  ));
+
 export const DocsHtml = () => {
   const [activeTabId, setActiveTabId] = useValueFromList(CE_PROPERTIES);
 
   const ActiveTabTemplate = React.useMemo(() => TemplateByTab[activeTabId], [activeTabId]);
 
+  const roles = (
+    <>
+      All <mark>Content Elements</mark> are grouped by its role in the page:&nbsp;
+      {joinSpecWords(Object.keys(CE))}
+    </>
+  );
+  const props = (
+    <>
+      All <mark>Content Elements</mark> have 4 special properties:&nbsp;
+      {joinSpecWords(CE_PROPERTIES)}
+    </>
+  );
+
   return (
     <CE.Block className='docs-html'>
-      <CE.Text modifiers={['list-title']}>
-        All <mark>Content Elements</mark> are grouped by its role in the page:
-      </CE.Text>
-      <CE.List modifiers={['disc', 'i']} content={Object.keys(CE)} />
-      <CE.Text modifiers={['list-title']}>
-        All <mark>Content Elements</mark> have 4 special properties:
-      </CE.Text>
-      <CE.List modifiers={['disc', 'i']} content={CE_PROPERTIES} />
+      <CE.Text>{roles}</CE.Text>
+      <CE.Text>{props}</CE.Text>
       <CE.Text modifiers={['list-title']}>
         All <mark>Content Elements</mark> have a base classname:
       </CE.Text>
@@ -45,7 +60,8 @@ export const DocsHtml = () => {
         <CodeExample ex={CODE_EXAMPLES.BASIC_USAGE} />
       </Collapsible>
       <CE.Text modifiers={['title']}>
-        <mark>Content Elements</mark> properties
+        <mark>Content Elements</mark>
+        properties
       </CE.Text>
       <CE.List
         modifiers={['row', 'docs-tabs']}
