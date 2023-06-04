@@ -62,10 +62,10 @@ const CodeExampleTemplate = ({ el, stringified }: CodeExampleTemplateProps) => {
       <div ref={testRef} style={{ display: 'none' }}>
         {el}
       </div>
-      <SyntaxHighlighter language='javascript' style={theme === 'dark' ? a11yDark : oneLight} wrapLongLines>
+      <SyntaxHighlighter language='javascript' style={theme === 'dark' ? a11yDark : oneLight}>
         {stringified}
       </SyntaxHighlighter>
-      <SyntaxHighlighter language='html' style={theme === 'dark' ? a11yDark : oneLight} wrapLongLines>
+      <SyntaxHighlighter language='html' style={theme === 'dark' ? a11yDark : oneLight}>
         {`// HTML 
 ${innerHtml}`}
       </SyntaxHighlighter>

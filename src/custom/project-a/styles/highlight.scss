@@ -11,8 +11,9 @@
 }
 
 @include byModifier('code-example') {
+  overflow-x: auto;
   pre {
-    width: 100%;
+    min-width: 100%;
     border-radius: 10px !important;
     margin: 0 auto !important;
     padding: 1em 4em !important;
@@ -25,12 +26,15 @@
 }
 
 body:not(.dark-theme) {
-  pre {
-    font-size: 14px;
-    background: #efefef !important;
+  @include byModifier('code-example') {
+    background: #efefef;
+    border-radius: 10px;
+    pre {
+      background: transparent !important;
 
-    & > code {
-      background: #efefef !important;
+      & > code {
+        background: transparent !important;
+      }
     }
   }
 }
