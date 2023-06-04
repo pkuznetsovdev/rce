@@ -25,8 +25,8 @@ const Index = () => {
             Following webpage is created within the RCE library. The result is available in 'Elements' tab via developer
             tools.
           </CE.Text>
+          <CodeExample ex={CODE_EXAMPLES.BASIC_USAGE} />
         </CE.Block>
-        <CodeExample ex={CODE_EXAMPLES.BASIC_USAGE} />
       </Layout>
     </>
   );

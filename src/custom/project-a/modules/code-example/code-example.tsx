@@ -1,7 +1,7 @@
 import React, { ReactElement, useContext } from 'react';
 import { CE } from 'react-content-elements';
 import { SHARED_UTILS } from 'src/shared';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { a11yDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { ThemeContext } from 'src/custom/providers/theme';
 
@@ -20,7 +20,9 @@ const DISPLAY_NAME_BY_ID = Object.keys(CE).reduce(
 type DisplayNameById = typeof DISPLAY_NAME_BY_ID;
 type DisplayNameIds = Array<keyof DisplayNameById>;
 
-type CodeExampleProps = { ex: CodeExampleTemplateProps | Array<CodeExampleTemplateProps> };
+type CodeExampleProps = {
+  ex: CodeExampleTemplateProps | Array<CodeExampleTemplateProps> | ReadonlyArray<CodeExampleTemplateProps>;
+};
 
 export const CodeExample = ({ ex }: CodeExampleProps) => {
   if (Array.isArray(ex)) {
@@ -40,18 +42,17 @@ type CodeExampleTemplateProps = {
   el: ReactElement;
   stringified: string;
   id?: number | string;
-  noResult?: boolean;
 };
 
 export type CodeExampleTemplate = CodeExampleTemplateProps;
 
-const CodeExampleTemplate = ({ el, stringified, noResult }: CodeExampleTemplateProps) => {
+const CodeExampleTemplate = ({ el, stringified }: CodeExampleTemplateProps) => {
   const testRef = React.useRef<HTMLDivElement>(null);
   const [innerHtml, setInnerHtml] = React.useState('');
   const { theme } = useContext(ThemeContext);
 
   React.useEffect(() => {
-    if (innerHtml === '') {
+    if (innerHtml === '' && testRef.current) {
       setInnerHtml(testRef.current.innerHTML);
     }
   }, [innerHtml]);
