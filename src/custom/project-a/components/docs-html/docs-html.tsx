@@ -60,8 +60,7 @@ export const DocsHtml = () => {
         <CodeExample ex={CODE_EXAMPLES.BASIC_USAGE} />
       </Collapsible>
       <CE.Text modifiers={['title']}>
-        <mark>Content Elements</mark>
-        properties
+        <mark>Content Elements</mark>&nbsp;properties
       </CE.Text>
       <CE.List
         modifiers={['row', 'docs-tabs']}

@@ -2,7 +2,10 @@
 
 .nav-list {
   width: auto;
-  justify-content: flex-end;
+
+  @media (min-width: $screen-md) {
+    justify-content: flex-end;
+  }
 
   @include byName('link') {
     &.active {

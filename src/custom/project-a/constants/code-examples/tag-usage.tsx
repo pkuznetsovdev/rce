@@ -1,23 +1,8 @@
 import { CE } from 'react-content-elements';
 import React from 'react';
-import { CodeExampleTemplate } from '../modules';
+import { CodeExampleTemplate } from 'src/custom/project-a/modules';
 
-const BASIC_USAGE: Array<CodeExampleTemplate> = [
-  {
-    el: <CE.Text modifiers={['accent']}>Hello world!</CE.Text>,
-    stringified: `<CE.Text modifiers={["accent"]}>Hello world!</CE.Text>`,
-  },
-  {
-    el: <CE.Text config={{ content: 'Hello world!', modifiers: ['title'] }} />,
-    stringified: `<CE.Text config={{ content: "Hello world!", modifiers: ['title'] }} />`,
-  },
-  {
-    el: <CE.Image src='path/to/image.jpg' />,
-    stringified: `<CE.Image src="path/to/image.jpg" />`,
-  },
-];
-
-const TAG_USAGE: Array<CodeExampleTemplate> = [
+export const TAG_USAGE: Array<CodeExampleTemplate> = [
   {
     el: <CE.Text>Text Content Element</CE.Text>,
     stringified: `<CE.Text>Text Content Element</CE.Text>`,
@@ -47,8 +32,3 @@ const TAG_USAGE: Array<CodeExampleTemplate> = [
     stringified: `<CE.Block tag="section">Example with section tag</CE.Block>`,
   },
 ];
-
-export const CODE_EXAMPLES = {
-  BASIC_USAGE,
-  TAG_USAGE,
-};

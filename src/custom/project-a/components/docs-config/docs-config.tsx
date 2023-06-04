@@ -1,7 +1,7 @@
 import React from 'react';
 import { CE } from 'react-content-elements';
-import { CodeExampleImage } from '../code-example-image';
-import ImageConfig from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.38.png';
+import { CodeExample } from '../../modules';
+import { CODE_EXAMPLES } from '../../constants';
 
 export const DocsConfig = () => {
   return (
@@ -13,7 +13,7 @@ export const DocsConfig = () => {
           'Properties provided via config will be applied at main priority.',
         ]}
       />
-      <CodeExampleImage src={ImageConfig} />
+      <CodeExample ex={CODE_EXAMPLES.CONFIG_USAGE} />
     </>
   );
 };

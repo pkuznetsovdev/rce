@@ -5,6 +5,8 @@ import ImageModifier from '../../assets/images/code-examples/Screenshot 2023-04-
 import ImageModifier1 from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.04.png';
 import ImageModifier2 from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.16.png';
 import ImageModifier3 from '../../assets/images/code-examples/Screenshot 2023-04-04 at 22.24.54.png';
+import { CodeExample } from '../../modules';
+import { CODE_EXAMPLES } from '../../constants';
 
 export const DocsModifiers = () => {
   return (
@@ -17,24 +19,23 @@ export const DocsModifiers = () => {
           'Modifiers extend base <mark>Content Element</mark> class name and might change bahaviour, f.e. override a default tag in case tag was not provided explicitely via ‘tag’ property.',
         ]}
       />
-      <CodeExampleImage src={ImageModifier} />
+      <CodeExample ex={CODE_EXAMPLES.MODIFIERS_USAGE} />
       <CE.Text modifiers={['list-title']}>Modifiers have following features:</CE.Text>
       <CE.List modifiers={['disc']}>
         <>
           <CE.Text>Above and Beyond</CE.Text>
-          <CodeExampleImage src={ImageModifier1} />
           <CE.Text
             content={[
               '<code>above-[$ce-breakpoint]</code> - styles are applied for screen size ≥ <code>$ce-breakpoint-value</code>',
               '<code>beyond-[$ce-breakpoint]</code> - styles are applied for screen size < <code>$ce-breakpoint-value</code>',
             ]}
           />
-          <CodeExampleImage src={ImageModifier2} />
+          <CodeExample ex={CODE_EXAMPLES.MODIFIERS_FEATURES_USAGE.aboveAndBeyond} />
         </>
         <>
           <CE.Text>Size</CE.Text>
           <CE.Text>To define Content Element size use breakpoint key as a modifier:</CE.Text>
-          <CodeExampleImage src={ImageModifier3} />
+          <CodeExample ex={CODE_EXAMPLES.MODIFIERS_FEATURES_USAGE.size} />
         </>
       </CE.List>
     </>

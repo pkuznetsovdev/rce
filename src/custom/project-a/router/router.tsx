@@ -11,14 +11,14 @@ const PAGES_BY_LOCATION = {
 };
 
 const router = createHashRouter([
-  {
-    path: APP_PATHS.sandbox.route,
-    element: (
-      <React.Suspense fallback={'Loading...'}>
-        <PAGES_BY_LOCATION.Sandbox />
-      </React.Suspense>
-    ),
-  },
+  // {
+  //   path: APP_PATHS.sandbox.route,
+  //   element: (
+  //     <React.Suspense fallback={'Loading...'}>
+  //       <PAGES_BY_LOCATION.Sandbox />
+  //     </React.Suspense>
+  //   ),
+  // },
   {
     path: APP_PATHS.usecases.route,
     element: (

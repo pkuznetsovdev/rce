@@ -14,7 +14,7 @@ const mainClass = 'header';
 export const Header = ({ modifiers = [] }: HeaderProps) => {
   return (
     <>
-      <CE.Block className={mainClass} modifiers={['row-above-md', ...modifiers]}>
+      <CE.Block className={mainClass} modifiers={[mainClass, 'row-above-md', ...modifiers]}>
         <CE.Block modifiers={['logo']}>
           <CE.Text modifiers={['title']}>React Content Elements</CE.Text>
           <CE.Text modifiers={['text']}>Your first Web Content factory</CE.Text>

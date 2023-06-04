@@ -1,7 +1,7 @@
 import React from 'react';
 import { CE } from 'react-content-elements';
-import ImageTag from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.35.png';
-import { CodeExampleImage } from '../code-example-image';
+import { CodeExample } from '../../modules';
+import { CODE_EXAMPLES } from '../../constants';
 
 export const DocsContent = () => {
   return (
@@ -9,12 +9,10 @@ export const DocsContent = () => {
       <CE.Text modifiers={['title']}>Tag</CE.Text>
       <CE.Text
         content={[
-          'Each <mark>Content Element</mark> has a default tag applied by name of the element.',
-          'If the tag is provided explicitely it will override a default value.',
-          'It also depends on a template’s implementation.',
+          'Content of the element might be any of valid HTML. It is passed to the element via <code>dangerouslySetInnerHTML</code> property.',
         ]}
       />
-      <CodeExampleImage src={ImageTag} />
+      <CodeExample ex={CODE_EXAMPLES.CONTENT_USAGE} />
     </>
   );
 };
