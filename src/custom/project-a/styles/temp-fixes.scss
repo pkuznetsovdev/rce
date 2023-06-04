@@ -28,6 +28,18 @@ $ce-item: #{$ce-base-name}-item;
   flex-direction: column;
 }
 
+@mixin childByName($ce-name: '') {
+  @if ($ce-name == '') {
+    & > #{$ce-base-name} {
+      @content;
+    }
+  } @else {
+    & > #{$ce-base-name}-#{$ce-name} {
+      @content;
+    }
+  }
+}
+
 @include byModifier('disc') {
   @include childByName('item') {
     display: list-item;
