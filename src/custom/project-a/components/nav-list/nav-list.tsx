@@ -9,7 +9,7 @@ type HeaderProps = ContentElementConfigProps<'list'>;
 const mainClass = 'nav-list';
 
 const navLinks = Object.entries(APP_PATHS).map(([k, { route, title }]) => {
-  return { href: `/#${route}`, title };
+  return { href: `/rce/#${route}`, title };
 });
 
 export const NavList = ({ modifiers = [] }: HeaderProps) => {
