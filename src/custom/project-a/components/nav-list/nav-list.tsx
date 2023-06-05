@@ -8,8 +8,10 @@ type HeaderProps = ContentElementConfigProps<'list'>;
 
 const mainClass = 'nav-list';
 
+const creatHashRoute = (url: string) => `/rce/${url}`;
+
 const navLinks = Object.entries(APP_PATHS).map(([k, { route, title }]) => {
-  return { href: `/rce/#${route}`, title };
+  return { href: creatHashRoute(route), title };
 });
 
 export const NavList = ({ modifiers = [] }: HeaderProps) => {
@@ -27,7 +29,5 @@ function ListItemTemplate(props: ContentElementConfigProps<'link'>) {
   const location = useLocation();
   const { itemIndex, ...linkProps } = props;
 
-  console.log(location);
-
-  return <CE.Link {...linkProps} modifiers={[`/#${location.pathname}` === linkProps.href && 'active']} />;
+  return <CE.Link {...linkProps} modifiers={[creatHashRoute(location.pathname) === linkProps.href && 'active']} />;
 }
