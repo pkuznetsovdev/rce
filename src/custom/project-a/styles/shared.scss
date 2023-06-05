@@ -1,5 +1,8 @@
 @import "react-content-elements/dist/styles/utils/shared";
 
+body {
+  transition: none;
+}
 
 #{$ce-base-name} {
   & > mark {
