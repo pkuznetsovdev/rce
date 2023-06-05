@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { APP_PATHS } from './constants';
 
 const PAGES_BY_LOCATION = {
@@ -10,7 +10,7 @@ const PAGES_BY_LOCATION = {
   Docs: React.lazy(() => import('../pages/docs')),
 };
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   // {
   //   path: APP_PATHS.sandbox.route,
   //   element: (

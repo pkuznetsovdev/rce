@@ -8,7 +8,7 @@ type HeaderProps = ContentElementConfigProps<'list'>;
 
 const mainClass = 'nav-list';
 
-const creatHashRoute = (url: string) => `${url}`;
+const creatHashRoute = (url: string) => `/rce/#/${url}`;
 
 const navLinks = Object.entries(APP_PATHS).map(([k, { route, title }]) => {
   return { href: creatHashRoute(route), title };
