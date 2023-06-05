@@ -1,4 +1,5 @@
-@import "react-content-elements/dist/styles/utils";
+@import "react-content-elements/dist/styles/utils/shared";
+
 
 .nav-list {
   width: auto;
@@ -7,10 +8,8 @@
     justify-content: flex-end;
   }
 
-  @include byName('link') {
-    &.active {
-      text-decoration: none;
-      transform: scale(1.2);
-    }
+  @include byModifier('active') {
+    text-decoration: none;
+    transform: scale(1.2);
   }
 }

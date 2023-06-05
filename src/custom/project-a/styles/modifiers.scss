@@ -1,4 +1,5 @@
-@import "react-content-elements/dist/styles/utils";
+@import "react-content-elements/dist/styles/utils/shared";
+
 
 #{$ce-base-name} {
   @include withModifier('page-title') {

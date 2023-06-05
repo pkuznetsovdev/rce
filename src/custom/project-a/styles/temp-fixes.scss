@@ -1,5 +1,4 @@
-@use "react-content-elements/dist/styles/utils" as *;
-$ce-item: #{$ce-base-name}-item;
+@use "react-content-elements/dist/styles/utils/shared" as *;
 
 :root {
   body {
@@ -12,61 +11,3 @@ $ce-item: #{$ce-base-name}-item;
     line-height: var(--text-line-height);
   }
 }
-
-@include byModifier('page') {
-  height: auto;
-  min-height: 100%;
-}
-
-@include byName('list') {
-  max-width: 100%;
-}
-
-@include byName('item') {
-  font-size: var(--text-font-size);
-  display: flex;
-  flex-direction: column;
-}
-
-@mixin childByName($ce-name: '') {
-  @if ($ce-name == '') {
-    & > #{$ce-base-name} {
-      @content;
-    }
-  } @else {
-    & > #{$ce-base-name}-#{$ce-name} {
-      @content;
-    }
-  }
-}
-
-@include byModifier('disc') {
-  @include childByName('item') {
-    display: list-item;
-
-    & + #{$ce-item} {
-      margin-top: 1em;
-    }
-  }
-}
-
-@mixin bold {
-  font-weight: var(--font-weight-bold);
-}
-
-@include byModifier('b') {
-  @include bold;
-}
-
-@include byModifier('bold') {
-  @include bold;
-}
-
-@include byModifier('bolder') {
-  font-weight: var(--font-weight-bolder);
-}
-
-@include byModifier('container') {
-  max-width: calc(var(--screen-lg) + 60px);
-}
-
