@@ -6,7 +6,7 @@ import { StyleThemeToggler } from '../style-theme-toggler';
 
 interface HeaderProps {
   title?: ContentElementConfigProps<'text'>;
-  modifiers?: ContentElementModifiers<'text'>;
+  modifiers?: ContentElementModifiers;
 }
 
 const mainClass = 'header';
