@@ -1,4 +1,4 @@
-@import "react-content-elements/dist/styles/utils/shared";
+@use "variables/content-elements/config" as *;
 
 body {
   transition: none;
