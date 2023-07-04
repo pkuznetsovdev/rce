@@ -1,0 +1,8 @@
+@use "src/custom/project-a/styles/variables" as *;
+
+@include byName('divider') {
+  width: var(--divider-width);
+  border: none;
+  height: 1px;
+  background-color: var(--text-color);
+}

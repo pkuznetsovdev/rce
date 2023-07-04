@@ -1,6 +1,8 @@
-@import "variables";
-@import "custom-content-elements";
-@import "modifiers";
-@import "shared";
-@import "highlight";
-@import "temp-fixes";
+@use "content-elements";
+@use "modifiers";
+@use "custom-content-elements";
+@use "themes";
+@use "shared";
+@use "highlight";
+@use "globals";
+@use "temp-fixes";
