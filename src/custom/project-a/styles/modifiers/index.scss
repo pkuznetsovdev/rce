@@ -1,16 +1,20 @@
-@forward"header";
-@forward"subheader";
-@forward"title";
-@forward"subtitle";
-@forward"section-title";
-@forward"italic";
-@forward"accent";
-@forward"section";
-@forward"page";
-@forward'disc';
-@forward'with-disc';
+@forward "header";
+@forward "subheader";
+@forward "title";
+@forward "page-title";
+@forward "subtitle";
+@forward "section-title";
+@forward "italic";
+@forward "accent";
+@forward "section";
+@forward "page";
+@forward 'disc';
+@forward 'bold';
+@forward 'bolder';
 
-@forward"container";
+@forward 'with-disc';
 
-@forward"grid";
-@forward"row";
+@forward "container";
+
+@forward "grid";
+@forward "row";
