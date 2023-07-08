@@ -1,12 +1,12 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { ContentElementConfigProps, ContentElementModifiers } from 'react-content-elements';
 import { NavList } from '../nav-list';
 import { StyleThemeToggler } from '../style-theme-toggler';
 
 interface HeaderProps {
   title?: ContentElementConfigProps<'text'>;
-  modifiers?: ContentElementModifiers<'text'>;
+  modifiers?: ContentElementModifiers;
 }
 
 const mainClass = 'header';

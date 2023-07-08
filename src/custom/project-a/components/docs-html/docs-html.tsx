@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { CodeExample } from '../../modules';
 import { CODE_EXAMPLES } from '../../constants';
 import { useValueFromList } from 'src/shared';
@@ -55,7 +55,6 @@ export const DocsHtml = () => {
         modifiers={['disc']}
         content={['<i>ce ce-[name]</i><br />f.e. ‘ce ce-text’ for <mark>Text Content Element</mark>']}
       />
-      {/*<CE.Text modifiers={['list-title']}>Basic usage:</CE.Text>*/}
       <Collapsible btnText='Show basic usage examples' btnTextCollapsed='Hide basic usage examples'>
         <CodeExample ex={CODE_EXAMPLES.BASIC_USAGE} />
       </Collapsible>

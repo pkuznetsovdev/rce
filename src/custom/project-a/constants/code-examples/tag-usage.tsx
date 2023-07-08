@@ -1,4 +1,4 @@
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import React from 'react';
 import { CodeExampleTemplate } from 'src/custom/project-a/modules';
 

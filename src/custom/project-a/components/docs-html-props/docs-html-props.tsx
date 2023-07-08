@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE, ContentElementConfigProps } from 'react-content-elements';
+import CE, { ContentElementConfigProps } from 'react-content-elements';
 import { CodeExample } from '../../modules';
 import ImageTag from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.35.png';
 import ImageModifier from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.45.png';
@@ -38,34 +38,22 @@ export const DocsHtmlProps = ({ image, title }: DailyCardProps) => {
       />
       <CodeExample ex={CODE_EXAMPLES.BASIC_USAGE} />
       <CE.Text modifiers={['title']}>Tag</CE.Text>
-      <CE.Text
-        content={[
-          'Each <mark>Content Element</mark> has a default tag applied by name of the element.',
-          'f the tag is provided explicitely it will override a default value.',
-          'It also depends on a template’s implementation.',
-        ]}
-      />
+      <CE.Text modifiers={['title']}>Each <mark>Content Element</mark> has a default tag applied by name of the element.</CE.Text>
+      <CE.Text modifiers={['title']}>If the tag is provided explicitly it will override a default value.</CE.Text>
+      <CE.Text modifiers={['title']}>It also depends on a template’s implementation.</CE.Text>
       <CodeExampleImage src={ImageTag} />
       <CE.Text modifiers={['title']}>Modifiers</CE.Text>
-      <CE.Text
-        content={[
-          'By modifiers you adjust styles or behavoiur of the generated HTML structure.',
-          'Each modifier is a string that represents a meaningful label for the particular element in HTML structure.',
-          'Modifiers extend base <mark>Content Element</mark> class name and might change bahaviour, f.e. override a default tag in case tag was not provided explicitely via ‘tag’ property.',
-        ]}
-      />
+        <CE.Text>By modifiers you adjust styles or behaviour of the generated HTML structure.</CE.Text>
+        <CE.Text>Each modifier is a string that represents a meaningful label for the particular element in HTML structure.</CE.Text>
+        <CE.Text>Modifiers extend base <mark>Content Element</mark> class name and might change behaviour, f.e. override a default tag in case tag was not provided explicitely via ‘tag’ property.</CE.Text>
       <CodeExampleImage src={ImageModifier} />
       <CE.Text modifiers={['list-title']}>Modifiers have following features:</CE.Text>
       <CE.List modifiers={['disc']}>
         <>
           <CE.Text>Above and Beyond</CE.Text>
           <CodeExampleImage src={ImageModifier1} />
-          <CE.Text
-            content={[
-              '<code>above-[$ce-breakpoint]</code> - styles are applied for screen size ≥ <code>$ce-breakpoint-value</code>',
-              '<code>beyond-[$ce-breakpoint]</code> - styles are applied for screen size < <code>$ce-breakpoint-value</code>',
-            ]}
-          />
+            <CE.Text><code>above-[$ce-breakpoint]</code> - styles are applied for screen size {'≥'} <code>$ce-breakpoint-value</code></CE.Text>
+            <CE.Text><code>beyond-[$ce-breakpoint]</code> - styles are applied for screen size {'<'} <code>$ce-breakpoint-value</code></CE.Text>
           <CodeExampleImage src={ImageModifier2} />
         </>
         <>
@@ -75,12 +63,8 @@ export const DocsHtmlProps = ({ image, title }: DailyCardProps) => {
         </>
       </CE.List>
       <CE.Text modifiers={['title']}>Config</CE.Text>
-      <CE.Text
-        content={[
-          'By config you can adjust all element properties.',
-          'Properties provided via config will be applied at main priority.',
-        ]}
-      />
+      <CE.Text>By config you can adjust all element properties.</CE.Text>
+      <CE.Text>Properties provided via config will be applied at main priority.</CE.Text>
       <CodeExampleImage src={ImageConfig} />
     </CE.Block>
   );

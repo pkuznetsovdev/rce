@@ -1,5 +1,5 @@
 import React from 'react';
-import Test, { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { ContentElementConfig, ContentElementProps } from 'react-content-elements';
 import { Header } from '../../components';
 

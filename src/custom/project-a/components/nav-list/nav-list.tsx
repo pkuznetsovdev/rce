@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { ContentElementConfigProps } from 'react-content-elements';
 import { APP_PATHS } from 'src/custom/project-a/router';
 import { useLocation } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { ContentElementConfigProps } from 'react-content-elements';
 import { CodeExampleImage } from '../code-example-image';
 import ImageByName from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.46.png';
@@ -17,12 +17,9 @@ export const DocsCss = ({ image, title }: DailyCardProps) => {
   return (
     <CE.Block className='docs-html'>
       <CE.Text>Base Content Element class name is:</CE.Text>
-      <CE.Text modifiers={['with-disc']} content={['<code>ce ce-[name]</code>']} />
+        <CE.Text modifiers={['with-disc']}><code>ce ce-[name]</code></CE.Text>
       <CE.Text>Modifiers extend the base Content Element class name with following pattern: </CE.Text>
-      <CE.Text
-        modifiers={['with-disc']}
-        content={['<code>ce ce-[name] ce--[modifier] ce--[another-modifier]</code>']}
-      />
+        <CE.Text modifiers={['with-disc']}><code>ce ce-[name] ce--[modifier] ce--[another-modifier]</code></CE.Text>
 
       <CE.Text>
         Styles are applied to the <mark>Content Elements</mark> via mixins.

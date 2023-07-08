@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import type { ContentElementConfigProps } from 'react-content-elements';
 
 export interface DailyCardProps extends React.PropsWithChildren {

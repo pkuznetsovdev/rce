@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { ThemeContext } from 'src/custom/providers/theme';
 import { ICONS } from '../../assets/icons';
 
