@@ -17,12 +17,9 @@ export const DocsCss = ({ image, title }: DailyCardProps) => {
   return (
     <CE.Block className='docs-html'>
       <CE.Text>Base Content Element class name is:</CE.Text>
-      <CE.Text modifiers={['with-disc']} content={['<code>ce ce-[name]</code>']} />
+        <CE.Text modifiers={['with-disc']}><code>ce ce-[name]</code></CE.Text>
       <CE.Text>Modifiers extend the base Content Element class name with following pattern: </CE.Text>
-      <CE.Text
-        modifiers={['with-disc']}
-        content={['<code>ce ce-[name] ce--[modifier] ce--[another-modifier]</code>']}
-      />
+        <CE.Text modifiers={['with-disc']}><code>ce ce-[name] ce--[modifier] ce--[another-modifier]</code></CE.Text>
 
       <CE.Text>
         Styles are applied to the <mark>Content Elements</mark> via mixins.
