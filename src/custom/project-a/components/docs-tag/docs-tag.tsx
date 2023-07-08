@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { CodeExample, CodeBlock } from '../../modules';
 import { CODE_EXAMPLES } from '../../constants';
 

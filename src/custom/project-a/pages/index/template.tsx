@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { Layout } from '../../layout';
 
 import { useGetData } from 'src/custom/project-a/data';

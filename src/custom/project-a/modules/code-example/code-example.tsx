@@ -1,5 +1,5 @@
 import React, { ReactElement, useContext } from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { SHARED_UTILS } from 'src/shared';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { a11yDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';

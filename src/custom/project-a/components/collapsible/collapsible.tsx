@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 
 type CollapsibleProps = { btnText: string; btnTextCollapsed?: string; isCollapsedByDefault?: boolean };
 

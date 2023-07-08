@@ -1,5 +1,5 @@
 import React from 'react';
-import { CE } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { CodeExampleImage } from '../code-example-image';
 import ImageModifier from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.22.45.png';
 import ImageModifier1 from '../../assets/images/code-examples/Screenshot 2023-04-02 at 15.23.04.png';
