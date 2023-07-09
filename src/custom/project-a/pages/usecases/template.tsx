@@ -1,22 +1,19 @@
 import React from 'react';
 import CE from 'react-content-elements';
 
-import { useGetData } from 'src/custom/project-a/data';
 import { DailyCardList } from 'src/custom/project-a/components';
 import { Layout } from 'src/custom/project-a/layout';
 
 const mainClass = 'usecases';
 
 const Usecases = () => {
-  const pageData = useGetData('IndexPage');
-
-  const { dailyCardcontent } = useRefactor();
+  const { dailyCardContent } = useRefactor();
 
   return (
     <Layout className={mainClass} title='Usecases'>
       <CE.Block modifiers={['section', 'container']}>
         <CE.List modifiers={['usecases-list']}>
-          <DailyCardList title='Daily Card list' dailyCards={dailyCardcontent} />
+          <DailyCardList title='Daily Card list' dailyCards={dailyCardContent} />
         </CE.List>
       </CE.Block>
     </Layout>
@@ -46,16 +43,15 @@ function useRefactor() {
     'https://www.frommers.com/system/media_items/attachments/000/866/196/s980/p264_cp.jpg',
   ];
 
-  const dailyCardcontent = Object.keys(DAILY_TRANSLATIONS).map((key, idx) => {
+  const dailyCardContent = Object.keys(DAILY_TRANSLATIONS).map((key, idx) => {
     return {
       day: key,
-      title: {
-        // @ts-ignore
-        content: DAILY_TRANSLATIONS[key],
-        modifiers: ['title'],
-      },
+      id: key,
+      // @ts-ignore
+      title: DAILY_TRANSLATIONS[key],
+      // @ts-ignore
       image: imageUrls[parseInt(idx)],
     };
   });
-  return { dailyCardcontent };
+  return { dailyCardContent };
 }

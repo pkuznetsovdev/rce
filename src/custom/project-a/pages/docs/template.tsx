@@ -3,7 +3,6 @@ import CE from 'react-content-elements';
 
 import { Layout } from '../../layout';
 
-import { useGetData } from 'src/custom/project-a/data';
 import { DocsContentHeader } from 'src/custom/project-a/components/docs-content-header';
 import { DocsHtml } from 'src/custom/project-a/components/docs-html';
 import { DocsCss } from 'src/custom/project-a/components/docs-css';
@@ -19,8 +18,6 @@ const TemplateByTab = {
 } as const;
 
 const Template = () => {
-  const pageData = useGetData('IndexPage');
-
   const [activeTabId, setActiveTabId] = useValueFromList(TABS);
 
   const ActiveTabTemplate = React.useMemo(() => TemplateByTab[activeTabId], [activeTabId]);
@@ -32,7 +29,7 @@ const Template = () => {
           <DocsContentHeader />
           <CE.List
             modifiers={['row', 'docs-tabs']}
-            listItemTemplate={({ tab }: { tab: (typeof TABS)[number] }) => {
+            ItemTemplate={({ tab }: { tab: (typeof TABS)[number] }) => {
               return (
                 <CE.Button
                   modifiers={['docs-tab', activeTabId === tab && 'active']}

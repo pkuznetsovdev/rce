@@ -2,15 +2,12 @@ import React from 'react';
 import CE from 'react-content-elements';
 import { Layout } from '../../layout';
 
-import { useGetData } from 'src/custom/project-a/data';
 import { CodeExample } from '../../modules';
 import { CODE_EXAMPLES } from '../../constants';
 
 const mainClass = 'home';
 
 const Index = () => {
-  const pageData = useGetData('IndexPage');
-
   return (
     <>
       {/* @ts-ignore*/}

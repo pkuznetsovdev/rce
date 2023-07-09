@@ -20,12 +20,13 @@ export const NavList = ({ modifiers = [] }: HeaderProps) => {
       className={mainClass}
       modifiers={['row', ...modifiers]}
       content={navLinks}
-      listItemTemplate={ListItemTemplate}
+      ItemTemplate={ItemTemplate}
     />
   );
 };
 
-function ListItemTemplate(props: ContentElementConfigProps<'link'>) {
+function ItemTemplate(props: ContentElementConfigProps<'link'>) {
+
   const location = useLocation();
   const { itemIndex, ...linkProps } = props;
 

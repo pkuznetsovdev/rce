@@ -20,7 +20,7 @@ const TemplateByTab: Record<(typeof CE_PROPERTIES)[number], React.ElementType> =
 
 const joinSpecWords = (words: string[] | ReadonlyArray<string>) =>
   words.map((w, i) => (
-    <>
+    <>{/* @ts-ignore*/}
       <c-spec key={w}>{w}</c-spec>
       {i === words.length - 1 ? '.' : ', '}
     </>
@@ -63,7 +63,7 @@ export const DocsHtml = () => {
       </CE.Text>
       <CE.List
         modifiers={['row', 'docs-tabs']}
-        listItemTemplate={({ tab }: { tab: (typeof TABS)[number] }) => {
+        ItemTemplate={({ tab }: { tab: (typeof CE_PROPERTIES)[number] }) => {
           return (
             <CE.Button
               type='button'

@@ -4,15 +4,15 @@ import { CodeExampleTemplate } from 'src/custom/project-a/modules';
 
 export const MODIFIERS_USAGE: Array<CodeExampleTemplate> = [
   {
-    el: <CE.Text modifiers={['accent']} config='Hello world!' />,
+    el: <CE.Text modifiers={['accent']} content='Hello world!' />,
     stringified: `<CE.Text modifiers={['accent']} config="Hello world!" />`,
   },
   {
-    el: <CE.Text modifiers={['title']} config='Hello world!' />,
+    el: <CE.Text modifiers={['title']} content='Hello world!' />,
     stringified: `<CE.Text modifiers={['title']} config="Hello world!" />`,
   },
   {
-    el: <CE.Text tag='h1' modifiers={['title']} config='Hello world!' />,
+    el: <CE.Text tag='h1' modifiers={['title']} content='Hello world!' />,
     stringified: `<CE.Text tag="h1" modifiers={['title']} config="Hello world!" />`,
   },
   {

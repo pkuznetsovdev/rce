@@ -35,7 +35,8 @@ export const CodeExample = ({ ex }: CodeExampleProps) => {
     );
   }
 
-  return <CodeExampleTemplate key={ex.el.toString()} {...ex} />;
+  // @ts-ignore
+    return <CodeExampleTemplate key={ex.el.toString()} {...ex} />;
 };
 
 type CodeExampleTemplateProps = {

@@ -1,9 +1,9 @@
 import React from 'react';
-import CE, { ContentElementConfigProps } from 'react-content-elements';
+import CE from 'react-content-elements';
 import { DailyCard, DailyCardProps } from '../daily-card';
 
 interface DailyCardListProps {
-  title?: ContentElementConfigProps<'text'>;
+  title?: string;
   dailyCards: DailyCardProps[];
 }
 
@@ -13,8 +13,7 @@ export const DailyCardList = ({ title, dailyCards }: DailyCardListProps) => {
       <CE.Text content={title} modifiers={['title', 'i']} />
       <CE.List
         className='daily-card-list'
-        // config={{ content: dailyCards, listItemTemplate: DailyCard }}
-        listItemTemplate={DailyCard}
+        ItemTemplate={DailyCard}
         content={dailyCards}
       />
     </>

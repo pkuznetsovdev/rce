@@ -3,13 +3,9 @@ import CE from 'react-content-elements';
 
 import { Layout } from '../../layout';
 
-import { useGetData } from 'src/custom/project-a/data';
-
 const mainClass = 'sandbox';
 
 const Template = () => {
-  const pageData = useGetData('IndexPage');
-
   return (
     <Layout className={mainClass} title='Sandbox'>
       <CE.Block modifiers={['container']}>
