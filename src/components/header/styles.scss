@@ -27,6 +27,16 @@ $name: 'header';
 
   @include byModifier('controls') {
     flex-grow: 0;
-    align-items: center;
+    gap: 1em;
+
+
+    @media (max-width: $screen-sm - .1px) {
+      flex-direction: column-reverse;
+    }
+
+
+    @media (min-width: $screen-sm) {
+      align-items: center;
+    }
   }
 }

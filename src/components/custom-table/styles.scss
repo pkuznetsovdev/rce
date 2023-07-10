@@ -1,8 +1,13 @@
 @use "src/styles/variables" as *;
 
+@include byModifier('custom-table-wrapper') {
+  overflow-x: auto;
+}
+
 @include byName('custom-table') {
   border-collapse: collapse;
   border-spacing: 0;
+  width: 100%;
 }
 
 @include byName('custom-table-cell') {

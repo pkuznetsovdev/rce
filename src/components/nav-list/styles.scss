@@ -3,6 +3,8 @@
 
 .nav-list {
   width: auto;
+  gap: 1em;
+  flex-wrap: wrap;
 
   @media (min-width: $screen-md) {
     justify-content: flex-end;

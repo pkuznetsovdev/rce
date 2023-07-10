@@ -1,5 +1,5 @@
 import React from 'react';
-import { getCEClassName } from 'react-content-elements';
+import CE, { getCEClassName } from 'react-content-elements';
 
 type TableTemplateProps = any;
 
@@ -8,7 +8,6 @@ export const CustomTable = ({
   headerCellModifiers,
   cellHeaders,
   rowsData,
-  ...otherProps
 }: TableTemplateProps) => {
   const baseClassName = getCEClassName('custom-table');
   const trHeaderClassName = getCEClassName('custom-table-header');
@@ -28,21 +27,23 @@ export const CustomTable = ({
   );
 
   return (
-    <table className={[className, baseClassName].filter(Boolean).join(' ')}>
-      <thead>
-        <tr className={trHeaderClassName}>
-          {cellHeaders.map((header: string, headID: string) => (
-            <th key={headID} className={thClassName}>
-              {header}
-            </th>
+      <CE.Block modifiers={['custom-table-wrapper']}>
+        <table className={[className, baseClassName].filter(Boolean).join(' ')}>
+          <thead>
+          <tr className={trHeaderClassName}>
+            {cellHeaders.map((header: string, headID: string) => (
+                <th key={headID} className={thClassName}>
+                  {header}
+                </th>
+            ))}
+          </tr>
+          </thead>
+          <tbody>
+          {rowsData.map((rowData: string, rowID: string) => (
+              <TableRow rowData={rowData} key={rowID} />
           ))}
-        </tr>
-      </thead>
-      <tbody>
-        {rowsData.map((rowData: string, rowID: string) => (
-          <TableRow rowData={rowData} key={rowID} />
-        ))}
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+      </CE.Block>
   );
 };
