@@ -1,9 +1,0 @@
-@use "src/custom/project-a/styles/variables" as *;
-
-@include byName('link') {
-  color: var(--text-color);
-
-  &:hover {
-    text-decoration: unset;
-  }
-}

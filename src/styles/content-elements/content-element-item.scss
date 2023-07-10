@@ -1,0 +1,9 @@
+@use "src/styles/variables" as *;
+
+@include byName('item') {
+  margin: var(--item-margin);
+
+  & + & {
+    margin: var(--item-margin);
+  }
+}

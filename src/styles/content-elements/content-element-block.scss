@@ -1,0 +1,10 @@
+@use "src/styles/variables" as *;
+
+@include byName('block') {
+  width: var(--block-width);
+  display: var(--block-display);
+  flex-direction: var(--block-flex-direction);
+  flex-grow: var(--block-flex-grow);
+  flex-shrink: 1;
+  align-items: var(--block-align-items);
+}

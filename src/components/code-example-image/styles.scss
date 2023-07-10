@@ -1,0 +1,9 @@
+@use "src/styles/variables" as *;
+
+
+.code-example {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 600px;
+  min-width: 200px;
+}

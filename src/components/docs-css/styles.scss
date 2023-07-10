@@ -1,0 +1,9 @@
+@use "src/styles/variables" as *;
+
+
+.docs-css {
+
+  @include byModifier('collapsible-trigger') {
+    font-weight: 400;
+  }
+}

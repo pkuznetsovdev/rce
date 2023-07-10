@@ -1,0 +1,14 @@
+@use "src/styles/variables" as *;
+
+
+.style-theme-toggler {
+  background: transparent;
+  padding: .3em;
+  transition: all .5s ease;
+  color: var(--text-color);
+  line-height: 0;
+  outline: none;
+  box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, .2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border: 2px solid var(--text-bg-color);
+}

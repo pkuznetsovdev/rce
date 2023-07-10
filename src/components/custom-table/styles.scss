@@ -1,0 +1,11 @@
+@use "src/styles/variables" as *;
+
+@include byName('custom-table') {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@include byName('custom-table-cell') {
+  border: 1px solid var(--grey);
+  padding: 3px 10px;
+}
