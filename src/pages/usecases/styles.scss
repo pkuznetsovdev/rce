@@ -1,0 +1,12 @@
+@use "src/styles/variables" as *;
+
+
+$name: 'usecases-list';
+
+.#{$name} {
+  @include childByName('item') {
+    @include nextByName('item') {
+      margin-top: 10px;
+    }
+  }
+}

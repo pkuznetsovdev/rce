@@ -1,9 +1,0 @@
-@use "src/custom/project-a/styles/variables" as *;
-
-@include byName('item') {
-  margin: var(--item-margin);
-
-  & + & {
-    margin: var(--item-margin);
-  }
-}

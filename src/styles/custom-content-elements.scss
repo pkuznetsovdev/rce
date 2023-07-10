@@ -1,0 +1,11 @@
+@use "src/styles/variables" as *;
+
+
+
+@include byModifier('main') {
+  padding-bottom: 3em;
+}
+
+@include byName('icon') {
+  line-height: 0;
+}

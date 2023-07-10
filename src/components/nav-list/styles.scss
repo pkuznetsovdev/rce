@@ -1,0 +1,15 @@
+@use "src/styles/variables" as *;
+
+
+.nav-list {
+  width: auto;
+
+  @media (min-width: $screen-md) {
+    justify-content: flex-end;
+  }
+
+  @include byModifier('active') {
+    text-decoration: none;
+    transform: scale(1.2);
+  }
+}

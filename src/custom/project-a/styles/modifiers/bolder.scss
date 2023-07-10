@@ -1,5 +1,0 @@
-@use "src/custom/project-a/styles/variables" as *;
-
-@include byModifier('bolder') {
-  font-weight: var(--font-weight-bolder);
-}
