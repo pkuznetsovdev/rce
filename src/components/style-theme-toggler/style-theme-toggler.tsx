@@ -6,11 +6,11 @@ import { ICONS } from '../../assets/icons';
 export const StyleThemeToggler = () => {
   const { theme, onToggleTheme } = useContext(ThemeContext);
 
-  const iconName = theme === 'dark' ? 'Moon' : 'Sun';
+  const iconName = theme === 'dark' ? 'Sun' : 'Moon';
 
   return (
     <CE.Button className='style-theme-toggler' onClick={onToggleTheme}>
-      <CE.Custom CustomTemplate={ICONS[iconName]} customName='test' />
+      <CE.Custom CustomTemplate={ICONS[iconName]} />
     </CE.Button>
   );
 };

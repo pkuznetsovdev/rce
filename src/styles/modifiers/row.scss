@@ -8,9 +8,7 @@ $screen-md: 900px;
 
   & > #{$ce-base-name} {
     & + #{$ce-base-name} {
-
       margin-top: 0;
-      margin-left: var(--ce-margin);
     }
   }
 }

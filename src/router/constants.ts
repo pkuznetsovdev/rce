@@ -15,6 +15,10 @@ export const APP_PATHS = {
     route: '/usecases',
     title: 'Usecases',
   },
+  links: {
+    route: '/links',
+    title: 'Links',
+  },
   // sandbox: {
   //   route: '/sandbox',
   //   title: 'Sandbox',

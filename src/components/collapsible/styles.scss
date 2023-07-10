@@ -4,6 +4,7 @@
 
 @include byModifier('collapsible-header') {
   align-items: center;
+  gap: 1em;
 }
 
 @include byModifier('collapsible-trigger') {

@@ -8,6 +8,7 @@ const PAGES_BY_LOCATION = {
   Usecases: React.lazy(() => import('../pages/usecases')),
   Concept: React.lazy(() => import('../pages/concept')),
   Docs: React.lazy(() => import('../pages/docs')),
+  Links: React.lazy(() => import('../pages/links')),
 };
 
 const router = createHashRouter([
@@ -19,6 +20,14 @@ const router = createHashRouter([
   //     </React.Suspense>
   //   ),
   // },
+  {
+    path: APP_PATHS.links.route,
+    element: (
+      <React.Suspense fallback={'Loading...'}>
+        <PAGES_BY_LOCATION.Links />
+      </React.Suspense>
+    ),
+  },
   {
     path: APP_PATHS.usecases.route,
     element: (

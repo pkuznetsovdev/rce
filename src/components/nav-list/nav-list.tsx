@@ -10,7 +10,7 @@ const mainClass = 'nav-list';
 
 const creatHashRoute = (url: string) => `/rce/#${url}`;
 
-const navLinks = Object.entries(APP_PATHS).map(([k, { route, title }]) => {
+const navLinks = Object.entries(APP_PATHS).map(([, { route, title }]) => {
   return { href: creatHashRoute(route), title };
 });
 
