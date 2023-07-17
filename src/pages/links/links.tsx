@@ -5,7 +5,6 @@ import { Layout } from 'src/layout';
 
 const mainClass = 'usecases';
 
-
 const LINKS_DATA = [
   {
     title: 'NPM package',
@@ -23,14 +22,30 @@ const LINKS_DATA = [
   //   title: 'Habr article',
   //   href: 'https://github.com/pkuznetsovdev/react-content-elements',
   // },
-]
+];
+
+const CONTACTS = [
+  {
+    title: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/pkuznetsovdev/',
+  },
+];
+
 const Links = () => {
   return (
     <Layout className={mainClass} title='Links'>
       <CE.Block modifiers={['section', 'container']}>
         {LINKS_DATA.map(({ href, title }) => (
-          <CE.Link key={href} href={href} target="_blank" rel="noopener noreferrer">{title}</CE.Link>
-          ))}
+          <CE.Link key={href} href={href} target='_blank' rel='noopener noreferrer'>
+            {title}
+          </CE.Link>
+        ))}
+        <CE.Text modifiers={['title']}>Contacts</CE.Text>
+        {CONTACTS.map(({ href, title }) => (
+          <CE.Link key={href} href={href} target='_blank' rel='noopener noreferrer'>
+            {title}
+          </CE.Link>
+        ))}
       </CE.Block>
     </Layout>
   );

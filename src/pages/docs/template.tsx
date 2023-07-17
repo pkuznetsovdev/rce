@@ -24,7 +24,7 @@ const Template = () => {
 
   return (
     <>
-      <Layout className={mainClass} title='How'>
+      <Layout className={mainClass} title='How?'>
         <CE.Block modifiers={['container', 'docs-content']}>
           <DocsContentHeader />
           <CE.List
